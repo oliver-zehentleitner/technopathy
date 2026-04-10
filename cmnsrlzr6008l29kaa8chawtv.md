@@ -52,8 +52,8 @@ Project homepage: [https://www.inet.no/dante/](https://www.inet.no/dante/)
 **Info**: After the installation dante does not work and still throws errors because it has not been configured yet!
     
 *   Test the installation with:  
-    *$ danted -v*  
-    **Info**: In Ubuntu and other distributions the `_danted_` can also be called `sockd`.
+    `danted -v`  
+    **Info**: In Ubuntu and other distributions the `danted` can also be called `sockd`.
     
 *   Now edit the configfile of danted with `nano` or `vi`:  
     `nano /etc/danted.conf`  
@@ -111,13 +111,13 @@ Or with the [**python script**](https://gist.github.com/oliver-zehentleitner/74f
 
 ### 3\. Step — The Python script
 
-For the websocket connection to the Binance API we use the [UNICORN Binance Websocket API](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api). It directly allows the use of a SOCKS5 proxy and is configured via the parameters `_socks5_proxy_server_`, `socks5_proxy_user`, `socks5_proxy_pass` and `socks5_proxy_ssl_verification`.
+For the websocket connection to the Binance API we use the [UNICORN Binance Websocket API](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api). It directly allows the use of a SOCKS5 proxy and is configured via the parameters `socks5_proxy_server`, `socks5_proxy_user`, `socks5_proxy_pass` and `socks5_proxy_ssl_verification`.
 
 > ***Please note that the proxy support is only cleanly supported from unicorn-binance-websocket-api 2.0.0 and higher.***
 
 Install/upgrade the dependencies:  
-\_$ python3 -m pip install unicorn\_binance\_websocket\_api  
-\_Info: [https://pypi.org/project/unicorn-binance-websocket-api](https://pypi.org/project/unicorn-binance-websocket-api/)
+`$ python3 -m pip install unicorn_binance_websocket_api`  
+Info: [https://pypi.org/project/unicorn-binance-websocket-api](https://pypi.org/project/unicorn-binance-websocket-api/)
 
 [Save or copy this script](https://gist.github.com/oliver-zehentleitner/74f6c5a461b01b5249c44e335ccf4e88) to your system and replace “*1.2.3.4*” in `_socks5_proxy_` with the IP address of your Socks5 Proxy server.
 
