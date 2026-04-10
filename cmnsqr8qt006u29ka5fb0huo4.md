@@ -62,7 +62,8 @@ To connect to other Binance exchanges just change the `exchange` string:
 [Binance Margin](https://www.binance.com): `binance.com-margin`  
 [Binance Margin Testnet](https://testnet.binance.vision/): `binance.com-margin-testnet`  
 [Binance Isolated Margin](https://www.binance.com): `binance.com-isolated_margin`  
-[Binance Isolated Margin Testnet](https://testnet.binance.vision/): `binance.com-isolated_margin-testnet` [Binance USD-M Futures](https://www.binance.com): `binance.com-futures`  
+[Binance Isolated Margin Testnet](https://testnet.binance.vision/): `binance.com-isolated_margin-testnet` 
+[Binance USD-M Futures](https://www.binance.com): `binance.com-futures`  
 [Binance USD-M Futures Testnet](https://testnet.binancefuture.com): `binance.com-futures-testnet`  
 [Binance Coin-M Futures](https://www.binance.com): `binance.com-coin_futures`  
 [Binance US](https://www.binance.us): `binance.us`  
