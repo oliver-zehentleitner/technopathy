@@ -7,7 +7,7 @@ cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/41cf0f0e
 
 ---
 
-If you’re looking to download data from [Binance](https://www.binance.com) using [Python](https://www.python.org) (3.8+), there are two ways to do it: via REST API or via WebSocket API.
+If you’re looking to download data from [Binance](https://www.binance.com) using [Python](https://www.python.org) (3.9+), there are two ways to do it: via REST API or via WebSocket API.
 
 REST API is a simple and easy-to-use method that allows you to download historical data from [Binance](https://www.binance.com), but also to trigger functions such as creating a new order. You can use [Unicorn Binance REST API](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api), a sub module of the [Unicorn Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite), to make REST API calls and retrieve data in a JSON format.
 
@@ -17,15 +17,15 @@ WebSocket API, on the other hand, is a more advanced method that allows you to s
 
 To get started with [Unicorn Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite), you’ll need to install it using [pip](https://pypi.org/project/unicorn-binance-suite/):
 
-``` $ pip install unicorn-binance-suite ```
+`$ pip install unicorn-binance-suite`
 
 Or with [conda](https://anaconda.org/conda-forge/unicorn-binance-suite):
 
-``` $ conda install -c conda-forge unicorn-binance-suite ```
+`$ conda install -c conda-forge unicorn-binance-suite`
 
 Once you have it installed, you can import the sub modules you need and start making API calls:
 
-```
+```plaintext
 from unicorn\_binance\_rest_api.manager import BinanceRestApiManager  
   
 ubra = BinanceRestApiManager(exchange='binance.com')  
@@ -38,7 +38,7 @@ This example uses the [UNICORN Binance REST API](https://github.com/oliver-zehen
 
 Similarly, you can use the [Unicorn Binance WebSocket API](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api) to subscribe to WebSocket streams and retrieve real-time data:
 
-```
+```plaintext
 from unicorn\_binance\_websocket_api import BinanceWebSocketApiManager  
   
 ubwa = BinanceWebSocketApiManager(exchange="binance.com")  
@@ -72,11 +72,10 @@ You can find the documentations here:
 [https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/)  
 [https://oliver-zehentleitner.github.io/unicorn-binance-websocket-api/](https://oliver-zehentleitner.github.io/unicorn-binance-websocket-api/)
 
-----------
+* * *
 
 I hope you found this tutorial informative and enjoyable! Don’t forget to follow me on [Medium](https://medium.com/@oliverzehentleitner/about), [GitHub](https://github.com/oliver-zehentleitner), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases and insights. If you found this article helpful, please hit that applause 👏 button to show your support! Your constructive feedback is always appreciated as it helps me improve the quality of my content.
 
 Thank you for reading, and happy coding!
 
 Image source: [https://pixabay.com](https://pixabay.com)
-
