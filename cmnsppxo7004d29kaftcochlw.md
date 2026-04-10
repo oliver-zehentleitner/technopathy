@@ -3,6 +3,7 @@ title: "How to publish a PYPI package on CONDA-FORGE"
 datePublished: 2026-04-10T09:37:37.212Z
 cuid: cmnsppxo7004d29kaftcochlw
 slug: how-to-publish-a-pypi-package-on-conda-forge
+cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/33f2e466-b8e3-44a0-ac5d-b279a25508da.jpg
 
 ---
 
