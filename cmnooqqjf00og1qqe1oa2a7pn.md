@@ -4,6 +4,7 @@ Technopathy is moving to Hashnode"
 datePublished: 2026-04-07T13:59:10.300Z
 cuid: cmnooqqjf00og1qqe1oa2a7pn
 slug: technopathy-is-moving-to-hashnode
+cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/548ca8d7-ed36-48c5-bf5b-7fa8e2360692.png
 
 ---
 
