@@ -39,13 +39,13 @@ This example uses the [UNICORN Binance REST API](https://github.com/oliver-zehen
 Similarly, you can use the [Unicorn Binance WebSocket API](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api) to subscribe to WebSocket streams and retrieve real-time data:
 
 ```plaintext
-from unicorn\_binance\_websocket_api import BinanceWebSocketApiManager  
+from unicorn_binance_websocket_api import BinanceWebSocketApiManager  
   
 ubwa = BinanceWebSocketApiManager(exchange="binance.com")  
 ubwa.create_stream(channels='kline_1h', markets='BTCUSDT')  
   
 while True:  
-    klines = ubwa.pop\_stream\_data\_from\_stream_buffer()  
+    klines = ubwa.pop_stream_data_from_stream_buffer()  
     if klines:  
         print(klines)
 ```
@@ -72,9 +72,7 @@ You can find the documentations here:
 [https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/)  
 [https://oliver-zehentleitner.github.io/unicorn-binance-websocket-api/](https://oliver-zehentleitner.github.io/unicorn-binance-websocket-api/)
 
-* * *
-
-I hope you found this tutorial informative and enjoyable! Don’t forget to follow me on [Medium](https://medium.com/@oliverzehentleitner/about), [GitHub](https://github.com/oliver-zehentleitner), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases and insights. If you found this article helpful, please hit that applause 👏 button to show your support! Your constructive feedback is always appreciated as it helps me improve the quality of my content.
+I hope you found this tutorial informative and enjoyable! 
 
 Thank you for reading, and happy coding!
 
