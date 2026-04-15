@@ -7,12 +7,6 @@ cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/04f19538
 
 ---
 
-# Create and Cancel Orders via WebSocket on Binance
-
-*How to access the Binance API via WebSocket in Python*
-
-![](https://miro.medium.com/v2/resize:fit:1400/1*CZbvH7vJDFTGDMReh4Vd3A.png)
-
 *Until now it was only possible to receive data from Binance via WebSocket. To send requests to the Binance API, for example to create or cancel orders, you always had to use the slower REST API. This has changed now!* 🚀
 
 Recently, the [Binance Spot Testnet](https://testnet.binance.vision) and [Binance Spot](https://www.binance.com) have added the ability to place orders, cancel orders, and handle other API requests via a WebSocket connection:
