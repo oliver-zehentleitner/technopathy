@@ -40,7 +40,9 @@ In Python, [UNICORN Binance WebSocket API](https://github.com/oliver-zehentleitn
 
     — Request specific callback function 
 
-    — Save answer in variable — Using the `stream_buffer` 
+    — Save answer in variable 
+    
+    — Using the `stream_buffer` 
 
     — Multiple API Streams
 
@@ -98,13 +100,11 @@ With `process_stream_data=handle_socket_message` we pass `BinanceWebSocketApiMan
 
 By default, all API requests return a string with a JSON structure. To automatically convert the JSON structure to a Python dictionary, we configure `output_default="dict"`.
 
-%[]
-<!-- gist: Initiate UNICORN Binance WebSocket API -->
+%[https://gist.github.com/oliver-zehentleitner/5a5d739710400c8fbd9f04833c4bf1dc]
 
 Next we create the API stream, for this it is important to set the parameter `api` to `True`, otherwise a connection to another WebSocket endpoint would be established, where the API requests would not work. Please make sure that you use a valid API key/secret pair and consider the IP whitelist restrictions when testing!
 
-%[]
-<!-- gist: Create a Binance WebSocket API stream -->
+%[https://gist.github.com/oliver-zehentleitner/b31adc37450a7a45752adb459c6b71d6]
 
 Now all the prerequisites are met for us to send and process requests to the Binance API.
 
@@ -133,8 +133,7 @@ When receiving the response from Binance, the function `handle_socket_message()`
 
 In our example, we simply output the received data:
 
-%[]
-<!-- gist: Test connectivity to the Binance WebSocket API -->
+%[https://gist.github.com/oliver-zehentleitner/576ab4518ecbca583c3eec209533def1]
 
 **Output:**
 
