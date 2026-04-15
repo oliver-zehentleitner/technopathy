@@ -15,16 +15,22 @@ Recently, [Binance Spot Testnet](https://testnet.binance.vision) and [Binance Sp
 
 [UNICORN Binance WebSocket API](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api) already supports these new features in Python. The following steps will walk you through the setup:
 
-1. [Binance Account — API key and API secret](#1-binance)
-2. [Installation of requirements](#2-installation-of-requirements)
-3. [Create a Python script and establish a WebSocket API connection](#3-create-a-python-script-and-establish-a-websocket-api-connection)
-4. [Send requests and handle the responses](#4-send-requests-and-handle-the-responses)
-5. [Available methods for API requests](#5-available-methods-for-api-requests)
-6. [Further information](#6-further-information)
+1.  [Binance Account — API key and API secret](#1-binance)
+    
+2.  [Installation of requirements](#2-installation-of-requirements)
+    
+3.  [Create a Python script and establish a WebSocket API connection](#3-create-a-python-script-and-establish-a-websocket-api-connection)
+    
+4.  [Send requests and handle the responses](#4-send-requests-and-handle-the-responses)
+    
+5.  [Available methods for API requests](#5-available-methods-for-api-requests)
+    
+6.  [Further information](#6-further-information)
+    
 
----
+* * *
 
-### 1. Binance
+### 1\. Binance
 
 #### Account
 
@@ -34,9 +40,9 @@ To trade on Binance you need a user account. If you don't have one yet, you can 
 
 How to create an API Key/Secret pair is described in detail [here](https://technopathy.club/how-to-create-a-binance-api-key-and-api-secret-3bb5f47e360d).
 
----
+* * *
 
-### 2. Installation of requirements
+### 2\. Installation of requirements
 
 Minimum requirement is a working **Python 3.8+** installation.
 
@@ -52,9 +58,9 @@ Or within an [Anaconda](https://www.anaconda.com/) environment via conda:
 conda install -c conda-forge unicorn-binance-websocket-api
 ```
 
----
+* * *
 
-### 3. Create a Python script and establish a WebSocket API connection
+### 3\. Create a Python script and establish a WebSocket API connection
 
 First import `unicorn_binance_websocket_api`, define the callback function `handle_socket_message()` to print received data, and store an instance of [`BinanceWebSocketApiManager()`](https://oliver-zehentleitner.github.io/unicorn-binance-websocket-api/unicorn_binance_websocket_api.html#unicorn_binance_websocket_api.manager.BinanceWebSocketApiManager) in the variable `ubwa`.
 
@@ -66,20 +72,28 @@ To automatically convert JSON responses to a Python dictionary, configure `outpu
 
 https://gist.github.com/oliver-zehentleitner/5a5d739710400c8fbd9f04833c4bf1dc#file-ubwa_initiation-py
 
----
+* * *
 
-### 4. Send requests and handle the responses
+### 4\. Send requests and handle the responses
 
 The following patterns are supported:
 
-- Global async function
-- Global callback function
-- Stream specific async function
-- Stream specific callback function
-- Request specific callback function
-- Save answer in variable
-- Using the `stream_buffer`
-- Multiple API streams
+*   Global async function
+    
+*   Global callback function
+    
+*   Stream specific async function
+    
+*   Stream specific callback function
+    
+*   Request specific callback function
+    
+*   Save answer in variable
+    
+*   Using the `stream_buffer`
+    
+*   Multiple API streams
+    
 
 > ⚠️ *Code examples were not included in the exported source — please add them manually.*
 
@@ -115,18 +129,20 @@ The following patterns are supported:
 }
 ```
 
----
+* * *
 
-### 5. Available methods for API requests
+### 5\. Available methods for API requests
 
-- `ubwa.api.spot.cancel_order()`
-- `ubwa.api.spot.create_order()`
+*   `ubwa.api.spot.cancel_order()`
+    
+*   `ubwa.api.spot.create_order()`
+    
 
 > ⚠️ *Code examples were not included in the exported source — please add them manually.*
 
----
+* * *
 
-### 6. Further information
+### 6\. Further information
 
 There are many other [functions to send requests to the Binance API](https://oliver-zehentleitner.github.io/unicorn-binance-websocket-api/unicorn_binance_websocket_api.html#unicorn_binance_websocket_api.api.BinanceWebSocketApiApi).
 
@@ -134,6 +150,6 @@ If you find bugs or have suggestions, feel free to [open an issue on GitHub](htt
 
 Full [documentation for unicorn-binance-websocket-api](https://oliver-zehentleitner.github.io/unicorn-binance-websocket-api/).
 
----
+* * *
 
 I hope you found this tutorial informative and enjoyable! Follow me on [GitHub](https://github.com/oliver-zehentleitner) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
