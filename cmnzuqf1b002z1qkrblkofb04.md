@@ -71,9 +71,6 @@ With `process_stream_data=handle_socket_message` you pass a global callback func
 To automatically convert JSON responses to a Python dictionary, configure `output_default="dict"`.
 
 %[https://gist.github.com/oliver-zehentleitner/5a5d739710400c8fbd9f04833c4bf1dc]
-%[
-https://gist.github.com/oliver-zehentleitner/5a5d739710400c8fbd9f04833c4bf1dc#file-ubwa_initiation-py]
-
 
 * * *
 
