@@ -95,7 +95,7 @@ The following patterns are supported:
 *   Multiple API streams
     
 
-> ⚠️ *Code examples were not included in the exported source — please add them manually.*
+%[https://gist.github.com/oliver-zehentleitner/b31adc37450a7a45752adb459c6b71d6]
 
 **Example output:**
 
