@@ -16,23 +16,38 @@ Recently, the [Binance Spot Testnet](https://testnet.binance.vision) and [Binanc
 In Python, [UNICORN Binance WebSocket API](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api) already supports the new features to send API requests to Binance via WebSocket. To do this, we will go through the following steps:
 
 1. **Binance** 
+
     — Account 
+
     — API key and API secret
+
 2. **Installation of requirements** 
+
     — PIP 
+
     — Conda
+
 3. **Create a Python script and establish a WebSocket API connection to Binance**
 4. **Send requests and handle the responses** 
+
     — Global async function 
+
     — Global callback function 
+
     — Stream specific async function 
+
     — Stream specific callback function 
+
     — Request specific callback function 
+
     — Save answer in variable — Using the `stream_buffer` 
+
     — Multiple API Streams
+
 5. **Available methods for API requests** 
 
     — `ubwa.api.spot.cancel_order()` 
+
     — `ubwa.api.spot.create_order()`
 
 6. **Further information**
