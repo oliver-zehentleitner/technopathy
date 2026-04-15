@@ -150,8 +150,7 @@ When receiving the response from Binance, the function `handle_socket_message()`
 
 In our example, we simply output the received data:
 
-%[]
-<!-- gist: Test connectivity to the Binance WebSocket API (global callback) -->
+%[https://gist.github.com/oliver-zehentleitner/576ab4518ecbca583c3eec209533def1]
 
 **Output:**
 
@@ -164,13 +163,11 @@ Received data:
 
 It is possible to pass a callback function to [`ubwa.create_stream()`](https://unicorn-binance-websocket-api.docs.lucit.tech/unicorn_binance_websocket_api.html#unicorn_binance_websocket_api.manager.BinanceWebSocketApiManager.create_stream) as well. Then, for receiving responses from this stream, **the stream specific callback function is used instead of the global callback function** we passed to `BinanceWebSocketApiManager()`.
 
-%[]
-<!-- gist: Create a Binance WebSocket API stream with a stream specific callback function -->
+%[https://gist.github.com/oliver-zehentleitner/461a06fef1d809dd104e241599ab0f20]
 
 Now we can run ping again and this time we would use the callback function `handle_stream_message()` instead of `handle_socket_message()`.
 
-%[]
-<!-- gist: Test connectivity to the Binance WebSocket API (stream specific) -->
+%[https://gist.github.com/oliver-zehentleitner/576ab4518ecbca583c3eec209533def1]
 
 **Output:**
 
@@ -183,8 +180,7 @@ Received stream data:
 
 Since not all types of data are treated the same way, there is also the possibility to process responses of a specific request with a specific callback function.
 
-%[]
-<!-- gist: Test connectivity with the Binance WebSocket API and let a specific callback function handle the response -->
+%[https://gist.github.com/oliver-zehentleitner/863f346969bbbe315ab808ca6e658013]
 
 **Output:**
 
@@ -197,8 +193,7 @@ Received ping response:
 
 There is also the possibility to let the called function wait until the response to the request has arrived and then store it directly into a variable. The disadvantage of this method is that **the function becomes blocking**, whereby several requests can **only be processed sequentially**.
 
-%[]
-<!-- gist: Test connectivity with the Binance WebSocket API and take the response into a variable -->
+%[https://gist.github.com/oliver-zehentleitner/57e1a32959b2019c62e0254f2ad19726]
 
 **Output:**
 
@@ -227,15 +222,13 @@ I now choose a simple example with only one global `stream_buffer`. If you have 
 
 Hereby you get access to the oldest record in the stack:
 
-%[]
-<!-- gist: Get the oldest record from the UBWA stream_buffer -->
+%[https://gist.github.com/oliver-zehentleitner/96d5789f65761f08069b25229ec83af9]
 
 > **Note:** If the `stream_buffer` is empty, [`ubwa.pop_stream_data_from_stream_buffer()`](https://oliver-zehentleitner.github.io/unicorn-binance-websocket-api/unicorn_binance_websocket_api.html#unicorn_binance_websocket_api.manager.BinanceWebSocketApiManager.pop_stream_data_from_stream_buffer) returns the boolean value `False`!
 
 For example, if you have problems with your database, you can catch the exception of the database connection in a `try` block and use [`ubwa.add_to_stream_buffer()`](https://oliver-zehentleitner.github.io/unicorn-binance-websocket-api/unicorn_binance_websocket_api.html#unicorn_binance_websocket_api.manager.BinanceWebSocketApiManager.add_to_stream_buffer) in the `except` block to save the record back into the `stream_buffer` and simply retrieve it later. Unfortunately, this messes up the chronological sorting! 🤨
 
-%[]
-<!-- gist: Example of how to pass a record back to the stream_buffer on a processing error -->
+%[https://gist.github.com/oliver-zehentleitner/241061d809c76ac1b08013a9ee40386c]
 
 #### Multiple API streams
 
@@ -243,13 +236,11 @@ If there is more than one API stream (with `api=True`), the methods must be told
 
 **Example with `stream_id`:**
 
-%[]
-<!-- gist: Send API requests with multiple WebSocket API streams (stream_id) -->
+%[https://gist.github.com/oliver-zehentleitner/7fc0c1ed65fa96bd9e65f3173143c17d]
 
 **Example with `stream_label`:**
 
-%[]
-<!-- gist: Send API requests with multiple WebSocket API streams (stream_label) -->
+%[https://gist.github.com/oliver-zehentleitner/b2634fd6c45574b460c3fde8414f278c]
 
 ---
 
@@ -270,8 +261,7 @@ Cancel all open orders on a symbol, including OCO orders.
 
 If you cancel an order that is a part of an OCO pair, the entire OCO is canceled.
 
-%[]
-<!-- gist: Cancel an order via Binance WebSocket API (cancel open orders) -->
+%[https://gist.github.com/oliver-zehentleitner/1ca32c20ff397e91f3466f788a718a6e]
 
 **Output:**
 
@@ -287,8 +277,7 @@ Cancel an active order.
 
 If you cancel an order that is a part of an OCO pair, the entire OCO is canceled.
 
-%[]
-<!-- gist: Cancel an order via Binance WebSocket API -->
+%[https://gist.github.com/oliver-zehentleitner/1ca32c20ff397e91f3466f788a718a6e]
 
 **Output:**
 
@@ -304,8 +293,7 @@ Create a new order.
 
 `ubwa.api.spot.create_order()` automatically creates a `client_order_id` and returns it. This way you can always uniquely identify the order in further steps.
 
-%[]
-<!-- gist: Create an order via Binance WebSocket API -->
+%[https://gist.github.com/oliver-zehentleitner/adf377f0c26740e7195d45d5f6bf93b3]
 
 **Output:**
 
