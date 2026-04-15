@@ -31,8 +31,10 @@ In Python, [UNICORN Binance WebSocket API](https://github.com/oliver-zehentleitn
     — Save answer in variable — Using the `stream_buffer` 
     — Multiple API Streams
 5. **Available methods for API requests** 
+
     — `ubwa.api.spot.cancel_order()` 
     — `ubwa.api.spot.create_order()`
+
 6. **Further information**
 
 ---
