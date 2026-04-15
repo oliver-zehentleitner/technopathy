@@ -72,6 +72,10 @@ To automatically convert JSON responses to a Python dictionary, configure `outpu
 
 https://gist.github.com/oliver-zehentleitner/5a5d739710400c8fbd9f04833c4bf1dc#file-ubwa_initiation-py
 
+
+<script src="https://gist.github.com/oliver-zehentleitner/5a5d739710400c8fbd9f04833c4bf1dc.js"></script>
+
+
 * * *
 
 ### 4\. Send requests and handle the responses
