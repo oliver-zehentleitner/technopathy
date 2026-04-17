@@ -4,6 +4,7 @@ datePublished: 2026-04-16T09:59:33.040Z
 cuid: cmo1b58z1000s2dnne84pejby
 slug: your-binance-order-book-is-wrong-here-s-why
 cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/07e9bd38-b649-464c-9856-97f8af518874.jpg
+tags: algorithms, python, software-engineering, cryptocurrency, trading, binance, data-engineering
 
 ---
 
