@@ -4,6 +4,7 @@ datePublished: 2026-04-15T09:32:21.025Z
 cuid: cmnzuqf1b002z1qkrblkofb04
 slug: create-and-cancel-orders-via-websocket-on-binance
 cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/04f19538-b770-4777-8ced-d4f87c1842c8.webp
+tags: websockets, api, python, software-engineering, cryptocurrency, trading, binance
 
 ---
 
