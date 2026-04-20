@@ -66,7 +66,7 @@ For security purposes, Binance wants you to play the Binance Sliding game:
 
 First you need to request an email verification code:
 
-![](https://cdn-images-1.medium.com/max/800/1*CfF9Q3d_yOwZ0iy3-Jv8Aw.png align="center")
+![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/6fcec1a5-089d-43e5-94da-ddabb76b29df.png align="center")
 
 #### Step 8
 
