@@ -13,7 +13,7 @@ The **following instructions are for Debian and Ubuntu** — for [CentOS, RedHat
 
 If you are still looking for a server for this project, I can recommend the **cx31** server for 4.51 EUR/month with 20TB traffic volume from the European provider [HETZNER CLOUD](https://www.hetzner.com).
 
----
+* * *
 
 ### Step 1 — Install danted
 
@@ -56,7 +56,7 @@ vi /etc/danted.conf
 
 Set the following configuration. Replace `1.2.3.4` with your client IP or use `0.0.0.0/0` as wildcard (**please consider your security concept!**):
 
-```
+```plaintext
 logoutput: stderr
 logoutput: /var/log/danted.log
 internal: eth0 port = 1080
@@ -94,27 +94,28 @@ You can now connect to the SOCKS5 proxy via the public server IP on port 1080.
 
 If you have chosen a server from [HETZNER CLOUD](https://www.hetzner.com), here is a detailed [step by step Dante SOCKS5 Proxy installation guide](https://community.hetzner.com/tutorials/install-and-configure-danted-proxy-socks5) tailored to Hetzner servers.
 
----
+* * *
 
 ### Step 2 — Test the SOCKS5 Proxy
 
 There are many ways to test the new SOCKS5 proxy.
 
-**Firefox:**
-*Settings* → search for *proxy* → enter the SOCKS5 proxy address and port number. Open [https://ipchicken.com](https://ipchicken.com) and check the IP address.
+**Firefox:***Settings* → search for *proxy* → enter the SOCKS5 proxy address and port number. Open [https://ipchicken.com](https://ipchicken.com) and check the IP address.
 
-**Putty:**
-Open Putty and click on *Connection* → *Proxy* → enter the SOCKS5 proxy address and port number. Open a SSH connection.
+**Putty:** Open Putty and click on *Connection* → *Proxy* → enter the SOCKS5 proxy address and port number. Open a SSH connection.
 
-**curl:**
-This should return your public IP address:
+**curl:** This should return your public IP address:
 
 ```bash
 curl -x socks5://<your_ip_server>:<your_danted_port> ifconfig.co
 ```
 
----
+* * *
 
-I appreciate constructive feedback that helps me improve the content of this article. Follow me on [GitHub](https://github.com/oliver-zehentleitner) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) for more updates and insights!
+I hope you found this tutorial informative and enjoyable! 
 
-*Image source: [pixabay.com](https://pixabay.com)*
+Follow me on [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+
+* * *
+
+*Image source:* [*pixabay.com*](https://pixabay.com)
