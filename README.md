@@ -5,7 +5,7 @@ Real-world insights on DevSecOps, Python, security, and AI-driven development.
 Written by [Oliver Zehentleitner](https://github.com/oliver-zehentleitner) — creator of the [UNICORN Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite).
 
 ## 🌐 Blog
-**[technopathy.club](https://technopathy.club)**
+**[blog.technopathy.club](https://blog.technopathy.club)**
 
 ## Topics
 - DevSecOps & Security Architecture
