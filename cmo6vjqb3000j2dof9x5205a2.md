@@ -20,7 +20,7 @@ Suddenly the order book living inside one bot process is no longer a neat design
 
 That is the problem this post is about.
 
-And that is why I built **[UBDCC](https://github.com/oliver-zehentleitner/unicorn-binance-depth-cache-cluster)** — the **UNICORN Binance DepthCache Cluster**.
+And that is why I built [**UBDCC**](https://github.com/oliver-zehentleitner/unicorn-binance-depth-cache-cluster) — the **UNICORN Binance DepthCache Cluster**.
 
 ## The core problem
 
@@ -28,7 +28,7 @@ A local depth cache inside one process is easy to start with, but hard to share,
 
 That creates four common failure modes.
 
-### 1. One bot becomes two
+### 1\. One bot becomes two
 
 The first strategy works, so you launch a second one.
 
@@ -36,22 +36,28 @@ Now both bots maintain their own WebSocket connections, their own snapshots, and
 
 That is not great when both are making decisions off the same symbol.
 
-### 2. Other services need the same data
+### 2\. Other services need the same data
 
 Serious setups rarely stop at one bot.
 
 Soon there is:
-- a dashboard
-- an alerting service
-- a sanity-check script
-- a backtester consuming live spreads
-- some quick internal tool that “just needs the top 5 asks”
+
+*   a dashboard
+    
+*   an alerting service
+    
+*   a sanity-check script
+    
+*   a backtester consuming live spreads
+    
+*   some quick internal tool that “just needs the top 5 asks”
+    
 
 If the depth cache only exists inside a Python process, every new consumer either needs its own cache or some custom integration. Both options are ugly.
 
 And if one of those consumers is written in Node.js, Go, Rust, or Bash, it gets uglier fast.
 
-### 3. Rate limits become infrastructure limits
+### 3\. Rate limits become infrastructure limits
 
 Every initial depth snapshot costs request weight.
 
@@ -61,7 +67,7 @@ For strategies like triangular arbitrage, where a bot may depend on dozens or ev
 
 That is a lot of wasted time for something that has nothing to do with strategy logic.
 
-### 4. One cache becomes a single point of failure
+### 4\. One cache becomes a single point of failure
 
 A local depth cache inside one bot process is not just hard to share. It is also fragile.
 
@@ -88,18 +94,25 @@ That is what UBDCC does.
 **UBDCC turns Binance order books from per-process state into shared infrastructure.**
 
 Anything that can speak HTTP can consume the data:
-- Python
-- Node.js
-- Go
-- shell scripts with `curl`
-- dashboards
-- monitoring
-- internal tools
+
+*   Python
+    
+*   Node.js
+    
+*   Go
+    
+*   shell scripts with `curl`
+    
+*   dashboards
+    
+*   monitoring
+    
+*   internal tools
+    
 
 That is the key shift.
 
-Not “another library”.
-Not “another bot framework”.
+Not “another library”. Not “another bot framework”.
 
 A shared order book layer.
 
@@ -108,24 +121,37 @@ A shared order book layer.
 UBDCC is an MIT-licensed cluster service for shared Binance depth caches.
 
 It manages:
-- WebSocket connections
-- depth snapshot initialization
-- synchronized local order books
-- distribution of caches across worker processes
-- access through a REST API
+
+*   WebSocket connections
+    
+*   depth snapshot initialization
+    
+*   synchronized local order books
+    
+*   distribution of caches across worker processes
+    
+*   access through a REST API
+    
 
 So instead of this:
 
-- bot A keeps BTCUSDT in memory
-- bot B keeps BTCUSDT in memory
-- dashboard keeps BTCUSDT in memory
+*   bot A keeps BTCUSDT in memory
+    
+*   bot B keeps BTCUSDT in memory
+    
+*   dashboard keeps BTCUSDT in memory
+    
 
 …you get this:
 
-- UBDCC keeps BTCUSDT in memory
-- bot A queries it
-- bot B queries it
-- dashboard queries it
+*   UBDCC keeps BTCUSDT in memory
+    
+*   bot A queries it
+    
+*   bot B queries it
+    
+*   dashboard queries it
+    
 
 One source of truth. Multiple consumers.
 
@@ -133,9 +159,12 @@ One source of truth. Multiple consumers.
 
 UBDCC consists of three roles:
 
-- **mgmt** — coordinates cluster state and assigns work
-- **restapi** — the public HTTP interface clients talk to
-- **dcn** (*DepthCache Node*) — worker processes that run the actual depth caches via [UBLDC](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache)
+*   **mgmt** — coordinates cluster state and assigns work
+    
+*   **restapi** — the public HTTP interface clients talk to
+    
+*   **dcn** (*DepthCache Node*) — worker processes that run the actual depth caches via [UBLDC](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache)
+    
 
 Each DCN is one Python process, which maps nicely to one CPU core. On a single 8-core machine, you can run one management instance, one REST API, and multiple DCNs handling hundreds of depth caches.
 
@@ -205,12 +234,11 @@ Query the top 5 asks:
 curl 'http://127.0.0.1:42081/get_asks?exchange=binance.com&market=BTCUSDT&limit_count=5'
 ```
 
-That is the whole idea:
-create once, consume anywhere.
+That is the whole idea: create once, consume anywhere.
 
 ## Python users are not locked out
 
-If you already use **[UBLDC](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache)** for local order books, the cluster interface is built in.
+If you already use [**UBLDC**](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache) for local order books, the cluster interface is built in.
 
 You can point `BinanceLocalDepthCacheManager` at UBDCC and keep using familiar sync or async methods:
 
@@ -252,7 +280,7 @@ There are four parts that matter to me.
 
 ### It does not silently serve stale books
 
-UBDCC is built on **[UBLDC](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache)**, which validates Binance sequence numbers, re-syncs on gaps, and handles [orphaned levels](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why) correctly instead of leaving ghost entries in the book.
+UBDCC is built on [**UBLDC**](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache), which validates Binance sequence numbers, re-syncs on gaps, and handles [orphaned levels](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why) correctly instead of leaving ghost entries in the book.
 
 A shared DepthCache is only useful if consumers also know its state. UBDCC does not just hold the cache — it knows whether that cache is actually in sync, re-synchronizing, or temporarily not safe to use. That is exactly the information a serious strategy needs before trusting market data.
 
@@ -281,10 +309,15 @@ The stack is async end-to-end, and the core packages are Cython-compiled. In pra
 ## What UBDCC is not
 
 It is **not**:
-- a strategy engine
-- a backtesting platform
-- an execution engine
-- a “make money with crypto” framework
+
+*   a strategy engine
+    
+*   a backtesting platform
+    
+*   an execution engine
+    
+*   a “make money with crypto” framework
+    
 
 It serves live order book data.
 
@@ -293,12 +326,15 @@ That is its job.
 ## Who should look at it
 
 ### A solo developer running multiple bots
+
 You want one shared market-data layer instead of duplicate depth caches all over the machine.
 
 ### A team with several services consuming the same books
+
 You want bots, dashboards, alerts, and internal tools reading from one consistent source.
 
 ### A larger setup running into rate-limit and scaling pain
+
 You want to spread load across nodes, IPs, and optional authenticated request budgets.
 
 If none of this sounds familiar, you probably do not need UBDCC yet.
@@ -325,12 +361,15 @@ Because at some point it becomes the obvious architecture — and building it yo
 
 If your order books are trapped inside individual bot processes, UBDCC is the escape hatch.
 
-- [GitHub repository](https://github.com/oliver-zehentleitner/unicorn-binance-depth-cache-cluster)
-- [Documentation and API reference](https://oliver-zehentleitner.github.io/unicorn-binance-depth-cache-cluster)
-- [Telegram community](https://t.me/unicorndevs)
+*   [GitHub repository](https://github.com/oliver-zehentleitner/unicorn-binance-depth-cache-cluster)
+    
+*   [Documentation and API reference](https://oliver-zehentleitner.github.io/unicorn-binance-depth-cache-cluster)
+    
+*   [Telegram community](https://t.me/unicorndevs)
+    
 
-UBDCC is MIT-licensed and part of the **[UNICORN Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite)**.
+UBDCC is MIT-licensed and part of the [**UNICORN Binance Suite**](https://github.com/oliver-zehentleitner/unicorn-binance-suite).
 
 * * *
 
-I hope you found this tutorial informative and enjoyable! Follow me on [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+I hope you found this tutorial informative and enjoyable! Follow me on [GitHub](https://github.com/oliver-zehentleitner), [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
