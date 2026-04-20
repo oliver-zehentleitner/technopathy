@@ -62,8 +62,7 @@ To connect to other Binance exchanges just change the `exchange` string:
 [Binance Margin](https://www.binance.com): `binance.com-margin`  
 [Binance Margin Testnet](https://testnet.binance.vision/): `binance.com-margin-testnet`  
 [Binance Isolated Margin](https://www.binance.com): `binance.com-isolated_margin`  
-[Binance Isolated Margin Testnet](https://testnet.binance.vision/): `binance.com-isolated_margin-testnet` 
-[Binance USD-M Futures](https://www.binance.com): `binance.com-futures`  
+[Binance Isolated Margin Testnet](https://testnet.binance.vision/): `binance.com-isolated_margin-testnet`[Binance USD-M Futures](https://www.binance.com): `binance.com-futures`  
 [Binance USD-M Futures Testnet](https://testnet.binancefuture.com): `binance.com-futures-testnet`  
 [Binance Coin-M Futures](https://www.binance.com): `binance.com-coin_futures`  
 [Binance US](https://www.binance.us): `binance.us`  
@@ -73,8 +72,14 @@ You can find the documentations here:
 [https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/)  
 [https://oliver-zehentleitner.github.io/unicorn-binance-websocket-api/](https://oliver-zehentleitner.github.io/unicorn-binance-websocket-api/)
 
+* * *
+
 I hope you found this tutorial informative and enjoyable! 
 
+Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+
 Thank you for reading, and happy coding!
+
+* * *
 
 Image source: [https://pixabay.com](https://pixabay.com)
