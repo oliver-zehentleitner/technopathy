@@ -57,6 +57,10 @@ Every initial depth snapshot costs request weight.
 
 If every process builds its own local cache, every process burns its own weight budget. Reconnect storms multiply the cost. Large market sets become slow to initialize. On one IP, the wall arrives quickly.
 
+For strategies like triangular arbitrage, where a bot may depend on dozens or even hundreds of depth caches, restarting the strategy during development because of one changed line of code can mean waiting all over again for the entire in-process market view to rebuild and re-sync.
+
+That is a lot of wasted time for something that has nothing to do with strategy logic.
+
 ### 4. One cache becomes a single point of failure
 
 A local depth cache inside one bot process is not just hard to share. It is also fragile.
@@ -249,6 +253,8 @@ There are four parts that matter to me.
 ### It does not silently serve stale books
 
 UBDCC is built on **[UBLDC](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache)**, which validates Binance sequence numbers, re-syncs on gaps, and handles orphaned levels correctly instead of leaving ghost entries in the book.
+
+A shared DepthCache is only useful if consumers also know its state. UBDCC does not just hold the cache — it knows whether that cache is actually in sync, re-synchronizing, or temporarily not safe to use. That is exactly the information a serious strategy needs before trusting market data.
 
 If a book is re-syncing, that state is explicit.
 
