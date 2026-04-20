@@ -15,10 +15,10 @@ Written by [Oliver Zehentleitner](https://github.com/oliver-zehentleitner) — c
 - Real-world findings from production systems
 
 ## About
-This repository contains automatic backups of all articles published on [Technopathy](https://technopathy.club), powered by [Hashnode](https://hashnode.com).
+This repository contains automatic backups of all articles published on [Technopathy](https://blog.technopathy.club), powered by [Hashnode](https://hashnode.com).
 
 ## Author
 - 🐙 [GitHub](https://github.com/oliver-zehentleitner)
 - 💼 [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner)
 - 🐦 [X](https://x.com/unicorn_oz)
-- 📝 [technopathy.club](https://technopathy.club)
+- 📝 [blog.technopathy.club](https://blog.technopathy.club)
