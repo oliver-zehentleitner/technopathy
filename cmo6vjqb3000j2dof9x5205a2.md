@@ -372,4 +372,4 @@ UBDCC is MIT-licensed and part of the [**UNICORN Binance Suite**](https://github
 
 * * *
 
-I hope you found this tutorial informative and enjoyable! Follow me on [GitHub](https://github.com/oliver-zehentleitner), [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+I hope you found this tutorial informative and enjoyable! Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
