@@ -57,6 +57,8 @@ Chat for support: [https://gitter.im/conda-forge/conda-forge.github.io](https://
 
 * * *
 
-I hope you found this tutorial informative and enjoyable! Don’t forget to follow me on [Medium](https://medium.com/@oliverzehentleitner/about), [Twitter](https://twitter.com/unicorn_oz), [GitHub](https://github.com/oliver-zehentleitner), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases and insights. If you found this article helpful, please hit that applause 👏 button to show your support! Your constructive feedback is always appreciated as it helps me improve the quality of my content.
+I hope you found this tutorial informative and enjoyable! 
+
+Follow me on [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
 
 Thank you for reading, and happy coding!
