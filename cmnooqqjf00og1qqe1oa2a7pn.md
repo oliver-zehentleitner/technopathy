@@ -17,3 +17,9 @@ On Hashnode with my own domain, I control the robots.txt. My content can be inde
 All existing articles will be migrated from Medium shortly. The new URL is [https://blog.technopathy.club/](https://blog.technopathy.club/).
 
 If you've been following me on Medium — welcome to the new home.
+
+* * *
+
+I hope you found this tutorial informative and enjoyable! 
+
+Follow me on [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
