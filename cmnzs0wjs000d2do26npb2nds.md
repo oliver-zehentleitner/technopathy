@@ -136,7 +136,7 @@ tail -f /var/log/danted.log
 
 There are many ways to test the new SOCKS5 proxy:
 
-**Firefox:***Settings* → search for *proxy* → enter the SOCKS5 proxy address and port number. Open [https://ipchicken.com](https://ipchicken.com) and check the IP address.
+\*\*Firefox:\*\**Settings* → search for *proxy* → enter the SOCKS5 proxy address and port number. Open [https://ipchicken.com](https://ipchicken.com) and check the IP address.
 
 **Putty:** Open Putty and click on *Connection* → *Proxy* → enter the SOCKS5 proxy address and port number. Open a SSH connection.
 
@@ -178,6 +178,12 @@ Full **documentation for unicorn-binance-rest-api**: [https://oliver-zehentleitn
 
 * * *
 
-I hope you found this tutorial informative and enjoyable! Follow me on [GitHub](https://github.com/oliver-zehentleitner) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+I hope you found this tutorial informative and enjoyable! 
+
+Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+
+Thank you for reading, and happy coding!
+
+* * *
 
 *Image source:* [*pixabay.com*](https://pixabay.com)
