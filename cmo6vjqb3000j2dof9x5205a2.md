@@ -331,6 +331,6 @@ If your order books are trapped inside individual bot processes, UBDCC is the es
 
 UBDCC is MIT-licensed and part of the **[UNICORN Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite)**.
 
----
+* * *
 
-*If this gets interest, the next post will go deeper into one specific issue: how distributed depth caches help when Binance rate limits turn reconnects into an infrastructure problem.*
+I hope you found this tutorial informative and enjoyable! Follow me on [GitHub](https://github.com/oliver-zehentleitner) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
