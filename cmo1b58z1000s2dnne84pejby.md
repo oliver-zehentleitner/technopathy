@@ -14,39 +14,42 @@ I am not talking about reconnect logic, sequence gaps, or the well-known initial
 
 This came up while I was maintaining [UNICORN Binance Local Depth Cache (UBLDC)](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache). A user reported unbounded growth in their order book — and when I investigated, it turned out to be a gap in Binance's own synchronization spec, not a library bug. The fix was straightforward, but it is not in Binance's documentation, and I have not seen it handled in any other library.
 
----
+* * *
 
 ## How a depth cache is supposed to work
 
-This is Binance's official algorithm, documented in 
-["How to manage a local order book correctly"](https://binance-docs.github.io/apidocs/spot/en/#how-to-manage-a-local-order-book-correctly). 
-Quick refresher for people who have not built one:
+This is Binance's official algorithm, documented in ["How to manage a local order book correctly"](https://binance-docs.github.io/apidocs/spot/en/#how-to-manage-a-local-order-book-correctly). Quick refresher for people who have not built one:
 
-1. You open a WebSocket stream for diff updates (`@depth`).
-2. You request a REST snapshot of the current order book.
-3. You discard any updates whose sequence number is older than the snapshot.
-4. You apply the remaining updates to the snapshot in order.
-5. From now on, every diff update arrives in real time and you mutate your local copy.
+1.  You open a WebSocket stream for diff updates (`@depth`).
+    
+2.  You request a REST snapshot of the current order book.
+    
+3.  You discard any updates whose sequence number is older than the snapshot.
+    
+4.  You apply the remaining updates to the snapshot in order.
+    
+5.  From now on, every diff update arrives in real time and you mutate your local copy.
+    
 
 A diff update is a list of price levels. For each level you receive a price and a quantity. If the quantity is `0`, the level is gone — you delete it from your book. Otherwise you set the quantity for that price level.
 
-That is the whole protocol. Snapshot, apply diffs, handle the `0`-quantity delete event. Done.
+That is the whole protocol. Snapshot, apply diffs, handle the `0`\-quantity delete event. Done.
 
 Except it is not done.
 
----
+* * *
 
 ## The part Binance does not tell you
 
 Binance's depth snapshots cover the **top 1000 price levels** on each side. The diff stream sends you updates for any level that changes — but only for levels that are currently in the top 1000.
 
-The moment a price level drops out of the top 1000 because more aggressive activity pushes it down, Binance stops sending updates for that level. Not just stops — **never sends another update again**, including no `0`-quantity delete event.
+The moment a price level drops out of the top 1000 because more aggressive activity pushes it down, Binance stops sending updates for that level. Not just stops — **never sends another update again**, including no `0`\-quantity delete event.
 
 If you followed the documented protocol, that level stays in your local copy forever. Your bid book still claims there is meaningful resting size at a price that has not been part of the real order book for hours, days, weeks — however long your process has been running.
 
 These are what I call **orphaned entries**. Ghost orders. Levels that exist only in your memory, with no representation on the actual exchange.
 
----
+* * *
 
 ## Why this is easy to miss
 
@@ -60,26 +63,19 @@ A few reasons this stays invisible long enough to ship into production:
 
 **Documented behavior matches buggy behavior.** Binance's documentation describes how to apply diff updates. It does not warn you that a level that disappears from the top 1000 will never be corrected. So if you followed the docs to the letter, your code looks correct against the spec. The spec is just incomplete.
 
----
+* * *
 
 ## How this was found
 
-A user [reported](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache/issues/45) that 
-their asks and bids lists were growing without any bound. Starting at around 1000 entries, the count kept 
-climbing — slowly but monotonically. After 15 minutes, already noticeably above 1000. After hours, thousands 
-of levels on each side with no churn at the bottom of the book.
+A user [reported](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache/issues/45) that their asks and bids lists were growing without any bound. Starting at around 1000 entries, the count kept climbing — slowly but monotonically. After 15 minutes, already noticeably above 1000. After hours, thousands of levels on each side with no churn at the bottom of the book.
 
-At first glance it looked like a library bug. But when I dug into it, I realized the library was doing exactly 
-what Binance's documentation says to do. The problem was upstream — in the spec itself.
+At first glance it looked like a library bug. But when I dug into it, I realized the library was doing exactly what Binance's documentation says to do. The problem was upstream — in the spec itself.
 
-I went back to the Binance documentation. There was no mention of bottom-of-book eviction. I tested it: created 
-a cache, waited for active levels to roll off the top 1000, and watched whether any correction arrived for a 
-known stale level. Nothing. The level was orphaned, and Binance had no mechanism to tell the client about it.
+I went back to the Binance documentation. There was no mention of bottom-of-book eviction. I tested it: created a cache, waited for active levels to roll off the top 1000, and watched whether any correction arrived for a known stale level. Nothing. The level was orphaned, and Binance had no mechanism to tell the client about it.
 
-That was the moment it stopped being "there might be a bug in the apply-diff logic" and became "Binance's 
-documented protocol is incomplete, and every implementation that follows it strictly is accumulating ghost entries."
+That was the moment it stopped being "there might be a bug in the apply-diff logic" and became "Binance's documented protocol is incomplete, and every implementation that follows it strictly is accumulating ghost entries."
 
----
+* * *
 
 ## The fix
 
@@ -104,13 +100,16 @@ def _clear_orphaned_depthcache_items(self, market, side, limit_count=1000):
 
 The reasoning:
 
-- Anything Binance still cares about will be inside the top 1000 and will keep getting diff updates.
-- Anything outside the top 1000 is, by Binance's own definition, not part of the snapshot you would get if you re-pulled right now.
-- So evicting it is correct: it brings your local copy into the same consistency window Binance guarantees.
+*   Anything Binance still cares about will be inside the top 1000 and will keep getting diff updates.
+    
+*   Anything outside the top 1000 is, by Binance's own definition, not part of the snapshot you would get if you re-pulled right now.
+    
+*   So evicting it is correct: it brings your local copy into the same consistency window Binance guarantees.
+    
 
 The cost is one sort per update per side. For 1000 entries on a hot pair this is microseconds. UBLDC absorbs it inside the WebSocket event loop with no measurable impact on throughput.
 
----
+* * *
 
 ## Why this matters even if you "only need top of book"
 
@@ -120,17 +119,17 @@ The cost is one sort per update per side. For 1000 entries on a hot pair this is
 
 **Book-shape logic breaks.** Anything that compares against book width, density, or the relationship between price levels is reading partly from a fossil record. Strategies that look at order book shape — common in market-making and liquidity-provision — will be making decisions based on data that is half real and half archaeological.
 
----
+* * *
 
 ## What to do about it
 
 You have three options, depending on what you are building:
 
-**1. Prune yourself.** Periodically take the lowest-priced bids and highest-priced asks beyond the depth you care about and remove them. Six lines of Python. Works with any library.
+**1\. Prune yourself.** Periodically take the lowest-priced bids and highest-priced asks beyond the depth you care about and remove them. Six lines of Python. Works with any library.
 
-**2. Use UBLDC in your Python project.** [UNICORN Binance Local Depth Cache](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache) handles this plus reconnect logic, sequence validation, multi-market management, and automatic resync on gap detection. MIT licensed, 220K+ PyPI downloads.
+**2\. Use UBLDC in your Python project.** [UNICORN Binance Local Depth Cache](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache) handles this plus reconnect logic, sequence validation, multi-market management, and automatic resync on gap detection. MIT licensed, 220K+ PyPI downloads.
 
-**3. Use UBDCC if you want it as a service.** This is the option I would recommend if you are not married to a specific language or if you run multiple bots. [UNICORN DepthCache Cluster](https://github.com/oliver-zehentleitner/unicorn-binance-depth-cache-cluster) runs UBLDC as a background service and exposes order book data via REST API — accessible from Python, Node.js, Go, Rust, or anything that speaks HTTP:
+**3\. Use UBDCC if you want it as a service.** This is the option I would recommend if you are not married to a specific language or if you run multiple bots. [UNICORN DepthCache Cluster](https://github.com/oliver-zehentleitner/unicorn-binance-depth-cache-cluster) runs UBLDC as a background service and exposes order book data via REST API — accessible from Python, Node.js, Go, Rust, or anything that speaks HTTP:
 
 ```bash
 pip install ubdcc
@@ -141,7 +140,7 @@ That gives you a local REST API where any process can query consistent, pruned, 
 
 Either way, **do not rely on the Binance diff stream alone** to keep your book consistent past the active edge. The protocol does not guarantee what most documentation implies.
 
----
+* * *
 
 ## Why I wrote this
 
@@ -149,12 +148,16 @@ Since fixing this, I have seen the same question come up in different forms — 
 
 This is the kind of finding that does not have a CVSS score and will not get a Binance changelog entry. It is a gap between "what the docs say" and "what actually happens at the protocol level", and the only way it gets fixed in the wider ecosystem is by being written down with code.
 
----
+* * *
 
-*[UNICORN Binance Local Depth Cache](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache) — MIT, 220K+ downloads · The fix is in `manager.py`, function `_clear_orphaned_depthcache_items()`.*
+[*UNICORN Binance Local Depth Cache*](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache) *— MIT, 220K+ downloads · The fix is in* `manager.py`*, function* `_clear_orphaned_depthcache_items()`*.*
 
-*[UNICORN DepthCache Cluster](https://github.com/oliver-zehentleitner/unicorn-binance-depth-cache-cluster) — Consistent order book data as a REST service. `pip install ubdcc && ubdcc start`. Any language, any number of clients.*
+[*UNICORN DepthCache Cluster*](https://github.com/oliver-zehentleitner/unicorn-binance-depth-cache-cluster) *— Consistent order book data as a REST service.* `pip install ubdcc && ubdcc start`*. Any language, any number of clients.*
 
 * * *
 
-I hope you found this tutorial informative and enjoyable! Follow me on [GitHub](https://github.com/oliver-zehentleitner) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+I hope you found this tutorial informative and enjoyable!
+
+Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+
+Thank you for reading, and happy coding!
