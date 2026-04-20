@@ -252,7 +252,7 @@ There are four parts that matter to me.
 
 ### It does not silently serve stale books
 
-UBDCC is built on **[UBLDC](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache)**, which validates Binance sequence numbers, re-syncs on gaps, and handles orphaned levels correctly instead of leaving ghost entries in the book.
+UBDCC is built on **[UBLDC](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache)**, which validates Binance sequence numbers, re-syncs on gaps, and handles [orphaned levels](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why) correctly instead of leaving ghost entries in the book.
 
 A shared DepthCache is only useful if consumers also know its state. UBDCC does not just hold the cache — it knows whether that cache is actually in sync, re-synchronizing, or temporarily not safe to use. That is exactly the information a serious strategy needs before trusting market data.
 
