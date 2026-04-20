@@ -43,14 +43,15 @@ The **following instructions are for Debian and Ubuntu** — for [CentOS, Re
 Project homepage: [https://www.inet.no/dante/](https://www.inet.no/dante/)
 
 *   Log into your Linux server where you want to install the SOCKS5 proxy and get root privileges:  
-`sudo -i`
+    `sudo -i`
     
 *   Install with `apt`:  
-`apt update`  
-`apt install dante-server`
+    `apt update`  
+    `apt install dante-server`
+    
 
 **Info**: After the installation dante does not work and still throws errors because it has not been configured yet!
-    
+
 *   Test the installation with:  
     `danted -v`  
     **Info**: In Ubuntu and other distributions the `danted` can also be called `sockd`.
@@ -128,8 +129,12 @@ You can find the full **documentation for unicorn-binance-websocket-api** here: 
 
 * * *
 
-I hope you found this tutorial informative and enjoyable!
+I hope you found this tutorial informative and enjoyable! 
+
+Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
 
 Thank you for reading, and happy coding!
+
+* * *
 
 Image source: [https://pixabay.com](https://pixabay.com)
