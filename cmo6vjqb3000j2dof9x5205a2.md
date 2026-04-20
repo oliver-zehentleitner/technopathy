@@ -326,7 +326,7 @@ Because at some point it becomes the obvious architecture — and building it yo
 If your order books are trapped inside individual bot processes, UBDCC is the escape hatch.
 
 - [GitHub repository](https://github.com/oliver-zehentleitner/unicorn-binance-depth-cache-cluster)
-- [Documentation and API reference](https://www.lucit.tech/ubdcc.html)
+- [Documentation and API reference](https://oliver-zehentleitner.github.io/unicorn-binance-depth-cache-cluster)
 - [Telegram community](https://t.me/unicorndevs)
 
 UBDCC is MIT-licensed and part of the **[UNICORN Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite)**.
