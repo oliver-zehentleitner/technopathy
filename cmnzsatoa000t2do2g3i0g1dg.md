@@ -9,7 +9,7 @@ cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/a056790f
 
 The goal of this tutorial is to describe the installation and configuration of the SOCKS5 Proxy [Dante](https://www.inet.no/dante/) on a CentOS, Redhat, AWS EC2 or similar Linux distribution using the `yum` package manager to end up with **a working SOCKS5 proxy**.
 
-For **[Debian and Ubuntu](https://technopathy.club/installation-and-configuration-of-dante-on-debian-ubuntu-with-apt-ebce7410e7d2)** please follow [these instructions](https://technopathy.club/installation-and-configuration-of-dante-on-debian-ubuntu-with-apt-ebce7410e7d2).
+For [**Debian and Ubuntu**](https://technopathy.club/installation-and-configuration-of-dante-on-debian-ubuntu-with-apt-ebce7410e7d2) please follow [these instructions](https://technopathy.club/installation-and-configuration-of-dante-on-debian-ubuntu-with-apt-ebce7410e7d2).
 
 If you are still looking for a server for this project, I can recommend the **cx31** server for 4.51 EUR/month with 20TB traffic volume from the European provider [HETZNER CLOUD](https://www.hetzner.com).
 
@@ -20,7 +20,7 @@ sudo -i
 yum update -y
 ```
 
----
+* * *
 
 ### Step 1 — Installation
 
@@ -60,7 +60,7 @@ Verify the installation:
 sockd -v
 ```
 
----
+* * *
 
 ### Step 2 — Configuration
 
@@ -78,7 +78,7 @@ ip add show eth0
 
 **Example output:**
 
-```
+```plaintext
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 06:72:6b:5d:09:dd brd ff:ff:ff:ff:ff:ff
     inet 172.1.2.3/20 brd 172.1.2.255 scope global dynamic eth0
@@ -87,7 +87,7 @@ ip add show eth0
     valid_lft forever preferred_lft forever
 ```
 
-**Replace `172.1.2.3` with your server IP and `1.2.3.4` with your client IP from where you want to connect.**
+**Replace** `172.1.2.3` **with your server IP and** `1.2.3.4` **with your client IP from where you want to connect.**
 
 Edit the config file:
 
@@ -95,7 +95,7 @@ Edit the config file:
 vi /etc/sockd.conf
 ```
 
-```
+```plaintext
 internal: 0.0.0.0 port = 1080
 external: 172.1.2.3
 logoutput: stderr
@@ -160,8 +160,12 @@ If everything worked, you now have a working SOCKS5 proxy server that only accep
 
 Additionally you can [enable proper authentication](https://www.inet.no/dante/doc/latest/config/auth.html) — more info can be found [here](https://www.inet.no/dante/doc/latest/config/auth.html).
 
----
+* * *
 
-I appreciate constructive feedback that helps me improve the content of this article. Follow me on [GitHub](https://github.com/oliver-zehentleitner) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) for more updates and insights!
+I hope you found this tutorial informative and enjoyable! 
 
-*Image source: [pixabay.com](https://pixabay.com)*
+Follow me on [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+
+* * *
+
+*Image source:* [*pixabay.com*](https://pixabay.com)
