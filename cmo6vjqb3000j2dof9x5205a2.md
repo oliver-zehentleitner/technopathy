@@ -8,20 +8,15 @@ tags: python, kubernetes, trading, binance, open-source
 
 ---
 
-
-# Why Your Binance Order Book Should Not Live Inside Your Bot
-
-*How I turned a per-process depth cache into shared infrastructure for Python, Node.js, Go, and anything that can speak HTTP.*
-
----
-
 Most Binance bots start the same way.
 
 One process opens a WebSocket, pulls a depth snapshot, keeps a local order book in memory, and runs a strategy loop on top. For one bot, on one machine, this is fine. Sometimes it is even elegant.
 
 Then the setup grows.
 
-A second bot appears. A dashboard wants the same data. A sidecar service needs top-of-book prices. A teammate working in JavaScript wants access too. Reconnects pile up. Snapshot requests start burning rate limit budget. Suddenly the order book living inside one bot process is no longer a neat design choice. It is now the bottleneck.
+A second bot appears. A dashboard wants the same data. A sidecar service needs top-of-book prices. A teammate working in JavaScript wants access too. Reconnects pile up. Snapshot requests start burning rate limit budget. And if the one process holding a market dies, your market view dies with it.
+
+Suddenly the order book living inside one bot process is no longer a neat design choice. It is now the bottleneck.
 
 That is the problem this post is about.
 
@@ -29,15 +24,15 @@ And that is why I built **[UBDCC](https://github.com/oliver-zehentleitner/unicor
 
 ## The core problem
 
-A local depth cache inside one process is easy to start with, but hard to share.
+A local depth cache inside one process is easy to start with, but hard to share, hard to scale, and fragile.
 
-That creates three common failure modes.
+That creates four common failure modes.
 
 ### 1. One bot becomes two
 
 The first strategy works, so you launch a second one.
 
-Now both bots maintain their own WebSocket connections, their own snapshots, their own copies of the same order books in separate memory spaces. You doubled the moving parts without gaining new market data. After a reconnect or short network disturbance, those two processes can temporarily hold slightly different views of the same market.
+Now both bots maintain their own WebSocket connections, their own snapshots, and their own copies of the same order books in separate memory spaces. You doubled the moving parts without gaining new market data. After a reconnect or short network disturbance, those two processes can temporarily hold slightly different views of the same market.
 
 That is not great when both are making decisions off the same symbol.
 
@@ -61,6 +56,14 @@ And if one of those consumers is written in Node.js, Go, Rust, or Bash, it gets 
 Every initial depth snapshot costs request weight.
 
 If every process builds its own local cache, every process burns its own weight budget. Reconnect storms multiply the cost. Large market sets become slow to initialize. On one IP, the wall arrives quickly.
+
+### 4. One cache becomes a single point of failure
+
+A local depth cache inside one bot process is not just hard to share. It is also fragile.
+
+If that process dies, your market view for that symbol dies with it. The usual workaround is not real high availability — it is just duplication by coincidence, with different processes maintaining different copies of the same book.
+
+In a serious setup, market data should not depend on one process staying alive. It should be a shared service with explicit redundancy and failover.
 
 So the real problem is not “how do I keep one order book in sync?”
 
