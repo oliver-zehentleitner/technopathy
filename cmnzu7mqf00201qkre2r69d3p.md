@@ -116,12 +116,8 @@ A full overview of all available methods can be found in the [documentation](htt
 
 * * *
 
-I hope you found this tutorial informative and enjoyable! 
+I hope you found this tutorial informative and enjoyable!
 
 Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
 
 Thank you for reading, and happy coding!
-
-* * *
-
-*Image source:* [*pixabay.com*](https://pixabay.com)
