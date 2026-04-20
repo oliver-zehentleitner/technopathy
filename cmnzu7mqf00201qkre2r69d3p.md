@@ -9,13 +9,16 @@ cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/6246be15
 
 *In this article I will show you an easy way to get started with the Binance REST API using Python.*
 
-**We use the `unicorn-binance-rest-api` package:**
+**We use the** `unicorn-binance-rest-api` **package:**
 
-- PyPI: [https://pypi.org/project/unicorn-binance-rest-api](https://pypi.org/project/unicorn-binance-rest-api)
-- Documentation: [https://oliver-zehentleitner.github.io/unicorn-binance-rest-api](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api)
-- GitHub: [https://github.com/oliver-zehentleitner/unicorn-binance-rest-api](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api)
+*   PyPI: [https://pypi.org/project/unicorn-binance-rest-api](https://pypi.org/project/unicorn-binance-rest-api)
+    
+*   Documentation: [https://oliver-zehentleitner.github.io/unicorn-binance-rest-api](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api)
+    
+*   GitHub: [https://github.com/oliver-zehentleitner/unicorn-binance-rest-api](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api)
+    
 
----
+* * *
 
 ### Installation
 
@@ -37,7 +40,7 @@ Alternatively download the [latest release](https://github.com/oliver-zehentleit
 git clone git@github.com:oliver-zehentleitner/unicorn-binance-rest-api.git
 ```
 
----
+* * *
 
 ### How to use BinanceRestApiManager?
 
@@ -111,8 +114,14 @@ print(f"open_orders: {open_orders}")
 
 A full overview of all available methods can be found in the [documentation](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api).
 
----
+* * *
 
-I hope you found this tutorial informative and enjoyable! Follow me on [GitHub](https://github.com/oliver-zehentleitner) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+I hope you found this tutorial informative and enjoyable! 
 
-*Image source: [pixabay.com](https://pixabay.com)*
+Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+
+Thank you for reading, and happy coding!
+
+* * *
+
+*Image source:* [*pixabay.com*](https://pixabay.com)
