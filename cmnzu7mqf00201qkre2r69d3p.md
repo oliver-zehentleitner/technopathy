@@ -85,7 +85,7 @@ klines_30m = ubra.get_historical_klines("BTCUSDT", "30m", "1 Dec, 2021", "1 Jan,
 print(f"klines_30m:\r\n{klines_30m}")
 ```
 
-For private data, provide API credentials when creating the instance:
+For private data, provide [API credentials](https://blog.technopathy.club/how-to-create-a-binance-api-key-and-api-secret) when creating the instance:
 
 ```python
 api_key = "aaa"
