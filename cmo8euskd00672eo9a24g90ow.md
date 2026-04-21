@@ -20,7 +20,7 @@ OCO stands for "[One Cancells the Other](https://academy.binance.com/en/glossary
 
 In this tutorial we will create a Market Buy Order for Binance Isolated Margin in a Python Script and buy some BTC with 15 USDT. We will take the purchased amount of BTC and use it to create an OCO Sell Order that includes both Take Profit and Stop Loss (LIMIT).
 
-In order for the code from this example to work for you, you need to transfer at least 15 USDT to your [Isolated Margin account on Binance](https://www.binance.com/en/support/faq/how-to-use-the-isolated-margin-mode-on-binance-2da03a8901de4754ab98800a3a92fdd4) and you need an [API key/secret pair from Binance.com](https://medium.lucit.tech/how-to-create-a-binance-api-key-and-api-secret-3bb5f47e360d).
+In order for the code from this example to work for you, you need to transfer at least 15 USDT to your [Isolated Margin account on Binance](https://www.binance.com/en/support/faq/how-to-use-the-isolated-margin-mode-on-binance-2da03a8901de4754ab98800a3a92fdd4) and you need an [API key/secret pair from Binance.com](https://blog.technopathy.club/how-to-create-a-binance-api-key-and-api-secret).
 
 Ok, here we go :)
 
