@@ -67,7 +67,7 @@ To be able to trade on Binance you need a user account. If you don't have one ye
 
 #### API key and API secret
 
-How to create an API Key/Secret pair you can read in detail [here](https://technopathy.club/how-to-create-a-binance-api-key-and-api-secret-3bb5f47e360d).
+How to create an API Key/Secret pair you can read in detail [here](https://blog.technopathy.club/how-to-create-a-binance-api-key-and-api-secret).
 
 * * *
 
@@ -172,7 +172,7 @@ Received data:
 
 #### Stream specific callback function
 
-It is possible to pass a callback function to [`ubwa.create_stream()`](https://unicorn-binance-websocket-api.docs.lucit.tech/unicorn_binance_websocket_api.html#unicorn_binance_websocket_api.manager.BinanceWebSocketApiManager.create_stream) as well. Then, for receiving responses from this stream, **the stream specific callback function is used instead of the global callback function** we passed to `BinanceWebSocketApiManager()`.
+It is possible to pass a callback function to [`ubwa.create_stream()`](https://oliver-zehentleitner.github.io/unicorn-binance-websocket-api/unicorn_binance_websocket_api.html#unicorn_binance_websocket_api.manager.BinanceWebSocketApiManager.create_stream) as well. Then, for receiving responses from this stream, **the stream specific callback function is used instead of the global callback function** we passed to `BinanceWebSocketApiManager()`.
 
 %[https://gist.github.com/oliver-zehentleitner/461a06fef1d809dd104e241599ab0f20] 
 
