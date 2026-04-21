@@ -4,12 +4,13 @@ datePublished: 2026-04-15T09:22:10.602Z
 cuid: cmnzudc15002c1qkrea4pg0p7
 slug: installation-and-configuration-of-dante-on-debian-ubuntu-with-apt
 cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/27a06642-444b-409a-9e85-95c420ff0c91.webp
+tags: linux, socks5-proxy
 
 ---
 
 *Instructions for installing and configuring a Dante SOCKS5 proxy on Debian/Ubuntu on the command line.*
 
-The **following instructions are for Debian and Ubuntu** — for [CentOS, RedHat, AWS EC2 and other Linux distributions that use `yum`](https://technopathy.club/installation-and-configuration-of-socks-proxy-danted-on-redhat-centos-aws-ec2-from-soure-code-f643a183cccb) as a package manager please [follow these instructions](https://technopathy.club/installation-and-configuration-of-socks-proxy-danted-on-redhat-centos-aws-ec2-from-soure-code-f643a183cccb).
+The **following instructions are for Debian and Ubuntu** — for [CentOS, RedHat, AWS EC2 and other Linux distributions that use `yum`](https://blog.technopathy.club/installation-and-configuration-of-socks-proxy-danted-on-redhat-centos-aws-ec2-from-source-code) as a package manager please [follow these instructions](https://blog.technopathy.club/installation-and-configuration-of-socks-proxy-danted-on-redhat-centos-aws-ec2-from-source-code).
 
 If you are still looking for a server for this project, I can recommend the **cx31** server for 4.51 EUR/month with 20TB traffic volume from the European provider [HETZNER CLOUD](https://www.hetzner.com).
 
@@ -100,7 +101,7 @@ If you have chosen a server from [HETZNER CLOUD](https://www.hetzner.com), here 
 
 There are many ways to test the new SOCKS5 proxy.
 
-**Firefox:***Settings* → search for *proxy* → enter the SOCKS5 proxy address and port number. Open [https://ipchicken.com](https://ipchicken.com) and check the IP address.
+\*\*Firefox:\*\**Settings* → search for *proxy* → enter the SOCKS5 proxy address and port number. Open [https://ipchicken.com](https://ipchicken.com) and check the IP address.
 
 **Putty:** Open Putty and click on *Connection* → *Proxy* → enter the SOCKS5 proxy address and port number. Open a SSH connection.
 
@@ -112,7 +113,7 @@ curl -x socks5://<your_ip_server>:<your_danted_port> ifconfig.co
 
 * * *
 
-I hope you found this tutorial informative and enjoyable! 
+I hope you found this tutorial informative and enjoyable!
 
 Follow me on [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
 
