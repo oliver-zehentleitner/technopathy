@@ -8,6 +8,10 @@ tags: github, python, security, malware, binance
 
 ---
 
+> **Update (2026-04-22):** Further analysis indicates that this fraudulent repository is likely one lure within a broader GitHub malware campaign.  
+> Across the currently confirmed set, multiple repositories share the same decoded C2 (`api.nailproxy.space`), the same staged Windows payload flow, similar `utils/` dropper architecture, repeated commit choreography, and manipulated-looking social proof.  
+> Follow-up analysis: [nailproxy.space: A Multi-Repository GitHub Malware Campaign](https://blog.technopathy.club/nailproxy-space-github-malware-campaign)
+
 > **TL;DR:** Do **not** clone or run `gesine1541ro7/UNICORN-Binance-WebSocket-API`.  
 > Based on the public startup path, it stages and executes a hidden Windows PE payload at launch.  
 > The legitimate project lives here: [`oliver-zehentleitner/unicorn-binance-websocket-api`](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api)  
@@ -25,23 +29,32 @@ This post documents what I observed, why I consider it malicious, and what I am 
 
 I maintain the legitimate **UNICORN Binance WebSocket API** project through the official project channels:
 
-- [Official GitHub repository: oliver-zehentleitner/unicorn-binance-websocket-api](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api)
-- [Official PyPI package: unicorn-binance-websocket-api](https://pypi.org/project/unicorn-binance-websocket-api/)
+*   [Official GitHub repository: oliver-zehentleitner/unicorn-binance-websocket-api](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api)
+    
+*   [Official PyPI package: unicorn-binance-websocket-api](https://pypi.org/project/unicorn-binance-websocket-api/)
+    
 
 The repository I analyzed is this one:
 
-- [Fraudulent repository: gesine1541ro7/UNICORN-Binance-WebSocket-API](https://github.com/gesine1541ro7/UNICORN-Binance-WebSocket-API)
+*   [Fraudulent repository: gesine1541ro7/UNICORN-Binance-WebSocket-API](https://github.com/gesine1541ro7/UNICORN-Binance-WebSocket-API)
+    
 
 What initially stood out was not just the reused project name, but also the mismatch between its visible development footprint and its social proof.
 
 At the time of writing, the repository publicly shows:
 
-- **816 stars**
-- **453 forks**
-- **0 issues**
-- **0 pull requests**
-- **1 contributor**
-- **4 commits**
+*   **816 stars**
+    
+*   **453 forks**
+    
+*   **0 issues**
+    
+*   **0 pull requests**
+    
+*   **1 contributor**
+    
+*   **4 commits**
+    
 
 That profile is highly unusual for a repository with such limited visible activity.
 
