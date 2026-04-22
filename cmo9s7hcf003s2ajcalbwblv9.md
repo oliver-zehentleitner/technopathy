@@ -4,7 +4,7 @@ datePublished: 2026-04-22T08:19:20.083Z
 cuid: cmo9s7hcf003s2ajcalbwblv9
 slug: security-warning-fraudulent-github-repository-impersonating-unicorn-binance-websocket-api
 cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/e5fcff05-c154-431c-bf90-4122169b23ed.png
-tags: github, python, security, malware, cybersecurity, open-source, threat-intelligence
+tags: github, python, security, malware, cybersecurity, binance, open-source, threat-intelligence
 
 ---
 
