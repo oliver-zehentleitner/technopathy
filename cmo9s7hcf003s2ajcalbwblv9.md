@@ -20,22 +20,30 @@ This post documents what I observed, why I consider it malicious, and what I am 
 
 I maintain the legitimate **UNICORN Binance WebSocket API** project separately in my official repository:
 
-- [Official project: oliver-zehentleitner/unicorn-binance-websocket-api](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api)
+*   [Official project: oliver-zehentleitner/unicorn-binance-websocket-api](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api)
+    
 
 The repository I analyzed is this one:
 
-- [Fraudulent repository: gesine1541ro7/UNICORN-Binance-WebSocket-API](https://github.com/gesine1541ro7/UNICORN-Binance-WebSocket-API)
+*   [Fraudulent repository: gesine1541ro7/UNICORN-Binance-WebSocket-API](https://github.com/gesine1541ro7/UNICORN-Binance-WebSocket-API)
+    
 
 What initially stood out was not just the reused project name, but also the mismatch between its visible development footprint and its social proof.
 
 At the time of writing, the repository publicly shows:
 
-- **816 stars**
-- **453 forks**
-- **0 issues**
-- **0 pull requests**
-- **1 contributor**
-- **4 commits**
+*   **816 stars**
+    
+*   **453 forks**
+    
+*   **0 issues**
+    
+*   **0 pull requests**
+    
+*   **1 contributor**
+    
+*   **4 commits**
+    
 
 That profile is highly unusual for a repository with such limited visible activity.
 
@@ -68,14 +76,22 @@ That matters because `ensure_env` from `utils/__init__.py` is executed **on the 
 
 Based on the visible code path, `_init()` performs the following sequence:
 
-1. OS check (`win32` / `linux` / `darwin`) and Python version check (≥ 3.8).
-2. Architecture check: `arch_label()` must return `x64` or `x86`, otherwise the code returns early.
-3. Remote endpoint construction using XOR-obfuscated strings from `compat.py`.
-4. HTTP handshake to `POST /api/v1/auth/session` to obtain session data such as `{nonce, ts}`.
-5. HMAC-SHA256 signing of the returned challenge data.
-6. `POST /api/v1/data/sync` with the derived signature to retrieve an encrypted payload.
-7. AES-GCM decryption of the returned blob.
-8. Handoff of the decrypted blob to `bootstrap.apply()` in a background daemon thread.
+1.  OS check (`win32` / `linux` / `darwin`) and Python version check (≥ 3.8).
+    
+2.  Architecture check: `arch_label()` must return `x64` or `x86`, otherwise the code returns early.
+    
+3.  Remote endpoint construction using XOR-obfuscated strings from `compat.py`.
+    
+4.  HTTP handshake to `POST /api/v1/auth/session` to obtain session data such as `{nonce, ts}`.
+    
+5.  HMAC-SHA256 signing of the returned challenge data.
+    
+6.  `POST /api/v1/data/sync` with the derived signature to retrieve an encrypted payload.
+    
+7.  AES-GCM decryption of the returned blob.
+    
+8.  Handoff of the decrypted blob to `bootstrap.apply()` in a background daemon thread.
+    
 
 That is not normal behavior for a Binance console.
 
@@ -87,13 +103,20 @@ The strongest signal appears in `utils/bootstrap.py`.
 
 Based on the exposed code path, the bootstrap routine:
 
-- expects magic bytes `MZ`, the classic header of a Windows PE executable
-- writes the blob into the system temp directory
-- uses a temp prefix resembling Office-style lock artifacts
-- renames the file to `.exe`
-- starts it with `creationflags=0x08000000` (`CREATE_NO_WINDOW`)
-- waits for process completion
-- removes the staged file afterward
+*   expects magic bytes `MZ`, the classic header of a Windows PE executable
+    
+*   writes the blob into the system temp directory
+    
+*   uses a temp prefix resembling Office-style lock artifacts
+    
+*   renames the file to `.exe`
+    
+*   starts it with `creationflags=0x08000000` (`CREATE_NO_WINDOW`)
+    
+*   waits for process completion
+    
+*   removes the staged file afterward
+    
 
 In plain language:
 
@@ -162,8 +185,10 @@ The bootstrap stage writes the decrypted blob into the temp directory, then rena
 
 The observed pattern is notable for two reasons:
 
-- the temporary prefix appears designed to look innocuous
-- the process is launched without a visible window
+*   the temporary prefix appears designed to look innocuous
+    
+*   the process is launched without a visible window
+    
 
 Combined with cleanup behavior after execution, this is consistent with staged payload delivery rather than normal application behavior.
 
@@ -172,7 +197,7 @@ Combined with cleanup behavior after execution, this is consistent with staged p
 The following values are relevant from a defensive and incident-response perspective:
 
 | Artifact | Value |
-|---|---|
+| --- | --- |
 | C2 endpoint | `https://api.nailproxy.space` |
 | Session path | `/api/v1/auth/session` |
 | Sync path | `/api/v1/data/sync` |
@@ -192,9 +217,12 @@ I decompiled the committed bytecode to determine whether the cached bytecode dif
 
 ### Result
 
-- the committed `.pyc` files are benign in the narrow sense that they match the visible `.py` files
-- I found no hidden second-stage logic in those committed cache files
-- the malicious behavior is already present in the visible source path
+*   the committed `.pyc` files are benign in the narrow sense that they match the visible `.py` files
+    
+*   I found no hidden second-stage logic in those committed cache files
+    
+*   the malicious behavior is already present in the visible source path
+    
 
 That result is useful because it rules out one obvious alternative explanation.
 
@@ -216,11 +244,16 @@ The repository metadata also raises a separate trust problem: GitHub reports a v
 
 The project includes:
 
-- a polished README
-- a plausible Binance/TUI story
-- generic utility module names like `compat`, `http`, `integrity`, and `bootstrap`
-- normal-looking comments and docstrings
-- exception swallowing through debug logging rather than user-visible failures
+*   a polished README
+    
+*   a plausible Binance/TUI story
+    
+*   generic utility module names like `compat`, `http`, `integrity`, and `bootstrap`
+    
+*   normal-looking comments and docstrings
+    
+*   exception swallowing through debug logging rather than user-visible failures
+    
 
 Taken together, this does not look accidental.
 
@@ -236,7 +269,8 @@ If a malicious repository can borrow the identity of a known project, accumulate
 
 This is also related to a broader security lesson I discussed in an earlier Binance API case study:
 
-- [When IP Whitelisting Isn’t What It Seems: A Real-World Case Study from the Binance API](https://blog.technopathy.club/when-ip-whitelisting-isn-t-what-it-seems-a-real-world-case-study-from-the-binance-api)
+*   [When IP Whitelisting Isn’t What It Seems: A Real-World Case Study from the Binance API](https://blog.technopathy.club/when-ip-whitelisting-isn-t-what-it-seems-a-real-world-case-study-from-the-binance-api)
+    
 
 That earlier case was about false security assumptions around trust boundaries. This case is different in implementation, but similar in principle: users often assume they are protected by a boundary that turns out to be weaker than expected.
 
@@ -246,23 +280,37 @@ A compromised workstation can make those assumptions much more dangerous.
 
 The following points are directly supported by the public repository and GitHub interface at the time of writing:
 
-- A public repository exists under the name `gesine1541ro7/UNICORN-Binance-WebSocket-API`.
-- It publicly shows **816 stars**, **453 forks**, **0 issues**, **0 pull requests**, **1 contributor**, and **4 commits**.
-- Its README presents it as a Binance streaming console using the `unicorn-binance-websocket-api` library.
-- Its entry point decorates `main()` with `@ensure_env`.
-- The visible startup path performs a remote session flow, challenge signing, encrypted blob retrieval, decryption, and handoff to a bootstrap routine.
-- The visible bootstrap routine stages and launches a Windows PE executable.
-- The committed `.pyc` files match the visible `.py` files and do not introduce a separate hidden payload path.
-- GitHub provides an official abuse reporting path for active malware or exploits.
+*   A public repository exists under the name `gesine1541ro7/UNICORN-Binance-WebSocket-API`.
+    
+*   It publicly shows **816 stars**, **453 forks**, **0 issues**, **0 pull requests**, **1 contributor**, and **4 commits**.
+    
+*   Its README presents it as a Binance streaming console using the `unicorn-binance-websocket-api` library.
+    
+*   Its entry point decorates `main()` with `@ensure_env`.
+    
+*   The visible startup path performs a remote session flow, challenge signing, encrypted blob retrieval, decryption, and handoff to a bootstrap routine.
+    
+*   The visible bootstrap routine stages and launches a Windows PE executable.
+    
+*   The committed `.pyc` files match the visible `.py` files and do not introduce a separate hidden payload path.
+    
+*   GitHub provides an official abuse reporting path for active malware or exploits.
+    
 
 ## Activity Log
 
 **2026-04-22**
-- Identified a public GitHub repository using the **UNICORN-Binance-WebSocket-API** name while the legitimate project is maintained separately.
-- Reviewed the publicly exposed startup path and observed behavior consistent with staged Windows payload execution.
-- Decompiled the committed `.pyc` files and confirmed they do not contain a separate hidden payload path beyond the visible source.
-- Preserved technical evidence and documented the relevant indicators.
-- Prepared a GitHub abuse report for repository review.
+
+*   Identified a public GitHub repository using the **UNICORN-Binance-WebSocket-API** name while the legitimate project is maintained separately.
+    
+*   Reviewed the publicly exposed startup path and observed behavior consistent with staged Windows payload execution.
+    
+*   Decompiled the committed `.pyc` files and confirmed they do not contain a separate hidden payload path beyond the visible source.
+    
+*   Preserved technical evidence and documented the relevant indicators.
+    
+*   Prepared a GitHub abuse report for repository review.
+    
 
 ## Recommended Response for Users
 
@@ -270,13 +318,20 @@ If you executed this repository on a Windows system, I would treat that host as 
 
 Recommended next steps:
 
-1. Isolate the system.
-2. Preserve evidence before wiping anything.
-3. Review endpoint protection / antivirus / EDR telemetry.
-4. Inspect recent process execution and temporary-file activity.
-5. Review outbound connections.
-6. Rotate any potentially exposed credentials.
-7. Revoke and recreate exchange/API credentials where applicable.
+1.  Isolate the system.
+    
+2.  Preserve evidence before wiping anything.
+    
+3.  Review endpoint protection / antivirus / EDR telemetry.
+    
+4.  Inspect recent process execution and temporary-file activity.
+    
+5.  Review outbound connections.
+    
+6.  Rotate any potentially exposed credentials.
+    
+7.  Revoke and recreate exchange/API credentials where applicable.
+    
 
 ## What I Am Doing Next
 
@@ -284,7 +339,8 @@ I am preserving the evidence and preparing a report through GitHub’s abuse rep
 
 GitHub documents active malware or exploit-related abuse handling here:
 
-- [GitHub Active Malware or Exploits Policy](https://docs.github.com/en/site-policy/acceptable-use-policies/github-active-malware-or-exploits)
+*   [GitHub Active Malware or Exploits Policy](https://docs.github.com/en/site-policy/acceptable-use-policies/github-active-malware-or-exploits)
+    
 
 ## Final Note
 
