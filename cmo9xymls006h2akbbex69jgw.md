@@ -10,6 +10,9 @@ tags: github, python, security, malware, threat-intelligence
 
 > **Update (2026-04-22, 13:33):** I submitted this case to GitHub Support for campaign-level review. Ticket ID: **4313391**.
 
+> **Further update (2026-04-23):** I published a deeper technical follow-up covering the delivery chain, loader behavior, and StealC-linked final-stage payload analysis.  
+> Read: [From a coffee-in-bed Google search to a StealC-linked campaign — the story behind nailproxy.space](https://blog.technopathy.club/from-a-coffee-in-bed-google-search-to-a-stealc-linked-campaign-the-story-behind-nailproxy-space)
+
 > **TL;DR:** What initially looked like a single fraudulent repository impersonating **UNICORN Binance WebSocket API** now appears to be part of a broader **multi-repository GitHub malware campaign**.  
 > Across the currently confirmed set, the repositories share the same C2 infrastructure, the same staged Windows payload flow, the same deceptive repository framing, and the same manipulated-looking social proof patterns.  
 > At the time of writing, I have **19 confirmed repositories** in scope. The list is likely incomplete.
