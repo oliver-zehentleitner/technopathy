@@ -33,14 +33,13 @@ On a Wednesday morning, still in bed with coffee, I did something most open-sour
 
 One of the top results was not mine.
 
+The repository name and description were close enough to my project to be immediately noticeable, but it was not pretending to be my exact repository. It presented itself as a CLI-style wrapper built on top of UBWA.
 
-The repository name and description looked almost identical to the real one. The screenshots looked familiar. The README looked tidy. The project structure looked plausible.
+What triggered the closer look was the social proof.
 
-What really set off the alarm, though, was the mismatch between its visible age, activity, and social proof.
+The repository was only about a month old, had **zero issues**, **zero pull requests**, and almost no visible community activity — yet it had already accumulated **more stars than my actual project**. The fork count also looked suspiciously high, and the overall relationship between age, activity, stars, and forks did not look organic.
 
-The repository was only about a month old, showed **zero issues**, **zero pull requests**, and almost no visible community interaction — yet it had already accumulated more stars than my actual project — despite showing none of the signs of real community activity one would normally expect.
-
-That combination was what made me stop and look more closely. Once I started reading the code, it became obvious that this was not my project.
+That was the point where this stopped looking like a strange third-party wrapper and started looking like something deceptive. Once I started reading the code, it became obvious that this was not just opportunistic naming — it was malicious.
 
 That was the beginning of the rabbit hole.
 
