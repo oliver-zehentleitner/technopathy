@@ -8,7 +8,7 @@ tags: github, security, malware, threat-intelligence, stealer
 
 ---
 
-*TL;DR: Someone set up* ***19 fake GitHub repos across 17 distinct accounts****, impersonating popular Python open-source projects — including my own UNICORN Binance Suite. Each repo carried a small Python dropper that contacted* `api.nailproxy.space`*, retrieved a native Windows loader, and ultimately deployed a payload* ***consistent with StealC v2****, including Chrome App-Bound Encryption bypass behavior. When I first wrote about the fake repositories, the* ***GitHub delivery chain*** *behind them was still undocumented in public reporting. This post covers how I found it, what the malware chain does, and what to do if you ran any of the affected repos.*
+*TL;DR: Someone set up* ***19 fake GitHub repos across 17 distinct accounts***\*, impersonating popular Python open-source projects — including my own UNICORN Binance Suite. Each repo carried a small Python dropper that contacted\* `api.nailproxy.space`*, retrieved a native Windows loader, and ultimately deployed a payload* ***consistent with StealC v2***\*, including Chrome App-Bound Encryption bypass behavior. When I first wrote about the fake repositories, the\* ***GitHub delivery chain*** *behind them was still undocumented in public reporting. This post covers how I found it, what the malware chain does, and what to do if you ran any of the affected repos.*
 
 > **Update (2026-04-23):**
 > 
@@ -33,7 +33,14 @@ On a Wednesday morning, still in bed with coffee, I did something most open-sour
 
 One of the top results was not mine.
 
-The repository name and description looked almost identical to the real one. The screenshots looked familiar. The README looked tidy. The project structure looked plausible. But the GitHub account behind it was some `gesine1541ro7` I had never heard of, and once I started reading the code, it was obvious that this was not my project.
+
+The repository name and description looked almost identical to the real one. The screenshots looked familiar. The README looked tidy. The project structure looked plausible.
+
+What really set off the alarm, though, was the mismatch between its visible age, activity, and social proof.
+
+The repository was only about a month old, showed **zero issues**, **zero pull requests**, and almost no visible community interaction — yet it had already accumulated more stars than my actual project — despite showing none of the signs of real community activity one would normally expect.
+
+That combination was what made me stop and look more closely. Once I started reading the code, it became obvious that this was not my project.
 
 That was the beginning of the rabbit hole.
 
@@ -435,7 +442,7 @@ The confirmed fake GitHub repositories are listed in the earlier campaign post:
 *   [nailproxy.space: A Multi-Repository GitHub Malware Campaign](https://blog.technopathy.club/nailproxy-space-github-malware-campaign)
     
 
-The related IOCs were also submitted to ThreatFox and are now part of the public sharing ecosystem there.
+The [related IOCs](https://threatfox.abuse.ch/user/12877/) were also submitted to ThreatFox and are now part of the public threat intelligence ecosystem.
 
 * * *
 
