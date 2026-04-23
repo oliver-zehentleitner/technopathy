@@ -439,3 +439,7 @@ The broader pattern now justifies something stronger:
 Open source depends on trust.
 
 Campaigns like this are dangerous not only because they deliver payloads, but because they systematically erode the assumptions people make about what looks legitimate on public platforms.
+
+* * *
+
+Follow me on [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
