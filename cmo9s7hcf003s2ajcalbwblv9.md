@@ -12,6 +12,9 @@ tags: github, python, security, malware, binance
 > Across the currently confirmed set, multiple repositories share the same decoded C2 (`api.nailproxy.space`), the same staged Windows payload flow, similar `utils/` dropper architecture, repeated commit choreography, and manipulated-looking social proof.  
 > Follow-up analysis: [nailproxy.space: A Multi-Repository GitHub Malware Campaign](https://blog.technopathy.club/nailproxy-space-github-malware-campaign)
 
+> **Further update (2026-04-23):** I published a deeper follow-up on the delivery chain, loader, and StealC-linked final-stage behavior behind this campaign.  
+> Read: [From a coffee-in-bed Google search to a StealC-linked campaign — the story behind nailproxy.space](https://blog.technopathy.club/from-a-coffee-in-bed-google-search-to-a-stealc-linked-campaign-the-story-behind-nailproxy-space)
+
 > **TL;DR:** Do **not** clone or run `gesine1541ro7/UNICORN-Binance-WebSocket-API`.  
 > Based on the public startup path, it stages and executes a hidden Windows PE payload at launch.  
 > The legitimate project lives here: [`oliver-zehentleitner/unicorn-binance-websocket-api`](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api)  
