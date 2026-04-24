@@ -10,7 +10,11 @@ tags: python, binance, api-security
 
 A case study on how Binance's listenKey design bypasses IP whitelisting, why Bugcrowd dismissed it, and what this teaches us about API security in 2025.
 
-> **Update (April 2026):** This article was [originally published on **Medium on November 23, 2025**](https://medium.com/technopathy/when-ip-whitelisting-isnt-what-it-seems-a-real-world-case-study-from-the-binance-api-816c4312d6d0), and has since been migrated to this blog. Since then, Binance has retired the old `listenKey`-based model for **Spot User Data Streams** from its Spot documentation and moved user data subscriptions to the **WebSocket API**. As a result, this post should be read as a case study of the earlier Spot architecture at the time of the original disclosure. In **Derivatives/Futures**, however, `listenKey`-based user data stream mechanisms are still present in the current documentation, so the transition does not appear to be fully uniform across all Binance product lines.
+> **Update (2026-04-20):** This article was [originally published on **Medium on November 23, 2025**](https://medium.com/technopathy/when-ip-whitelisting-isnt-what-it-seems-a-real-world-case-study-from-the-binance-api-816c4312d6d0), and has since been migrated to this blog. Since then, Binance has retired the old `listenKey`\-based model for **Spot User Data Streams** from its Spot documentation and moved user data subscriptions to the **WebSocket API**. As a result, this post should be read as a case study of the earlier Spot architecture at the time of the original disclosure. In **Derivatives/Futures**, however, `listenKey`\-based user data stream mechanisms are still present in the current documentation, so the transition does not appear to be fully uniform across all Binance product lines.
+
+> **Update (2026-04-23):** Since publishing this case study, I uncovered a separate GitHub malware campaign that used the **UNICORN Binance WebSocket API** ecosystem as bait.  
+> While technically distinct from the listenKey issue discussed here, it makes one thing very concrete: once a host is compromised, assumptions about what IP whitelisting or related boundaries do and do not protect become far more consequential.  
+> Follow-up research: [From a coffee-in-bed Google search to a StealC-linked campaign — the story behind nailproxy.space](https://blog.technopathy.club/from-a-coffee-in-bed-google-search-to-a-stealc-linked-campaign-the-story-behind-nailproxy-space)
 
 * * *
 
