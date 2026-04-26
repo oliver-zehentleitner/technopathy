@@ -444,7 +444,7 @@ If you already live in the UNICORN Binance world, you can also use the official 
 
 That gives Python users a smooth migration path from local caches to shared cluster-backed access.
 
-\[SCREENSHOT: Dashboard — API Builder Python tab with example call\]
+![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/22cc4df2-6ff4-4e07-8d28-46c387a201a9.png align="center")
 
 ## Related projects
 
