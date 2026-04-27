@@ -161,10 +161,9 @@ This is the kind of finding that does not have a CVSS score and will not get a B
 [*UNICORN DepthCache Cluster*](https://github.com/oliver-zehentleitner/unicorn-binance-depth-cache-cluster) *— Consistent order book data as a REST service.* `pip install ubdcc && ubdcc start`*. Any language, any number of clients.*
 
 Suggested reading path:
-
-[Why Binance order books silently go wrong](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why)
-[Why the order book should not live inside your bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot)
-[How to run UBDCC locally in minutes](https://blog.technopathy.club/from-pip-install-to-a-redundant-binance-order-book-cluster-ubdcc-dashboard-quickstart)
+- [Why Binance order books silently go wrong](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why)
+- [Why the order book should not live inside your bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot)
+- [How to run UBDCC locally in minutes](https://blog.technopathy.club/from-pip-install-to-a-redundant-binance-order-book-cluster-ubdcc-dashboard-quickstart)
 
 * * *
 
