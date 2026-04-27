@@ -236,6 +236,9 @@ curl 'http://127.0.0.1:42081/get_asks?exchange=binance.com&market=BTCUSDT&limit_
 
 That is the whole idea: create once, consume anywhere.
 
+For a full practical walkthrough with the dashboard, replicas, failover test, REST calls, and generated client snippets, see:
+[From pip install to a Redundant Binance Order Book Cluster — UBDCC + Dashboard Quickstart](https://blog.technopathy.club/from-pip-install-to-a-redundant-binance-order-book-cluster-ubdcc-dashboard-quickstart)
+
 ## Python users are not locked out
 
 If you already use [**UBLDC**](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache) for local order books, the cluster interface is built in.
@@ -287,6 +290,11 @@ A shared DepthCache is only useful if consumers also know its state. UBDCC does 
 If a book is re-syncing, that state is explicit.
 
 That matters more than most people think.
+
+I wrote a separate deep dive on the orphaned-level problem here:
+[Your Binance Order Book Is Wrong — Here's Why](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why)
+
+That post explains why a Binance-compatible local order book can look correct while silently accumulating stale price levels over time.
 
 ### Failover is transparent
 
