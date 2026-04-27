@@ -140,6 +140,12 @@ That gives you a local REST API where any process can query consistent, pruned, 
 
 Either way, **do not rely on the Binance diff stream alone** to keep your book consistent past the active edge. The protocol does not guarantee what most documentation implies.
 
+If you want the architectural reasoning behind running this as shared infrastructure instead of embedding it inside every bot, I wrote that up here:
+[Why Your Binance Order Book Should Not Live Inside Your Bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot)
+
+And if you just want to try the cluster directly, start here:
+[From pip install to a Redundant Binance Order Book Cluster — UBDCC + Dashboard Quickstart](https://blog.technopathy.club/from-pip-install-to-a-redundant-binance-order-book-cluster-ubdcc-dashboard-quickstart)
+
 * * *
 
 ## Why I wrote this
@@ -153,6 +159,12 @@ This is the kind of finding that does not have a CVSS score and will not get a B
 [*UNICORN Binance Local Depth Cache*](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache) *— MIT, 220K+ downloads · The fix is in* `manager.py`*, function* `_clear_orphaned_depthcache_items()`*.*
 
 [*UNICORN DepthCache Cluster*](https://github.com/oliver-zehentleitner/unicorn-binance-depth-cache-cluster) *— Consistent order book data as a REST service.* `pip install ubdcc && ubdcc start`*. Any language, any number of clients.*
+
+Suggested reading path:
+
+[Why Binance order books silently go wrong](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why)
+[Why the order book should not live inside your bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot)
+[How to run UBDCC locally in minutes](https://blog.technopathy.club/from-pip-install-to-a-redundant-binance-order-book-cluster-ubdcc-dashboard-quickstart)
 
 * * *
 
