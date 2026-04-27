@@ -41,6 +41,12 @@ Just getting a real Binance DepthCache up and running quickly — and then under
 > 
 > Your application can stay in Node.js, PHP, Go, Java, Rust, C#, or anything else that can make HTTP requests.
 
+This is the hands-on quickstart.
+If you first want the technical background, read these two companion posts:
+
+- [Your Binance Order Book Is Wrong — Here's Why](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why) — why naive local Binance order books can silently accumulate stale levels.
+- [Why Your Binance Order Book Should Not Live Inside Your Bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot) — why shared market-data infrastructure is cleaner than per-bot cache ownership.
+
 ## Who this is for
 
 This is useful if you want a Binance DepthCache for things like:
@@ -111,6 +117,8 @@ That gives you some very practical advantages:
     
 *   you can hit your local cluster as hard as you want without hammering Binance the same way
     
+This is the same architectural shift I describe in more detail here:
+[Why Your Binance Order Book Should Not Live Inside Your Bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot)
 
 That is the practical value.
 
@@ -485,6 +493,10 @@ What you also get is:
     
 
 That is a lot to get from a `pip install`.
+
+Related background:
+- [Your Binance Order Book Is Wrong — Here's Why](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why)
+- [Why Your Binance Order Book Should Not Live Inside Your Bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot)
 
 If you want to try it:
 
