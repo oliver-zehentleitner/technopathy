@@ -8,6 +8,15 @@ tags: python, trading, binance, unicorn-binance-depth-cache-cluster
 
 ---
 
+> This is the quickstart.
+>
+> If you want the architectural “why” behind it — why UBDCC is not just
+> a cache, why `#6000` is a trust signal, and how UBWA → UBLDC → UBDCC
+> turns Binance depth streams into an observable trust layer — read the
+> companion deep-dive:
+>
+> **[UBDCC Deep-Dive: Building a Trust Layer for Binance Order Books](https://blog.technopathy.club/ubdcc-deep-dive-building-a-trust-layer-for-binance-order-books)**
+
 If your goal is simple — *“I need a Binance DepthCache and I want it running now”* — this is probably the shortest path I know.
 
 With [**UBDCC**](https://github.com/oliver-zehentleitner/unicorn-binance-depth-cache-cluster), you can start live, correctly synchronized Binance DepthCaches in minutes, manage and automate the setup by code or REST, and use the browser dashboard as an additional operational interface with a built-in API Builder.
@@ -41,11 +50,12 @@ Just getting a real Binance DepthCache up and running quickly — and then under
 > 
 > Your application can stay in Node.js, PHP, Go, Java, Rust, C#, or anything else that can make HTTP requests.
 
-This is the hands-on quickstart.
-If you first want the technical background, read these two companion posts:
+This is the hands-on quickstart. If you first want the technical background, read these two companion posts:
 
-- [Your Binance Order Book Is Wrong — Here's Why](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why) — why naive local Binance order books can silently accumulate stale levels.
-- [Why Your Binance Order Book Should Not Live Inside Your Bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot) — why shared market-data infrastructure is cleaner than per-bot cache ownership.
+*   [Your Binance Order Book Is Wrong — Here's Why](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why) — why naive local Binance order books can silently accumulate stale levels.
+    
+*   [Why Your Binance Order Book Should Not Live Inside Your Bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot) — why shared market-data infrastructure is cleaner than per-bot cache ownership.
+    
 
 ## Who this is for
 
@@ -117,8 +127,8 @@ That gives you some very practical advantages:
     
 *   you can hit your local cluster as hard as you want without hammering Binance the same way
     
-This is the same architectural shift I describe in more detail here:
-[Why Your Binance Order Book Should Not Live Inside Your Bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot)
+
+This is the same architectural shift I describe in more detail here: [Why Your Binance Order Book Should Not Live Inside Your Bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot)
 
 That is the practical value.
 
@@ -495,8 +505,11 @@ What you also get is:
 That is a lot to get from a `pip install`.
 
 Related background:
-- [Your Binance Order Book Is Wrong — Here's Why](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why)
-- [Why Your Binance Order Book Should Not Live Inside Your Bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot)
+
+*   [Your Binance Order Book Is Wrong — Here's Why](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why)
+    
+*   [Why Your Binance Order Book Should Not Live Inside Your Bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot)
+    
 
 If you want to try it:
 
