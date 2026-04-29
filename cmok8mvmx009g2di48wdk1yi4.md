@@ -75,7 +75,7 @@ And the next one.
 
 After a few hours, your local order book is no longer a bounded view of the exchange book. It is a growing collection of historical levels.
 
-I once had a Binance engineer confirm this in a Telegram conversation. The message was candid: production systems need their own pruning, gap handling, and resync logic.
+I once discussed this exact class of problem with a Binance engineer in Telegram. The takeaway was clear: production systems cannot stop at basic synchronization; they need their own pruning, gap handling, and resync logic.
 
 ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/35971b5d-023d-4285-a019-2f6cb2184867.png align="center")
 
