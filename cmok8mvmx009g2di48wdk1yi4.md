@@ -298,11 +298,17 @@ The supplementary material index is here:
 
 [https://oliver-zehentleitner.github.io/binance-depthcache-forensics](https://oliver-zehentleitner.github.io/binance-depthcache-forensics)
 
+The public GitHub repository is here:
+
+- [github.com/oliver-zehentleitner/binance-depthcache-forensics](https://github.com/oliver-zehentleitner/binance-depthcache-forensics)
+
+It tracks the GitHub Pages index, interactive chart links, raw audit data, and benchmark context.
+
 The whole experiment is about 600 lines of Python (`dc.py`, `audit.py`, `plotter.py`, `run.py`, `analysis.py`) plus the `unicorn-binance-websocket-api` dependency and Plotly.
 
 The raw data is available here:
 
-[https://oliver-zehentleitner.github.io/binance-depthcache-forensics/raw\_data.tar.gz](https://oliver-zehentleitner.github.io/binance-depthcache-forensics/raw_data.tar.gz)
+[https://oliver-zehentleitner.github.io/binance-depthcache-forensics/raw_data.tar.gz](https://oliver-zehentleitner.github.io/binance-depthcache-forensics/raw_data.tar.gz)
 
 It contains the audit JSON files, archived REST snapshots, and run logs. If you want to verify a number from this article, it is in there.
 
