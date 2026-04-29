@@ -360,6 +360,8 @@ It abuses developer habit.
 
 ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/dca1d4f8-9382-4d70-8576-2409e01e90ad.png align="center")
 
+* * *
+
 ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/18c50fa6-694e-4222-8275-a134e3e2b872.png align="center")
 
 ## Why this works
