@@ -135,7 +135,7 @@ A few Calendly links later, we scheduled the call.
 
 ## The thing that saved me
 
-Two days before the interview, I read a Reddit post about a Claude Code proof-of-concept by [Zhangir Ospanov](https://www.linkedin.com/in/s0ld13r/).
+Two days before the interview, I read [a Reddit post about a Claude Code proof-of-concept](https://www.reddit.com/r/blueteamsec/comments/1sw26a2/claudecodebackdoor_backdooring_claude_code_via/) by [Zhangir Ospanov](https://www.linkedin.com/in/s0ld13r/).
 
 The PoC is here:
 
@@ -187,8 +187,6 @@ I made a mental note:
 > If somebody asks me to open an unfamiliar repository in any IDE, inspect the project automation files first.
 
 Two days later, that note mattered.
-
-> ⚠️ **Screenshot placeholder:** Zhangir Ospanov LinkedIn post / Claude Code PoC reference that triggered awareness
 
 * * *
 
