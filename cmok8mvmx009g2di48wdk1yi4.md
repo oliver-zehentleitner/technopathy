@@ -79,6 +79,10 @@ I once discussed this exact class of problem with a Binance engineer in Telegram
 
 ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/35971b5d-023d-4285-a019-2f6cb2184867.png align="center")
 
+This is not a new class of problem. A public Binance depth-cache note from 2017 already described the same operational issue: if the order book shifts far enough from the snapshot, a local book can miss levels, and the implementation has to track that shift and resync.
+
+[Historical Binance Depth Cache Notes](https://gist.github.com/sammchardy/5515afe1dff84475098f669a62558860)
+
 This eventually became a tracked issue while I was debugging drift in my own UNICORN Binance Local Depth Cache implementation:
 
 https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache/issues/45
@@ -300,7 +304,8 @@ The supplementary material index is here:
 
 The public GitHub repository is here:
 
-- [github.com/oliver-zehentleitner/binance-depthcache-forensics](https://github.com/oliver-zehentleitner/binance-depthcache-forensics)
+*   [github.com/oliver-zehentleitner/binance-depthcache-forensics](https://github.com/oliver-zehentleitner/binance-depthcache-forensics)
+    
 
 It tracks the GitHub Pages index, interactive chart links, raw audit data, and benchmark context.
 
@@ -308,7 +313,7 @@ The whole experiment is about 600 lines of Python (`dc.py`, `audit.py`, `plotter
 
 The raw data is available here:
 
-[https://oliver-zehentleitner.github.io/binance-depthcache-forensics/raw_data.tar.gz](https://oliver-zehentleitner.github.io/binance-depthcache-forensics/raw_data.tar.gz)
+[https://oliver-zehentleitner.github.io/binance-depthcache-forensics/raw\_data.tar.gz](https://oliver-zehentleitner.github.io/binance-depthcache-forensics/raw_data.tar.gz)
 
 It contains the audit JSON files, archived REST snapshots, and run logs. If you want to verify a number from this article, it is in there.
 
