@@ -9,13 +9,10 @@ tags: python, trading, binance, unicorn-binance-depth-cache-cluster
 ---
 
 > This is the quickstart.
->
-> If you want the architectural “why” behind it — why UBDCC is not just
-> a cache, why `#6000` is a trust signal, and how UBWA → UBLDC → UBDCC
-> turns Binance depth streams into an observable trust layer — read the
-> companion deep-dive:
->
-> **[UBDCC Deep-Dive: Building a Trust Layer for Binance Order Books](https://blog.technopathy.club/ubdcc-deep-dive-building-a-trust-layer-for-binance-order-books)**
+> 
+> If you want the architectural “why” behind it — why UBDCC is not just a cache, why `#6000` is a trust signal, and how UBWA → UBLDC → UBDCC turns Binance depth streams into an observable trust layer — read the companion deep-dive:
+> 
+> [**UBDCC Deep-Dive: Building a Trust Layer for Binance Order Books**](https://blog.technopathy.club/ubdcc-deep-dive-building-a-trust-layer-for-binance-order-books)
 
 If your goal is simple — *“I need a Binance DepthCache and I want it running now”* — this is probably the shortest path I know.
 
@@ -167,7 +164,7 @@ source ubdcc-env/bin/activate
 ## Step 2 — Install UBDCC
 
 ```bash
-pip install ubdcc
+python3 -m pip install ubdcc
 ```
 
 That one package gives you the cluster components and the dashboard.
