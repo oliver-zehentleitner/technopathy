@@ -12,6 +12,12 @@ If you maintain a local Binance order book, there is a good chance it contains p
 
 I am not talking about reconnect logic, sequence gaps, or the well-known initial-snapshot race condition. Those are documented and most libraries handle them. I am talking about a class of stale entries that accumulate silently in your depth cache because Binance never tells you they should be gone.
 
+> **Update / follow-up:** I later ran a 25-hour forensic benchmark to measure this failure mode with two DepthCache implementations running side by side on the same BTCUSDT WebSocket stream.
+>
+> The full benchmark, interactive 3D charts, raw audit data, and GitHub repository are here:
+>
+> [Your Binance DepthCache is rotting — here's the proof in 25 hours](https://blog.technopathy.club/your-binance-depthcache-is-rotting-here-s-the-proof-in-25-hours)
+
 This came up while I was maintaining [UNICORN Binance Local Depth Cache (UBLDC)](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache). A user reported unbounded growth in their order book — and when I investigated, it turned out to be a gap in Binance's own synchronization spec, not a library bug. The fix was straightforward, but it is not in Binance's documentation, and I have not seen it handled in any other library.
 
 * * *
@@ -140,11 +146,9 @@ That gives you a local REST API where any process can query consistent, pruned, 
 
 Either way, **do not rely on the Binance diff stream alone** to keep your book consistent past the active edge. The protocol does not guarantee what most documentation implies.
 
-If you want the architectural reasoning behind running this as shared infrastructure instead of embedding it inside every bot, I wrote that up here:
-[Why Your Binance Order Book Should Not Live Inside Your Bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot)
+If you want the architectural reasoning behind running this as shared infrastructure instead of embedding it inside every bot, I wrote that up here: [Why Your Binance Order Book Should Not Live Inside Your Bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot)
 
-And if you just want to try the cluster directly, start here:
-[From pip install to a Redundant Binance Order Book Cluster — UBDCC + Dashboard Quickstart](https://blog.technopathy.club/from-pip-install-to-a-redundant-binance-order-book-cluster-ubdcc-dashboard-quickstart)
+And if you just want to try the cluster directly, start here: [From pip install to a Redundant Binance Order Book Cluster — UBDCC + Dashboard Quickstart](https://blog.technopathy.club/from-pip-install-to-a-redundant-binance-order-book-cluster-ubdcc-dashboard-quickstart)
 
 * * *
 
@@ -161,9 +165,13 @@ This is the kind of finding that does not have a CVSS score and will not get a B
 [*UNICORN DepthCache Cluster*](https://github.com/oliver-zehentleitner/unicorn-binance-depth-cache-cluster) *— Consistent order book data as a REST service.* `pip install ubdcc && ubdcc start`*. Any language, any number of clients.*
 
 Suggested reading path:
-- [Why Binance order books silently go wrong](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why)
-- [Why the order book should not live inside your bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot)
-- [How to run UBDCC locally in minutes](https://blog.technopathy.club/from-pip-install-to-a-redundant-binance-order-book-cluster-ubdcc-dashboard-quickstart)
+
+*   [Why Binance order books silently go wrong](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why)
+    
+*   [Why the order book should not live inside your bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot)
+    
+*   [How to run UBDCC locally in minutes](https://blog.technopathy.club/from-pip-install-to-a-redundant-binance-order-book-cluster-ubdcc-dashboard-quickstart)
+    
 
 * * *
 
