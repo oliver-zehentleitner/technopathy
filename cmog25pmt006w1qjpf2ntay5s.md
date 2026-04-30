@@ -52,7 +52,12 @@ This is the hands-on quickstart. If you first want the technical background, rea
 *   [Your Binance Order Book Is Wrong — Here's Why](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why) — why naive local Binance order books can silently accumulate stale levels.
     
 *   [Why Your Binance Order Book Should Not Live Inside Your Bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot) — why shared market-data infrastructure is cleaner than per-bot cache ownership.
-    
+
+## Video walkthrough
+
+If you prefer to see the full setup once before going through the steps, here is the uncut quickstart video:
+
+%[https://youtu.be/o1-nCravKnc]    
 
 ## Who this is for
 
