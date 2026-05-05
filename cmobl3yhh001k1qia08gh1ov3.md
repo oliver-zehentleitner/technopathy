@@ -487,3 +487,5 @@ If you maintain an open-source project, this is a good reminder to occasionally 
 * * *
 
 Follow me on [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+
+Thank you for reading! ¯\\_(ツ)\_/¯
