@@ -371,3 +371,5 @@ If someone hijacks a trusted project name to stage a payload, that is not just a
 * * *
 
 Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+
+Thank you for reading! ¯\\_(ツ)\_/¯
