@@ -8,28 +8,25 @@ tags: github, opensource, malware, binance, pypi, bugbounty, api-security, bugcr
 
 ---
 
+<!-- Hashnode metadata
+Title: Binance Fixed the IP Whitelist Gap. The Disclosure Process Is Still Broken.
+Subtitle: A derived credential must not be more portable than the credential that created it.
+Series: Binance API Security
+Tags: binance, api-security, disclosure, bugbounty, supplychain, opensource, malware, pypi, github
+Cover image: TODO
+-->
+
+# Binance Fixed the IP Whitelist Gap. The Disclosure Process Is Still Broken.
+
 I wanted to re-open an old Binance API security issue.
 
 Not because I enjoy re-litigating old reports.
 
 Because the last thirteen days made the threat model painfully concrete.
 
-In that time, I found or stumbled into:
+I found or stumbled into fake GitHub repositories, a broader `nailproxy.space` malware campaign, a StealC-linked delivery chain, a fake job interview abusing VSCode workspace trust, and a PyPI typosquat targeting my Binance WebSocket library.
 
-1.  [a fraudulent GitHub repository impersonating UNICORN Binance WebSocket API](https://blog.technopathy.club/security-warning-fraudulent-github-repository-impersonating-unicorn-binance-websocket-api)
-    
-2.  [a broader `nailproxy.space` GitHub malware campaign](https://blog.technopathy.club/nailproxy-space-github-malware-campaign)
-    
-3.  [a StealC-linked delivery chain using fake open-source repositories](https://blog.technopathy.club/from-a-coffee-in-bed-google-search-to-a-stealc-linked-campaign-the-story-behind-nailproxy-space)
-    
-4.  [a fake job interview that tried to turn VSCode workspace trust into code execution](https://blog.technopathy.club/i-had-a-fake-job-interview-it-was-a-malware-delivery-chain)
-    
-5.  [a clean-but-dangerous PyPI typosquat targeting my Binance WebSocket library](https://blog.technopathy.club/the-pypi-package-was-clean-that-was-the-problem)
-    
-
-Different cases.
-
-Same direction.
+Different cases. Same direction.
 
 Attackers are trying to get code executed exactly where API keys live: developer machines, bot servers, CI jobs, dependency trees, IDE workspaces, and trading infrastructure.
 
@@ -57,17 +54,13 @@ That is the part I cannot ignore.
 
 ## The original issue
 
-In December 2024, I reported a Binance API IP-whitelisting bypass through Bugcrowd.
-
-The core issue was simple:
-
 Binance API keys can be restricted to specific IP addresses.
 
 That creates a strong security expectation:
 
 > Even if credentials leak, they should be useless outside the trusted IP range.
 
-That is the whole point of IP whitelisting.
+That is the point of IP whitelisting.
 
 But the old `listenKey` model for private user data streams did not follow that boundary consistently.
 
@@ -83,46 +76,33 @@ No direct account takeover.
 
 But full real-time visibility into sensitive account activity:
 
-*   balances
-    
-*   orders
-    
-*   executions
-    
-*   positions
-    
-*   liquidation-relevant state
-    
-*   timing
-    
-*   strategy behavior
-    
-
-![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/eeaa04b6-accd-4dde-8f60-560ed29c8c44.png align="center")
+- balances
+- orders
+- executions
+- positions
+- liquidation-relevant state
+- timing
+- strategy behavior
 
 For automated trading systems, that is not harmless data.
 
 In trading, visibility is value.
 
-Open orders are value.
-
-Positions are value.
-
-Execution timing is value.
-
-Strategy behavior is value.
+Open orders are value. Positions are value. Execution timing is value. Strategy behavior is value.
 
 A system that exposes that data outside the configured IP boundary leaks more than most users realize.
 
-## Why I never accepted “Social Engineering” as the answer
+The rule should be simple:
+
+> A derived credential must not be more portable than the credential that created it.
+
+That was the issue.
+
+## Why “Social Engineering” was the wrong answer
 
 The report was not about someone tricking a user into handing over a token.
 
 It was about an architectural boundary mismatch.
-
-If an API key is restricted to a set of IP addresses, then a credential derived from that API key should not become more portable than the parent credential.
-
-That was the issue.
 
 Bugcrowd / Binance treated the attack scenario as requiring Social Engineering.
 
@@ -137,8 +117,6 @@ Because the relevant attack path was never:
 The relevant attack path was:
 
 > Trusted code running in a whitelisted environment can create or exfiltrate a `listenKey`, and the attacker can consume it outside that environment.
-
-That is not a fantasy scenario.
 
 That is how supply-chain compromise works.
 
@@ -162,13 +140,13 @@ This was not only an argument.
 
 I had proof.
 
-The original Bugcrowd reports included scripts and video material demonstrating the flow. Later, I also published a public case study:
+The original Bugcrowd reports included scripts and video material demonstrating the flow. Later, I also published the public case study:
 
 [When IP Whitelisting Isn't What It Seems: A Real-World Case Study from the Binance API](https://blog.technopathy.club/when-ip-whitelisting-isn-t-what-it-seems-a-real-world-case-study-from-the-binance-api)
 
 I also have an old video from November 26, 2025 demonstrating that the issue was still reproducible at that time:
 
-%[https://www.youtube.com/watch?v=y9dGtHLEBp8] 
+%[https://www.youtube.com/watch?v=y9dGtHLEBp8]
 
 That video has about 30 views.
 
@@ -176,20 +154,13 @@ Which is funny in a bitter way.
 
 Because the finding was not subtle.
 
-The user expectation around IP whitelisting was clear.
-
-The architectural mismatch was clear.
-
-The supply-chain threat model was clear.
+The user expectation around IP whitelisting was clear. The architectural mismatch was clear. The supply-chain threat model was clear.
 
 The recommended fix was also clear:
 
-*   enforce the same IP restrictions on `listenKey` as on the original API key
-    
-*   require proof of possession of the API secret when issuing a stream credential
-    
-*   treat stream credentials as sensitive account credentials, not harmless session strings
-    
+- enforce the same IP restrictions on `listenKey` as on the original API key
+- require proof of possession of the API secret when issuing a stream credential
+- treat stream credentials as sensitive account credentials, not harmless session strings
 
 That was the whole point.
 
@@ -197,27 +168,27 @@ That was the whole point.
 
 The last thirteen days changed the context.
 
-I found fake repositories impersonating my Binance tooling.
+I documented or found:
 
-I found a broader GitHub malware campaign using open-source project identities as lures.
+- [fake GitHub repositories impersonating my Binance tooling](https://blog.technopathy.club/security-warning-fraudulent-github-repository-impersonating-unicorn-binance-websocket-api)
+- [a broader malware campaign using open-source project names as lures](https://blog.technopathy.club/nailproxy-space-github-malware-campaign)
+- [a StealC-linked delivery chain](https://blog.technopathy.club/from-a-coffee-in-bed-google-search-to-a-stealc-linked-campaign-the-story-behind-nailproxy-space)
+- [a fake job interview abusing developer-tool trust](https://blog.technopathy.club/i-had-a-fake-job-interview-it-was-a-malware-delivery-chain)
+- [a PyPI package squat around my Binance WebSocket library](https://blog.technopathy.club/the-pypi-package-was-clean-that-was-the-problem)
 
-I walked into a fake job interview that tried to abuse VSCode workspace trust.
+Those are not theoretical attack paths.
 
-I found a PyPI package squat around my Binance WebSocket library.
+They target exactly the environments where API credentials live.
 
-This matters because all of those cases target the same place:
+That was my point in 2024.
 
-the developer environment.
+It is even more obvious in 2026.
 
-And that is where Binance API keys live.
+Supply-chain attacks do not require the user to forward a token.
 
-If hostile code reaches that environment, IP whitelisting becomes more important, not less.
+They require trusted code to run in a trusted place.
 
-The question becomes:
-
-> If attacker-controlled code runs inside the trusted environment, can it create or steal a private stream credential that remains useful outside the whitelist?
-
-That is the practical version of the original finding.
+That is the whole problem.
 
 So I re-tested the current state on May 5, 2026.
 
@@ -229,10 +200,8 @@ The key was restricted to one specific Telekom Austria IPv4 address.
 
 I tested two source-IP states:
 
-*   a whitelisted Telekom Austria home IPv4
-    
-*   non-whitelisted Mullvad WireGuard exits
-    
+- a whitelisted Telekom Austria home IPv4
+- non-whitelisted Mullvad WireGuard exits
 
 The probes were pure REST `POST` calls to the relevant `listenKey` endpoints using only the `X-MBX-APIKEY` header.
 
@@ -253,7 +222,7 @@ Short version:
 More precisely:
 
 | Product line | Current state on May 5, 2026 |
-| --- | --- |
+|---|---|
 | Spot | old `listenKey` endpoint retired |
 | Cross-Margin | old `listenKey` endpoint retired |
 | Isolated-Margin | old `listenKey` endpoint retired |
@@ -261,8 +230,6 @@ More precisely:
 | COIN-M Futures | `listenKey` still exists, but IP whitelist is enforced |
 | Binance US | not tested |
 | Binance TR | not tested |
-
-That is the important technical outcome.
 
 Spot and Margin did not merely start enforcing the old model.
 
@@ -322,16 +289,11 @@ So Binance appears to have retired Spot more explicitly, while Margin was simply
 
 That is not the central issue, but it is interesting.
 
-It suggests the old `listenKey` model was not cleaned up uniformly across product lines.
-
 The final state is still good for users:
 
-*   Spot: retired
-    
-*   Margin: retired
-    
-*   Futures: live but now IP-enforced
-    
+- Spot: retired
+- Margin: retired
+- Futures: live but now IP-enforced
 
 From a security perspective, that is a real improvement.
 
@@ -343,7 +305,7 @@ I am glad this is fixed.
 
 Users are safer now.
 
-That matters more than my ego.
+That matters.
 
 If a compromised API key can no longer be used from an arbitrary IP to obtain a Futures `listenKey`, that is good.
 
@@ -367,7 +329,7 @@ The finding was not rewardable enough to acknowledge.
 
 But apparently it was technical enough to fix.
 
-## Why this matters for responsible disclosure
+## The process punished persistence
 
 Responsible disclosure is not only about bugs.
 
@@ -385,51 +347,47 @@ It does not always need to mean a public incident report.
 
 But it should not result in:
 
-*   rejection as Not Applicable
-    
-*   repeated misclassification
-    
-*   no acknowledgement
-    
-*   no reward
-    
-*   no clear public fix note
-    
-*   no correction of the original assessment
-    
-*   warnings that further response requests may affect the reporter’s accuracy score or ability to request review
-    
+- rejection as Not Applicable
+- repeated misclassification
+- no acknowledgement
+- no reward
+- no clear public fix note
+- no correction of the original assessment
+- procedural pressure against further review requests
 
-That last point matters.
+There is another part of this that should not be softened.
 
-I was not spamming a bounty program with vague claims. I was trying to get a reproducible architectural issue reviewed correctly. The follow-up material explained the supply-chain scenario, the real-world leakage paths, and the trust-boundary mismatch.
+After I pushed back and asked for a proper review, the response did not become more technical.
 
-Being warned about process penalties while the underlying behavior later disappears from production is exactly the kind of incentive failure this article is about.
+It became more procedural.
 
-That sends the wrong signal.
+I was warned that further response requests without “additional information” could affect my accuracy score or even my ability to create response requests.
 
-The wrong signal is:
+That matters.
 
-> Do the work, hand over the finding, get dismissed, then maybe watch the issue disappear later.
+Because I was not submitting vague noise.
 
-That is a terrible incentive model.
+I had provided a reproducible issue, PoC material, real-world leakage examples, supply-chain scenarios, and a clear explanation of why this was not Social Engineering.
 
-Especially for the kind of people most likely to find architectural issues:
+And now the behavior I reported appears to be gone.
 
-*   maintainers
-    
-*   infrastructure developers
-    
-*   SDK authors
-    
-*   bot developers
-    
-*   API integrators
-    
-*   security engineers
-    
-*   people who actually live inside the ecosystem
-    
+That is not just disappointing.
+
+That is a broken incentive structure.
+
+A disclosure process should not make the researcher feel like the risky action is continuing to explain the bug.
+
+## Why this matters
+
+The people most likely to find architectural issues are often the people who live inside the ecosystem:
+
+- maintainers
+- infrastructure developers
+- SDK authors
+- bot developers
+- API integrators
+- security engineers
+- power users
 
 Those people are not scanning random forms for easy XSS.
 
@@ -437,60 +395,9 @@ They understand the system because they build around it every day.
 
 If they stop trusting the disclosure process, the platform loses an early-warning system.
 
-## The supply-chain findings make the original argument stronger
+And that is exactly the wrong outcome.
 
-This is why the last thirteen days matter.
-
-The original Bugcrowd response treated the issue as if exploitation depended on a user somehow handing over a `listenKey`.
-
-But the modern developer threat model does not work that way.
-
-In the last thirteen days alone, I documented or found:
-
-*   [fake GitHub repositories impersonating my Binance tooling](https://blog.technopathy.club/security-warning-fraudulent-github-repository-impersonating-unicorn-binance-websocket-api)
-    
-*   [a broader malware campaign using open-source project names as lures](https://blog.technopathy.club/nailproxy-space-github-malware-campaign)
-    
-*   [a StealC-linked delivery chain](https://blog.technopathy.club/from-a-coffee-in-bed-google-search-to-a-stealc-linked-campaign-the-story-behind-nailproxy-space)
-    
-*   [a fake job interview abusing developer-tool trust](https://blog.technopathy.club/i-had-a-fake-job-interview-it-was-a-malware-delivery-chain)
-    
-*   [a PyPI package squat around my Binance WebSocket library](https://blog.technopathy.club/the-pypi-package-was-clean-that-was-the-problem)
-    
-
-Those are not theoretical attack paths.
-
-They target exactly the environments where API credentials live.
-
-That was my point in 2024.
-
-It is even more obvious in 2026.
-
-Supply-chain attacks do not require the user to forward a token.
-
-They require trusted code to run in a trusted place.
-
-That is the whole problem.
-
-## What a consistent model should look like
-
-The correct model is simple:
-
-> A derived credential must not be more portable than the credential that created it.
-
-If the API key is IP-bound, the stream credential should be IP-bound.
-
-If the parent credential normally relies on proof of possession through the API secret, the derived stream credential should not be issued through an unsigned API-key-only flow.
-
-If users are encouraged to rely on IP whitelisting, the API should not create a second path around that boundary.
-
-That was the fix I asked for.
-
-And based on the May 5 re-test, that is essentially what Binance now appears to enforce for Futures `listenKey`.
-
-So the technical direction is right.
-
-The problem is the path it took to get there.
+Especially for ecosystems where automated trading, API credentials, third-party libraries, and supply-chain risk are tightly connected.
 
 ## What I want from Binance
 
@@ -504,18 +411,12 @@ It was not.
 
 A fair outcome would have been simple:
 
-*   acknowledge the trust-boundary question
-    
-*   confirm reproducibility
-    
-*   classify the finding honestly
-    
-*   explain product-line limitations if legacy compatibility made fixing hard
-    
-*   give a clear fix timeline or documentation note
-    
-*   recognize the report, even if no bounty was paid
-    
+- acknowledge the trust-boundary question
+- confirm reproducibility
+- classify the finding honestly
+- explain product-line limitations if legacy compatibility made fixing hard
+- give a clear fix timeline or documentation note
+- recognize the report, even if no bounty was paid
 
 That would already have been enough.
 
@@ -529,7 +430,7 @@ And the person who reported it had to discover that by re-testing it independent
 
 That is not how a healthy disclosure process should feel.
 
-## To be clear: I still like Binance
+To be clear: I still like Binance.
 
 I build and maintain open source infrastructure for the Binance ecosystem because I think the ecosystem matters.
 
@@ -544,16 +445,6 @@ That is exactly why I care.
 This is not about hating Binance.
 
 It is about expecting better from a platform that sits at the center of a large automated-trading ecosystem.
-
-Security bugs happen.
-
-Architecture mistakes happen.
-
-Legacy APIs happen.
-
-Silent fixes also happen.
-
-But if a report is good enough to lead to a fix, it should not be treated as if it was never a valid issue.
 
 ## The uncomfortable conclusion
 
@@ -586,20 +477,22 @@ The process deserves criticism.
 Because responsible disclosure should not work like this:
 
 > Report the issue.
-> 
+>
 > Get told it is not an issue.
-> 
+>
 > Watch it silently get fixed.
-> 
+>
 > Receive no acknowledgement.
 
 That is not sustainable.
 
 And it is not fair.
 
-The system got safer.
+The technical system got safer.
 
-The process did not.
+The disclosure process did not.
+
+That should worry every platform that depends on external researchers.
 
 * * *
 
@@ -607,4 +500,4 @@ I hope you found this informative and useful.
 
 Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated.
 
-Thank you for reading, and happy coding! ¯\\*(ツ)*/¯
+Thank you for reading, and happy coding! ¯\\_(ツ)_/¯
