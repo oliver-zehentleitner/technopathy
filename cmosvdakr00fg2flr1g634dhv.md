@@ -66,13 +66,22 @@ No direct account takeover.
 
 But full real-time visibility into sensitive account activity:
 
-- balances
-- orders
-- executions
-- positions
-- liquidation-relevant state
-- timing
-- strategy behavior
+*   balances
+    
+*   orders
+    
+*   executions
+    
+*   positions
+    
+*   liquidation-relevant state
+    
+*   timing
+    
+*   strategy behavior
+    
+
+![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/e86206e5-0b36-4479-9736-b1e15701f3df.png align="center")
 
 For automated trading systems, that is not harmless data.
 
@@ -136,7 +145,7 @@ The original Bugcrowd reports included scripts and video material demonstrating 
 
 I also have an old video from November 26, 2025 demonstrating that the issue was still reproducible at that time:
 
-%[https://www.youtube.com/watch?v=y9dGtHLEBp8]
+%[https://www.youtube.com/watch?v=y9dGtHLEBp8] 
 
 That video has about 30 views.
 
@@ -148,9 +157,12 @@ The user expectation around IP whitelisting was clear. The architectural mismatc
 
 The recommended fix was also clear:
 
-- enforce the same IP restrictions on `listenKey` as on the original API key
-- require proof of possession of the API secret when issuing a stream credential
-- treat stream credentials as sensitive account credentials, not harmless session strings
+*   enforce the same IP restrictions on `listenKey` as on the original API key
+    
+*   require proof of possession of the API secret when issuing a stream credential
+    
+*   treat stream credentials as sensitive account credentials, not harmless session strings
+    
 
 That was the whole point.
 
@@ -160,11 +172,16 @@ The last thirteen days changed the context.
 
 I documented or found:
 
-- [fake GitHub repositories impersonating my Binance tooling](https://blog.technopathy.club/security-warning-fraudulent-github-repository-impersonating-unicorn-binance-websocket-api)
-- [a broader malware campaign using open-source project names as lures](https://blog.technopathy.club/nailproxy-space-github-malware-campaign)
-- [a StealC-linked delivery chain](https://blog.technopathy.club/from-a-coffee-in-bed-google-search-to-a-stealc-linked-campaign-the-story-behind-nailproxy-space)
-- [a fake job interview abusing developer-tool trust](https://blog.technopathy.club/i-had-a-fake-job-interview-it-was-a-malware-delivery-chain)
-- [a PyPI package squat around my Binance WebSocket library](https://blog.technopathy.club/the-pypi-package-was-clean-that-was-the-problem)
+*   [fake GitHub repositories impersonating my Binance tooling](https://blog.technopathy.club/security-warning-fraudulent-github-repository-impersonating-unicorn-binance-websocket-api)
+    
+*   [a broader malware campaign using open-source project names as lures](https://blog.technopathy.club/nailproxy-space-github-malware-campaign)
+    
+*   [a StealC-linked delivery chain](https://blog.technopathy.club/from-a-coffee-in-bed-google-search-to-a-stealc-linked-campaign-the-story-behind-nailproxy-space)
+    
+*   [a fake job interview abusing developer-tool trust](https://blog.technopathy.club/i-had-a-fake-job-interview-it-was-a-malware-delivery-chain)
+    
+*   [a PyPI package squat around my Binance WebSocket library](https://blog.technopathy.club/the-pypi-package-was-clean-that-was-the-problem)
+    
 
 Those are not theoretical attack paths.
 
@@ -190,8 +207,10 @@ The key was restricted to one specific Telekom Austria IPv4 address.
 
 I tested two source-IP states:
 
-- a whitelisted Telekom Austria home IPv4
-- non-whitelisted Mullvad WireGuard exits
+*   a whitelisted Telekom Austria home IPv4
+    
+*   non-whitelisted Mullvad WireGuard exits
+    
 
 The probes were pure REST `POST` calls to the relevant `listenKey` endpoints using only the `X-MBX-APIKEY` header.
 
@@ -212,7 +231,7 @@ Short version:
 More precisely:
 
 | Product line | Current state on May 5, 2026 |
-|---|---|
+| --- | --- |
 | Spot | old `listenKey` endpoint retired |
 | Cross-Margin | old `listenKey` endpoint retired |
 | Isolated-Margin | old `listenKey` endpoint retired |
@@ -281,9 +300,12 @@ That is not the central issue, but it is interesting.
 
 The final state is still good for users:
 
-- Spot: retired
-- Margin: retired
-- Futures: live but now IP-enforced
+*   Spot: retired
+    
+*   Margin: retired
+    
+*   Futures: live but now IP-enforced
+    
 
 From a security perspective, that is a real improvement.
 
@@ -337,13 +359,20 @@ It does not always need to mean a public incident report.
 
 But it should not result in:
 
-- rejection as Not Applicable
-- repeated misclassification
-- no acknowledgement
-- no reward
-- no clear public fix note
-- no correction of the original assessment
-- procedural pressure against further review requests
+*   rejection as Not Applicable
+    
+*   repeated misclassification
+    
+*   no acknowledgement
+    
+*   no reward
+    
+*   no clear public fix note
+    
+*   no correction of the original assessment
+    
+*   procedural pressure against further review requests
+    
 
 There is another part of this that should not be softened.
 
@@ -371,13 +400,20 @@ A disclosure process should not make the researcher feel like the risky action i
 
 The people most likely to find architectural issues are often the people who live inside the ecosystem:
 
-- maintainers
-- infrastructure developers
-- SDK authors
-- bot developers
-- API integrators
-- security engineers
-- power users
+*   maintainers
+    
+*   infrastructure developers
+    
+*   SDK authors
+    
+*   bot developers
+    
+*   API integrators
+    
+*   security engineers
+    
+*   power users
+    
 
 Those people are not scanning random forms for easy XSS.
 
@@ -401,12 +437,18 @@ It was not.
 
 A fair outcome would have been simple:
 
-- acknowledge the trust-boundary question
-- confirm reproducibility
-- classify the finding honestly
-- explain product-line limitations if legacy compatibility made fixing hard
-- give a clear fix timeline or documentation note
-- recognize the report, even if no bounty was paid
+*   acknowledge the trust-boundary question
+    
+*   confirm reproducibility
+    
+*   classify the finding honestly
+    
+*   explain product-line limitations if legacy compatibility made fixing hard
+    
+*   give a clear fix timeline or documentation note
+    
+*   recognize the report, even if no bounty was paid
+    
 
 That would already have been enough.
 
@@ -467,11 +509,11 @@ The process deserves criticism.
 Because responsible disclosure should not work like this:
 
 > Report the issue.
->
+> 
 > Get told it is not an issue.
->
+> 
 > Watch it silently get fixed.
->
+> 
 > Receive no acknowledgement.
 
 That is not sustainable.
@@ -490,4 +532,4 @@ I hope you found this informative and useful.
 
 Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated.
 
-Thank you for reading, and happy coding! ¯\\_(ツ)_/¯
+Thank you for reading, and happy coding! ¯\\*(ツ)*/¯
