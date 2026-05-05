@@ -8,16 +8,6 @@ tags: github, opensource, malware, binance, pypi, bugbounty, api-security, bugcr
 
 ---
 
-<!-- Hashnode metadata
-Title: Binance Fixed the IP Whitelist Gap. The Disclosure Process Is Still Broken.
-Subtitle: A derived credential must not be more portable than the credential that created it.
-Series: Binance API Security
-Tags: binance, api-security, disclosure, bugbounty, supplychain, opensource, malware, pypi, github
-Cover image: TODO
--->
-
-# Binance Fixed the IP Whitelist Gap. The Disclosure Process Is Still Broken.
-
 I wanted to re-open an old Binance API security issue.
 
 Not because I enjoy re-litigating old reports.
