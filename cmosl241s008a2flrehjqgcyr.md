@@ -239,8 +239,13 @@ The `setup.py` changes are also minimal:
 -     install_requires=['colorama', 'requests', 'websocket-client', 'websockets==10.4', 'flask_restful',
 +     install_requires=['colorama', 'requests', 'websocket-client', 'websockets>=10.4', 'flask_restful',
 ```
-
 So the package was renamed, the project URL was changed, and one dependency pin was loosened.
+
+That last point is easy to overlook, but it matters.
+
+Changing `websockets==10.4` to `websockets>=10.4` is not a payload. It is not malicious by itself. But it shows that this was not only a blind archive copy. Someone touched the packaging metadata and made a maintenance-style change.
+
+That makes the dormant-package risk more concrete: a package like this can stay clean today, receive small “reasonable” updates, and still remain positioned as a future supply-chain slot.
 
 The author metadata was not changed.
 
@@ -378,20 +383,15 @@ But it is a very uncomfortable dormant supply-chain setup.
 
 A clean package can still be a staging point:
 
-1.  publish a harmless fork,
-    
-2.  use a plausible name,
-    
-3.  keep the official import namespace,
-    
-4.  accumulate a few downloads,
-    
-5.  wait until it lands in a script, CI job, Dockerfile, or AI-generated install instruction,
-    
-6.  weaponize a later release.
-    
+1. publish a harmless fork,
+2. use a plausible name,
+3. keep the official import namespace,
+4. make small maintenance-looking changes,
+5. accumulate a few downloads,
+6. wait until it lands in a script, CI job, Dockerfile, or AI-generated install instruction,
+7. weaponize a later release.
 
-The right time to remove that setup is before step six.
+The right time to remove that setup is before the final step.
 
 ## Clean does not mean harmless
 
