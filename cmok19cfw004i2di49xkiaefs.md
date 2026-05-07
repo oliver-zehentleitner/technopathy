@@ -43,6 +43,8 @@ I submitted the indicators and infrastructure reports to:
 *   abuse.ch ThreatFox
     
 *   abuse.ch URLhaus
+
+*   AlienVault OTX
     
 *   GitHub Trust & Safety
     
