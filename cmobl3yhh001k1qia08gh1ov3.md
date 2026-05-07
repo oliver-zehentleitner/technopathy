@@ -20,7 +20,7 @@ tags: github, security, malware, threat-intelligence, stealer
 >     
 > *   GitHub takedown requested
 >     
-> *   IOCs submitted to ThreatFox and published into the public threat-intelligence ecosystem
+> *   IOCs submitted to ThreatFox/AlienVault and published into the public threat-intelligence ecosystem
 >     
 
 * * *
@@ -84,6 +84,8 @@ The services that mattered most were:
 *   **VirusTotal** — for hashes, domains, IP metadata, sample upload, and especially the per-sandbox behavior views
     
 *   **abuse.ch (ThreatFox / MalwareBazaar / URLhaus)** — for IOC correlation and public malware context
+
+*   **AlienVault** — for IOC correlation and public malware context
     
 *   **Hybrid Analysis** — for metadata on dropped files and cross-sample visibility
     
@@ -354,6 +356,7 @@ That suggests the fake GitHub repositories are likely **one delivery channel**, 
 | 2026-04-19 | sibling loader observed on VirusTotal |
 | 2026-04-22 | campaign discovered during routine project-name search; first public write-up and GitHub report filed |
 | 2026-04-23 | deeper stage-2 / stage-3 linkage established; IOCs submitted to ThreatFox and published there under my ThreatFox user profile |
+| 2026-05-05 | submitted IOCs to AlienVault |
 
 * * *
 
@@ -441,7 +444,7 @@ The confirmed fake GitHub repositories are listed in the earlier campaign post:
 *   [nailproxy.space: A Multi-Repository GitHub Malware Campaign](https://blog.technopathy.club/nailproxy-space-github-malware-campaign)
     
 
-The [related IOCs](https://threatfox.abuse.ch/user/12877/) were also submitted to ThreatFox and are now part of the public threat intelligence ecosystem.
+The related IOCs were also submitted to [ThreatFox](https://threatfox.abuse.ch/user/12877/)/[AlienVault](https://otx.alienvault.com/user/oliver-zehentleitner) and are now part of the public threat intelligence ecosystem.
 
 * * *
 
@@ -488,4 +491,4 @@ If you maintain an open-source project, this is a good reminder to occasionally 
 
 Follow me on [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
 
-Thank you for reading! ¯\\_(ツ)\_/¯
+Thank you for reading! ¯\\\_(ツ)\_/¯
