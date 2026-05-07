@@ -1110,6 +1110,9 @@ Immediate steps:
 
 ## References
 
+*   AlienVault Pulse  
+    `https://otx.alienvault.com/pulse/69f9ab38f883023c833b2fd8`
+
 *   ThreatFox campaign tag: `jackpot`  
     `https://threatfox.abuse.ch/browse/tag/jackpot/`
     
@@ -1158,4 +1161,4 @@ And that is why this needs to be understood beyond this single case.
 
 Follow me on [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
 
-Thank you for reading! ¯\\_(ツ)\_/¯
+Thank you for reading! ¯\\\_(ツ)\_/¯
