@@ -8,7 +8,7 @@ tags: github, opensource, malware, binance, pypi, bugbounty, api-security, bugcr
 
 ---
 
-I wanted to re-open an old Binance API security issue.
+I wanted to re-open an old [Binance API security issue](https://blog.technopathy.club/when-ip-whitelisting-isn-t-what-it-seems-a-real-world-case-study-from-the-binance-api).
 
 Not because I enjoy re-litigating old reports.
 
