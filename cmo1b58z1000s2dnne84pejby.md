@@ -170,8 +170,8 @@ Suggested reading path:
     
 *   [Why the order book should not live inside your bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot)
     
-*   [How to run UBDCC locally in minutes](https://blog.technopathy.club/from-pip-install-to-a-redundant-binance-order-book-cluster-ubdcc-dashboard-quickstart)
-    
+*   [How to run UBDCC locally in minutes](https://blog.technopathy.club/from-pip-install-to-a-redundant-binance-order-book-cluster-ubdcc-dashboard-quickstart)   
+
 * * *
 
 I hope you found this informative and useful.
