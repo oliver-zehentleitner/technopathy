@@ -84,7 +84,7 @@ The services that mattered most were:
 *   **VirusTotal** — for hashes, domains, IP metadata, sample upload, and especially the per-sandbox behavior views
     
 *   **abuse.ch (ThreatFox / MalwareBazaar / URLhaus)** — for IOC correlation and public malware context
-
+    
 *   **AlienVault** — for IOC correlation and public malware context
     
 *   **Hybrid Analysis** — for metadata on dropped files and cross-sample visibility
@@ -489,6 +489,8 @@ If you maintain an open-source project, this is a good reminder to occasionally 
 
 * * *
 
-Follow me on [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+I hope you found this informative and useful.
 
-Thank you for reading! ¯\\\_(ツ)\_/¯
+Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
+
+Thank you for reading, and happy coding! ¯\\\_(ツ)\_/¯
