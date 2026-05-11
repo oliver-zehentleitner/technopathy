@@ -239,6 +239,7 @@ The `setup.py` changes are also minimal:
 -     install_requires=['colorama', 'requests', 'websocket-client', 'websockets==10.4', 'flask_restful',
 +     install_requires=['colorama', 'requests', 'websocket-client', 'websockets>=10.4', 'flask_restful',
 ```
+
 So the package was renamed, the project URL was changed, and one dependency pin was loosened.
 
 That last point is easy to overlook, but it matters.
@@ -383,13 +384,20 @@ But it is a very uncomfortable dormant supply-chain setup.
 
 A clean package can still be a staging point:
 
-1. publish a harmless fork,
-2. use a plausible name,
-3. keep the official import namespace,
-4. make small maintenance-looking changes,
-5. accumulate a few downloads,
-6. wait until it lands in a script, CI job, Dockerfile, or AI-generated install instruction,
-7. weaponize a later release.
+1.  publish a harmless fork,
+    
+2.  use a plausible name,
+    
+3.  keep the official import namespace,
+    
+4.  make small maintenance-looking changes,
+    
+5.  accumulate a few downloads,
+    
+6.  wait until it lands in a script, CI job, Dockerfile, or AI-generated install instruction,
+    
+7.  weaponize a later release.
+    
 
 The right time to remove that setup is before the final step.
 
@@ -619,8 +627,8 @@ Because it should not be allowed to become useful tomorrow.
 
 * * *
 
-I hope you found this informative and enjoyable!
+I hope you found this informative and useful.
 
-Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join the [Telegram Group](https://t.me/unicorndevs) to stay updated on my latest publications. Your constructive feedback is always appreciated.
 
-Thank you for reading, and happy coding! ¯\\_(ツ)\_/¯
+Thank you for reading, and happy coding! ¯\\\_(ツ)\_/¯
