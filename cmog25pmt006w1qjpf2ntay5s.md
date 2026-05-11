@@ -52,12 +52,13 @@ This is the hands-on quickstart. If you first want the technical background, rea
 *   [Your Binance Order Book Is Wrong — Here's Why](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why) — why naive local Binance order books can silently accumulate stale levels.
     
 *   [Why Your Binance Order Book Should Not Live Inside Your Bot](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot) — why shared market-data infrastructure is cleaner than per-bot cache ownership.
+    
 
 ## Video walkthrough
 
 If you prefer to see the full setup once before going through the steps, here is the uncut quickstart video:
 
-%[https://youtu.be/o1-nCravKnc]    
+%[https://youtu.be/o1-nCravKnc] 
 
 ## Who this is for
 
@@ -524,8 +525,8 @@ If you want to try it:
 
 * * *
 
-I hope you found this tutorial informative and enjoyable!
+I hope you found this informative and useful.
 
-Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
 
-Thank you for reading, and happy coding!
+Thank you for reading, and happy coding! ¯\\\_(ツ)\_/¯
