@@ -349,8 +349,8 @@ You may not like what you find.
 
 * * *
 
-I hope you found this informative and enjoyable!
+I hope you found this informative and useful.
 
-Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join the [Telegram Group](https://t.me/unicorndevs) to stay updated on my latest publications. Your constructive feedback is always appreciated.
 
-Thank you for reading, and happy coding!
+Thank you for reading, and happy coding! ¯\\\_(ツ)\_/¯
