@@ -236,8 +236,7 @@ curl 'http://127.0.0.1:42081/get_asks?exchange=binance.com&market=BTCUSDT&limit_
 
 That is the whole idea: create once, consume anywhere.
 
-For a full practical walkthrough with the dashboard, replicas, failover test, REST calls, and generated client snippets, see:
-[From pip install to a Redundant Binance Order Book Cluster — UBDCC + Dashboard Quickstart](https://blog.technopathy.club/from-pip-install-to-a-redundant-binance-order-book-cluster-ubdcc-dashboard-quickstart)
+For a full practical walkthrough with the dashboard, replicas, failover test, REST calls, and generated client snippets, see: [From pip install to a Redundant Binance Order Book Cluster — UBDCC + Dashboard Quickstart](https://blog.technopathy.club/from-pip-install-to-a-redundant-binance-order-book-cluster-ubdcc-dashboard-quickstart)
 
 ## Python users are not locked out
 
@@ -291,8 +290,7 @@ If a book is re-syncing, that state is explicit.
 
 That matters more than most people think.
 
-I wrote a separate deep dive on the orphaned-level problem here:
-[Your Binance Order Book Is Wrong — Here's Why](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why)
+I wrote a separate deep dive on the orphaned-level problem here: [Your Binance Order Book Is Wrong — Here's Why](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why)
 
 That post explains why a Binance-compatible local order book can look correct while silently accumulating stale price levels over time.
 
@@ -380,8 +378,8 @@ UBDCC is MIT-licensed and part of the [**UNICORN Binance Suite**](https://github
 
 * * *
 
-I hope you found this tutorial informative and enjoyable!
+I hope you found this informative and useful.
 
-Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
 
-Thank you for reading, and happy coding!
+Thank you for reading, and happy coding! ¯\\\_(ツ)\_/¯
