@@ -13,9 +13,9 @@ If you maintain a local Binance order book, there is a good chance it contains p
 I am not talking about reconnect logic, sequence gaps, or the well-known initial-snapshot race condition. Those are documented and most libraries handle them. I am talking about a class of stale entries that accumulate silently in your depth cache because Binance never tells you they should be gone.
 
 > **Update / follow-up:** I later ran a 25-hour forensic benchmark to measure this failure mode with two DepthCache implementations running side by side on the same BTCUSDT WebSocket stream.
->
+> 
 > The full benchmark, interactive 3D charts, raw audit data, and GitHub repository are here:
->
+> 
 > [Your Binance DepthCache is rotting — here's the proof in 25 hours](https://blog.technopathy.club/your-binance-depthcache-is-rotting-here-s-the-proof-in-25-hours)
 
 This came up while I was maintaining [UNICORN Binance Local Depth Cache (UBLDC)](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache). A user reported unbounded growth in their order book — and when I investigated, it turned out to be a gap in Binance's own synchronization spec, not a library bug. The fix was straightforward, but it is not in Binance's documentation, and I have not seen it handled in any other library.
@@ -175,8 +175,8 @@ Suggested reading path:
 
 * * *
 
-I hope you found this tutorial informative and enjoyable!
+I hope you found this informative and useful.
 
-Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
 
-Thank you for reading, and happy coding!
+Thank you for reading, and happy coding! ¯\\\_(ツ)\_/¯
