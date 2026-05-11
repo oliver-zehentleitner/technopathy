@@ -351,6 +351,6 @@ You may not like what you find.
 
 I hope you found this informative and useful.
 
-Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join my [TelegramGroup](https://t.me/unicorndevs) to stay updated on my latest publications. Your constructive feedback is always appreciated.
+Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
 
 Thank you for reading, and happy coding! ¯\\\_(ツ)\_/¯
