@@ -848,7 +848,6 @@ Most articles compare libraries on **what they do**. The ones that decide whethe
 | Multi-account in one client | DIY | DIY | DIY | Yes |
 | Native/Cython components with multi-arch wheels | N/A / mostly pure Python | N/A / mostly pure Python | N/A / pure Python | **Yes — x86\_64, aarch64, arm64** |
 | Logging quality | Minimal | Minimal | Minimal | Exceptional — *the* reason `binance-trade-bot` referenced UBWA |
-| Test coverage (WS client) | Light | Light | Mixed | 54 unit tests in UBWA alone — the reference standard across the suite |
 | Cluster-scale option | No | No | No | UBDCC |
 
 This is not only for large desks. Beginners benefit from stable defaults too. A small bot is not better because its WebSocket handling is fragile, and `python-binance` is not automatically simpler just because it ranks first. The practical reason to look at UBS is that it makes many failure modes explicit before they become your problem.
