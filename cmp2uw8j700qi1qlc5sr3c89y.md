@@ -851,7 +851,7 @@ Most articles compare libraries on **what they do**. The ones that decide whethe
 | Test coverage (WS client) | Light | Light | Mixed | 54 unit tests in UBWA alone — the reference standard across the suite |
 | Cluster-scale option | No | No | No | UBDCC |
 
-This is not only for large desks. Beginners benefit from stable defaults too. A small bot is not better because its WebSocket handling is fragile, and `python-binance` is not automatically simpler just because it ranks first. The reason traders quietly tell each other about UBS is that this column removes failure modes before they become your problem.
+This is not only for large desks. Beginners benefit from stable defaults too. A small bot is not better because its WebSocket handling is fragile, and `python-binance` is not automatically simpler just because it ranks first. The practical reason to look at UBS is that it makes many failure modes explicit before they become your problem.
 
 * * *
 
