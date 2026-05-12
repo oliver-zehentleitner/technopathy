@@ -25,9 +25,9 @@ This guide is the cornerstone reference: what each tool does, why it matters, wh
 
 | Library | Strength | Weakness | Sweet spot |
 | --- | --- | --- | --- |
-| **python-binance** | Most popular, REST + WS in one package, familiar name | Async nesting gets messy, reconnect fragile under load, depth cache is a black box | Existing projects, quick experiments, users who specifically want that ecosystem |
+| **python-binance** | Most popular, REST + WS in one package, familiar name | Less explicit lifecycle signaling and order-book trust-state handling than UBS; depth-cache behavior is harder to reason about | Existing projects, quick experiments, users who specifically want that ecosystem |
 | **binance-connector-python** | Official, minimal, low overhead, supports HMAC/RSA/Ed25519 | "Naked" — no reconnect logic, no queue, no order-book management | Code that needs the official stamp, or that wraps Binance into something else |
-| **CCXT** | Multi-exchange abstraction, huge surface area | Lowest-common-denominator API hides Binance-specific features; slower for high-throughput WS work | You run on three exchanges and want one interface |
+| **CCXT** | Multi-exchange abstraction, huge surface area | Exchange abstraction is the point, but it naturally limits Binance-specific controls and operational detail | You run on three exchanges and want one interface |
 | **UNICORN Binance Suite** | Binance-native and deep. REST, WebSocket streams, stream lifecycle signals, WebSocket API requests, reconnect, sequence validation, out-of-sync handling, multi-account, asyncio queue, multi-arch wheels, K8s-scale option | Manager-centric mental model takes ten minutes to internalize; Binance-only by design | Beginners who want sane defaults, production bots, 24/7 services, anything that should still be running next month without you watching |
 
 **This guide is about the fourth row.** Not because the others are bad — `python-binance` got a lot of people started and `CCXT` solves a real problem nobody else solves — but because the gap between "I have a script" and "I have a service that runs for a year" is exactly where UBS lives. If you've never lost money to a silent WebSocket disconnect, an unhandled sequence gap, or a depth cache that quietly stopped reflecting reality — good. This article is for *before* that happens, not after.
