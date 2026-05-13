@@ -835,7 +835,6 @@ Most articles compare libraries on **what they do**. The ones that decide whethe
 | Concern | python-binance | binance-connector / official SDKs | CCXT | UBS |
 | --- | --- | --- | --- | --- |
 | Automatic WebSocket reconnect | Partial / manager-dependent | Low-level / DIY | Available in CCXT Pro / exchange-dependent | Yes, managed |
-| Stream lifecycle signals | Minimal / DIY | DIY | Mixed | **Yes — CONNECT, FIRST\_RECEIVED\_DATA, DISCONNECT, STOP, STREAM\_UNREPAIRABLE** |
 | WebSocket API trading requests | Recent support | Yes, official SDK direction | Exchange-dependent / Pro | **Yes — integrated into UBWA manager** |
 | Request-specific WS API callbacks | Limited | SDK-style / DIY routing | Abstraction-dependent | **Yes** |
 | Multiple WS API streams | Limited | DIY | Abstraction-dependent | **Yes — via stream IDs / labels** |
@@ -844,10 +843,10 @@ Most articles compare libraries on **what they do**. The ones that decide whethe
 | Orphaned depth-level pruning | No | N/A | No | **Yes** |
 | User-data listenKey auto-renew | Yes (less robust) | DIY | N/A | Yes, robust |
 | Subscribe at runtime without reconnect | No | N/A | No | **Yes** |
-| Native asyncio `await` queue | No (busy-wait) | N/A | Mixed | Yes |
-| Multi-account in one client | DIY | DIY | DIY | Yes |
+| Native asyncio `await` queue | No decoupled backpressure-aware queue | N/A | Mixed | Yes |
+| Multi-account routing | Separate clients / application routing | Separate clients / application routing | Separate clients / abstraction-dependent | **Integrated routing via stream IDs / labels** |
 | Native/Cython components with multi-arch wheels | N/A / mostly pure Python | N/A / mostly pure Python | N/A / pure Python | **Yes — x86\_64, aarch64, arm64** |
-| Connection-state observability | DIY | DIY | DIY | **Built-in: `CONNECT`, `FIRST_RECEIVED_DATA`, `DISCONNECT`, `STOP`, `STREAM_UNREPAIRABLE`, plus stream-scoped log context** |
+| Connection-state observability | Limited / application-level | Low-level / application-level | Exchange-dependent | **Built-in: stream lifecycle signals, per-stream labels, reconnect visibility, and stream-scoped log context** |
 | Cluster-scale option | No | No | No | UBDCC |
 
 This is not only for large desks. Beginners benefit from stable defaults too. A small bot is not better because its WebSocket handling is fragile, and `python-binance` is not automatically simpler just because it ranks first. The practical reason to look at UBS is that it makes many failure modes explicit before they become your problem.
