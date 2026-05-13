@@ -664,7 +664,7 @@ The normal flow is:
 
 Profiles are useful once you repeatedly trade the same market or strategy pattern. Instead of passing every detail on the command line each time, you define the profile once and then override only the values you want to change, such as `--stoplosslimit`.
 
-The example above starts a trailing stop on `RENDERUSDC` with a 1% stop-loss limit on `binance.com`. The profile example starts the predefined `BTCUSDC_SELL` setup and overrides the stop-loss limit to 1.5%.
+The example above starts a trailing stop on `BTCUSDC` with a 1% stop-loss limit on `binance.com`. The profile example starts the predefined `BTCUSDC_SELL` setup and overrides the stop-loss limit to 1.5%.
 
 `--cancelopenorders` is a practical cleanup command when you intentionally want to cancel all currently open orders on the configured account/exchange before starting fresh. Use it deliberately — it does exactly what the name says.
 
