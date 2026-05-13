@@ -893,10 +893,9 @@ There have been fraudulent repositories impersonating UBWA with malware payloads
     
 *   UnicornFy: [docs](https://oliver-zehentleitner.github.io/unicorn-fy) · [GitHub](https://github.com/oliver-zehentleitner/unicorn-fy)
     
-*   UBDCC: [GitHub](https://github.com/oliver-zehentleitner/unicorn-binance-depth-cache-cluster)
+*   UBDCC: [docs](https://oliver-zehentleitner.github.io/unicorn-binance-depth-cache-cluster/) · [GitHub](https://github.com/oliver-zehentleitner/unicorn-binance-depth-cache-cluster)
     
-*   Suite meta-package: [GitHub](https://github.com/oliver-zehentleitner/unicorn-binance-suite)
-    
+*   Suite meta-package: [docs](https://oliver-zehentleitner.github.io/unicorn-binance-suite) · [GitHub](https://github.com/oliver-zehentleitner/unicorn-binance-suite)
 
 **Talk to humans:**
 
