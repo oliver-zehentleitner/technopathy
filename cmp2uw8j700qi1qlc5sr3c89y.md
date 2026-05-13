@@ -834,7 +834,7 @@ Most articles compare libraries on **what they do**. The ones that decide whethe
 
 | Concern | python-binance | binance-connector / official SDKs | CCXT | UBS |
 | --- | --- | --- | --- | --- |
-| Automatic WebSocket reconnect | Partial | Low-level / DIY | Partial | Yes, managed |
+| Automatic WebSocket reconnect | Partial / manager-dependent | Low-level / DIY | Available in CCXT Pro / exchange-dependent | Yes, managed |
 | Stream lifecycle signals | Minimal / DIY | DIY | Mixed | **Yes — CONNECT, FIRST\_RECEIVED\_DATA, DISCONNECT, STOP, STREAM\_UNREPAIRABLE** |
 | WebSocket API trading requests | Recent support | Yes, official SDK direction | Exchange-dependent / Pro | **Yes — integrated into UBWA manager** |
 | Request-specific WS API callbacks | Limited | SDK-style / DIY routing | Abstraction-dependent | **Yes** |
@@ -847,7 +847,7 @@ Most articles compare libraries on **what they do**. The ones that decide whethe
 | Native asyncio `await` queue | No (busy-wait) | N/A | Mixed | Yes |
 | Multi-account in one client | DIY | DIY | DIY | Yes |
 | Native/Cython components with multi-arch wheels | N/A / mostly pure Python | N/A / mostly pure Python | N/A / pure Python | **Yes — x86\_64, aarch64, arm64** |
-| Logging quality | Minimal | Minimal | Minimal | Exceptional — *the* reason `binance-trade-bot` referenced UBWA |
+| Connection-state observability | DIY | DIY | DIY | **Built-in: `CONNECT`, `FIRST_RECEIVED_DATA`, `DISCONNECT`, `STOP`, `STREAM_UNREPAIRABLE`, plus stream-scoped log context** |
 | Cluster-scale option | No | No | No | UBDCC |
 
 This is not only for large desks. Beginners benefit from stable defaults too. A small bot is not better because its WebSocket handling is fragile, and `python-binance` is not automatically simpler just because it ranks first. The practical reason to look at UBS is that it makes many failure modes explicit before they become your problem.
