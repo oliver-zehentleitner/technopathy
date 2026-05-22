@@ -108,8 +108,7 @@ Open Putty and click on “*Connection*” -> “*Proxy*” -> enter the SOCKS5 
 This should return your public IP address:  
 `curl -x socks5://<your_ip_server>:<your_danted_port> ifconfig.co`
 
-Or with the [**python script**](https://gist.github.com/oliver-zehentleitner/74f6c5a461b01b5249c44e335ccf4e88#file-ubwa_socks5_proxy-py) we create next:
-%[https://gist.github.com/oliver-zehentleitner/74f6c5a461b01b5249c44e335ccf4e88] 
+Or with the [**python script**](https://gist.github.com/oliver-zehentleitner/74f6c5a461b01b5249c44e335ccf4e88#file-ubwa_socks5_proxy-py) we create next.
 
 ### 3\. Step — The Python script
 
@@ -121,7 +120,8 @@ Install/upgrade the dependencies:
 `$ python3 -m pip install unicorn_binance_websocket_api`  
 Info: [https://pypi.org/project/unicorn-binance-websocket-api](https://pypi.org/project/unicorn-binance-websocket-api/)
 
-[Save or copy this script](https://gist.github.com/oliver-zehentleitner/74f6c5a461b01b5249c44e335ccf4e88) to your system and replace “*1.2.3.4*” in `_socks5_proxy_` with the IP address of your Socks5 Proxy server.
+[Save or copy this script](https://gist.github.com/oliver-zehentleitner/74f6c5a461b01b5249c44e335ccf4e88) to your system and replace “*1.2.3.4*” in `_socks5_proxy_` with the IP address of your Socks5 Proxy server:
+%[https://gist.github.com/oliver-zehentleitner/74f6c5a461b01b5249c44e335ccf4e88] 
 
 Start the file:  
 `python3 ubwa\_socks5\_proxy.py`
