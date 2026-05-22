@@ -108,7 +108,8 @@ Open Putty and click on “*Connection*” -> “*Proxy*” -> enter the SOCKS5 
 This should return your public IP address:  
 `curl -x socks5://<your_ip_server>:<your_danted_port> ifconfig.co`
 
-Or with the [**python script**](https://gist.github.com/oliver-zehentleitner/74f6c5a461b01b5249c44e335ccf4e88#file-ubwa_socks5_proxy-py) we create next.
+Or with the [**python script**](https://gist.github.com/oliver-zehentleitner/74f6c5a461b01b5249c44e335ccf4e88#file-ubwa_socks5_proxy-py) we create next:
+%[https://gist.github.com/oliver-zehentleitner/74f6c5a461b01b5249c44e335ccf4e88] 
 
 ### 3\. Step — The Python script
 
