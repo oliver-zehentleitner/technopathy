@@ -166,7 +166,7 @@ More info: [https://pypi.org/project/unicorn-binance-rest-api](https://pypi.org/
 
 [Save](https://gist.github.com/oliver-zehentleitner/d55aa1ee03b7959e285c467e07eab2a4) or copy this script to your system and replace `1.2.3.4` in `socks5_proxy` with the IP address of your SOCKS5 proxy server.
 
-[Download this code from GitHub](https://gist.github.com/oliver-zehentleitner/d55aa1ee03b7959e285c467e07eab2a4/archive/81d94f546da381366b99d8855f05c06487283518.zip)
+%[https://gist.github.com/oliver-zehentleitner/d55aa1ee03b7959e285c467e07eab2a4] 
 
 Start the file:
 
