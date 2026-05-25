@@ -471,7 +471,7 @@ That gives Python users a smooth migration path from local caches to shared clus
 
 If you want to go deeper into the stack:
 
-*   [**UBLDC**](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache) — standalone local DepthCaches for single-process Python use
+*   [**UBLDC**](https://github.com/oliver-zehentleitner/unicorn-binance-local-depth-cache) — standalone local DepthCaches for single-process Python use and the UBDCC python client
     
 *   [**UBWA**](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api) — Binance WebSocket layer underneath the stack
     
