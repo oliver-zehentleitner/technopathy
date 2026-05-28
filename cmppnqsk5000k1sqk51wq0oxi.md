@@ -57,11 +57,11 @@ Speed is nice. An open unauthenticated market-data cluster on the internet is no
 
 To get a working UBDCC setup, we need three things:
 
-1.  A Kubernetes cluster
+1.  [A Kubernetes cluster](https://blog.technopathy.club/how-to-install-the-unicorn-binance-depthcache-cluster-ubdcc-on-kubernetes-with-helm#create-a-kubernetes-cluster)
     
-2.  `kubectl` and `helm` on your local machine
+2.  [`kubectl` and `helm` on your local machine](https://blog.technopathy.club/how-to-install-the-unicorn-binance-depthcache-cluster-ubdcc-on-kubernetes-with-helm#install-kubectl-and-helm)
     
-3.  UBDCC deployed via Helm
+3.  [UBDCC deployed via Helm](https://blog.technopathy.club/how-to-install-the-unicorn-binance-depthcache-cluster-ubdcc-on-kubernetes-with-helm#helm)
     
 
 Creating the Kubernetes cluster is the only provider-specific part. I will show the process for OVHcloud and Vultr. Other managed Kubernetes providers work in a very similar way.
@@ -195,8 +195,10 @@ For some exchanges or regional Binance endpoints, API credentials may be require
 
 That matters because a DepthCache needs two things:
 
-1. a WebSocket depth stream
-2. an initial REST order book snapshot
+1.  a WebSocket depth stream
+    
+2.  an initial REST order book snapshot
+    
 
 Without the snapshot, the DepthCache cannot safely initialize.
 
@@ -206,17 +208,22 @@ For Binance.com Spot, Binance documents request-weight limits as IP-based, not A
 
 For UBDCC, the practical rule is:
 
-* credentials may be required for some exchanges or regional Binance APIs
-* credentials can unlock authenticated or region-specific access
-* more Kubernetes nodes can help because they often provide more outgoing public IPs
-* more outgoing IPs can help with REST snapshot initialization
-* API keys are not a replacement for proper rate-limit handling
-* always respect `429` responses and back off correctly
+*   credentials may be required for some exchanges or regional Binance APIs
+    
+*   credentials can unlock authenticated or region-specific access
+    
+*   more Kubernetes nodes can help because they often provide more outgoing public IPs
+    
+*   more outgoing IPs can help with REST snapshot initialization
+    
+*   API keys are not a replacement for proper rate-limit handling
+    
+*   always respect `429` responses and back off correctly
+    
 
 In short:
 
-> UBDCC can run without credentials where public endpoints are enough.
-> But for some Binance environments, credentials are not optional — they are required for reliable DepthCache initialization.
+> UBDCC can run without credentials where public endpoints are enough. But for some Binance environments, credentials are not optional — they are required for reliable DepthCache initialization.
 
 The easiest way to add and manage credentials is the UBDCC Dashboard.
 
