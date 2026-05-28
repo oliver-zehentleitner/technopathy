@@ -231,22 +231,22 @@ The next important factor is your own query interval and client load. That depen
     
 6.  Place this file in your home directory under:
     
-
     ```bash
     .kube/config
     ```
-
+    
     This applies to Windows, Linux and macOS.
-
+    
     Create the `.kube` directory if it does not exist yet.
-
+    
     The file must be named exactly:
-
+    
     ```bash
     config
     ```
-
+    
     Not `config.txt`.
+    
 
 * * *
 
@@ -262,23 +262,22 @@ The next important factor is your own query interval and client load. That depen
     
     The node pool requires a label. I used:
     
-
     ```bash
     ubdcc-2cpu-2gb
     ```
-
+    
     For a first test, options like High Availability and Firewall are not required here. We keep this tutorial focused and simple.
-
+    
     Choose a node type, for example **AMD High Performance**.
-
+    
     Then select your preferred location.
-
+    
     When everything is ready, click **Deploy Now**.
-
+    
     From this point on, it costs money.
-
+    
     ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/ba36ff53-a344-4116-be38-1fa85bcd71d1.png align="center")
-
+    
 4.  Vultr will now create the Kubernetes cluster.
     
     This usually takes around 5 to 10 minutes.
@@ -293,22 +292,22 @@ The next important factor is your own query interval and client load. That depen
     
 6.  Place this file in your home directory under:
     
-
     ```bash
     .kube/config
     ```
-
+    
     This applies to Windows, Linux and macOS.
-
+    
     Create the `.kube` directory if it does not exist yet.
-
+    
     The file must be named exactly:
-
+    
     ```bash
     config
     ```
-
+    
     Not `config.txt`.
+    
 
 * * *
 
@@ -718,7 +717,7 @@ Because at some point, the question is no longer:
 
 The better question is:
 
-> Why does every bot maintain its own order book at all?
+> [Why does every bot maintain its own order book at all?](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot)
 
 UBDCC gives you a different answer.
 
