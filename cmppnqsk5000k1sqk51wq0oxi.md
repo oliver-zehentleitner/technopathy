@@ -3,7 +3,7 @@ title: "How to Install the UNICORN Binance DepthCache Cluster (UBDCC) on Kuberne
 datePublished: 2026-05-28T15:38:24.159Z
 cuid: cmppnqsk5000k1sqk51wq0oxi
 slug: how-to-install-the-unicorn-binance-depthcache-cluster-ubdcc-on-kubernetes-with-helm
-cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/ec84c271-25e0-4a6d-a834-b11998c3a1fa.png
+cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/e823afdf-b809-4dc8-865e-6ff5bbc67f62.png
 tags: python, opensource, kubernetes, devops, rest-api, helm, cryptocurrency, trading, binance, marketdata
 
 ---
