@@ -669,6 +669,11 @@ helm uninstall ubdcc
 kubectl delete -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 ```
 
+> **Important:**  
+> After uninstalling UBDCC, check your cloud provider dashboard and make sure the public LoadBalancer for `ubdcc-restapi` is gone.  
+> Some providers keep external LoadBalancers as separate billable resources.  
+> If this was only a test, delete the cluster and the LoadBalancer.
+
 If you want to reset the UBDCC deployment, I recommend uninstalling it first:
 
 ```bash
