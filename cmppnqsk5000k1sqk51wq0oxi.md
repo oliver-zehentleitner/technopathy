@@ -37,17 +37,19 @@ In my own test setup, a 4-node Kubernetes cluster with 2 CPU cores and 2 GB RAM 
 
 In this tutorial, we keep things simple and beginner-friendly.
 
-That also means: after installation, the UBDCC REST API will be reachable from the public internet through a LoadBalancer.
+That also means: after installation, parts of the Kubernetes setup may be reachable from the public internet, depending on your cloud provider and firewall defaults.
 
-For a quick test, that is fine.
+The most obvious public entry point is the UBDCC REST API through the Kubernetes LoadBalancer. But do not only think about the REST API. Also check whether your worker nodes, node IPs, NodePorts, or internal UBDCC cluster endpoints are reachable from outside.
 
-For production, do not leave it open.
+For a quick test, this is acceptable if you know what you are doing and clean it up afterwards.
 
-The easiest and fastest protection is usually an IP whitelist in your cloud provider firewall. Allow only your own servers, office IPs, VPN exit IPs or trading infrastructure to access the UBDCC REST API.
+For production, do not leave the cluster openly reachable.
+
+The easiest and fastest protection is usually an IP whitelist in your cloud provider firewall. Allow only your own servers, office IPs, VPN exit IPs or trading infrastructure to access the cluster and the UBDCC REST API. Everything else should be blocked.
 
 Later in this guide, I will point out again where this matters.
 
-Speed is nice. An open unauthenticated market-data infrastructure on the internet is not.
+Speed is nice. An open unauthenticated market-data cluster on the internet is not.
 
 * * *
 
