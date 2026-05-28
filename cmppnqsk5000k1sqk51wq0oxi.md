@@ -183,6 +183,45 @@ The next important factor is your own query interval and client load. That depen
 
 * * *
 
+# Binance API credentials
+
+UBDCC can manage Binance API credentials.
+
+You can add credentials either through the UBDCC REST API or through the UBDCC Dashboard.
+
+For many public Binance.com Spot market-data use cases, public endpoints are enough. However, not every Binance environment behaves exactly the same.
+
+For some exchanges or regional Binance endpoints, API credentials may be required to access the endpoints needed by UBDCC. One practical example is Binance TR: without API credentials, the initial order book snapshot required to build a DepthCache may not be available.
+
+That matters because a DepthCache needs two things:
+
+1. a WebSocket depth stream
+2. an initial REST order book snapshot
+
+Without the snapshot, the DepthCache cannot safely initialize.
+
+Credentials can also matter for rate limits, account-specific access, regional APIs and authenticated endpoint handling. Do not assume that every Binance-like endpoint behaves exactly like Binance.com Spot.
+
+For Binance.com Spot, Binance documents request-weight limits as IP-based, not API-key-based. So more API keys do not automatically mean unlimited request weight from the same IP.
+
+For UBDCC, the practical rule is:
+
+* credentials may be required for some exchanges or regional Binance APIs
+* credentials can unlock authenticated or region-specific access
+* more Kubernetes nodes can help because they often provide more outgoing public IPs
+* more outgoing IPs can help with REST snapshot initialization
+* API keys are not a replacement for proper rate-limit handling
+* always respect `429` responses and back off correctly
+
+In short:
+
+> UBDCC can run without credentials where public endpoints are enough.
+> But for some Binance environments, credentials are not optional — they are required for reliable DepthCache initialization.
+
+The easiest way to add and manage credentials is the UBDCC Dashboard.
+
+* * *
+
 # Create a Kubernetes cluster
 
 ## OVHcloud
