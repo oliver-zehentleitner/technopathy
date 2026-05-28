@@ -232,21 +232,21 @@ The next important factor is your own query interval and client load. That depen
 6.  Place this file in your home directory under:
     
 
-```bash
-.kube/config
-```
+    ```bash
+    .kube/config
+    ```
 
-This applies to Windows, Linux and macOS.
+    This applies to Windows, Linux and macOS.
 
-Create the `.kube` directory if it does not exist yet.
+    Create the `.kube` directory if it does not exist yet.
 
-The file must be named exactly:
+    The file must be named exactly:
 
-```bash
-config
-```
+    ```bash
+    config
+    ```
 
-Not `config.txt`.
+    Not `config.txt`.
 
 * * *
 
@@ -263,21 +263,21 @@ Not `config.txt`.
     The node pool requires a label. I used:
     
 
-```bash
-ubdcc-2cpu-2gb
-```
+    ```bash
+    ubdcc-2cpu-2gb
+    ```
 
-For a first test, options like High Availability and Firewall are not required here. We keep this tutorial focused and simple.
+    For a first test, options like High Availability and Firewall are not required here. We keep this tutorial focused and simple.
 
-Choose a node type, for example **AMD High Performance**.
+    Choose a node type, for example **AMD High Performance**.
 
-Then select your preferred location.
+    Then select your preferred location.
 
-When everything is ready, click **Deploy Now**.
+    When everything is ready, click **Deploy Now**.
 
-From this point on, it costs money.
+    From this point on, it costs money.
 
-![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/ba36ff53-a344-4116-be38-1fa85bcd71d1.png align="center")
+    ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/ba36ff53-a344-4116-be38-1fa85bcd71d1.png align="center")
 
 4.  Vultr will now create the Kubernetes cluster.
     
@@ -294,21 +294,21 @@ From this point on, it costs money.
 6.  Place this file in your home directory under:
     
 
-```bash
-.kube/config
-```
+    ```bash
+    .kube/config
+    ```
 
-This applies to Windows, Linux and macOS.
+    This applies to Windows, Linux and macOS.
 
-Create the `.kube` directory if it does not exist yet.
+    Create the `.kube` directory if it does not exist yet.
 
-The file must be named exactly:
+    The file must be named exactly:
 
-```bash
-config
-```
+    ```bash
+    config
+    ```
 
-Not `config.txt`.
+    Not `config.txt`.
 
 * * *
 
