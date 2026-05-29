@@ -185,6 +185,27 @@ The next important factor is your own query interval and client load. That depen
 
 # Create a Kubernetes cluster
 
+Before we create the cluster, a quick note about provider choice.
+
+I tested this setup on Vultr, OVHcloud and Google Cloud. All three can run UBDCC on Kubernetes, but the experience is not the same.
+
+For this specific use case, Vultr was the easiest and most cost-efficient option in my test. The Kubernetes setup is simple, the nodes are good enough for UBDCC, pricing is straightforward, and you get to a working cluster quickly.
+
+OVHcloud also works well, but the setup is a bit less smooth and the small nodes felt weaker compared to Vultr. Still, it is a valid option and perfectly usable for this kind of workload.
+
+Google Cloud works too, of course, but for this specific tutorial it felt like the most complicated and expensive option. It offers many powerful features, but most of them are not needed here. For a beginner-friendly UBDCC test setup, that extra complexity does not really help.
+
+That is why the provider examples in this guide are ordered by my practical experience with this specific UBDCC setup:
+
+1.  [Vultr](https://blog.technopathy.club/how-to-install-the-unicorn-binance-depthcache-cluster-ubdcc-on-kubernetes-with-helm#vultr)
+    
+2.  [OVHcloud](https://blog.technopathy.club/how-to-install-the-unicorn-binance-depthcache-cluster-ubdcc-on-kubernetes-with-helm#ovhcloud)
+    
+3.  [Google Cloud](https://blog.technopathy.club/how-to-install-the-unicorn-binance-depthcache-cluster-ubdcc-on-kubernetes-with-helm#google-cloud)
+    
+
+This is not a general cloud-provider ranking. It is only my practical impression for running UBDCC quickly and cheaply on managed Kubernetes.
+
 ## Vultr
 
 1.  Register an account at [https://www.vultr.com](https://www.vultr.com) and add a payment method.
@@ -350,12 +371,12 @@ The next important factor is your own query interval and client load. That depen
     
     ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/df2de474-ba21-4020-8a85-6eeaa1de4ea7.png align="center")
     
-6.  Once the status is `Running` download the kubeconfig file.  
-      
-    For Google Cloud, you'll need to install, initialise and authorise the [Google Cloud CLI](https://docs.cloud.google.com/sdk/docs/install-sdk).  
-      
-    Install the required plugin using the following command: `gcloud components install gke-gcloud-auth-plugin`.  
-      
+6.  Once the status is `Running` download the kubeconfig file.
+    
+    For Google Cloud, you'll need to install, initialise and authorise the [Google Cloud CLI](https://docs.cloud.google.com/sdk/docs/install-sdk).
+    
+    Install the required plugin using the following command: `gcloud components install gke-gcloud-auth-plugin`.
+    
     Then click **Connect**.
     
     ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/868c69ab-9aca-4586-a1c7-8f78572fc4c7.png align="center")
