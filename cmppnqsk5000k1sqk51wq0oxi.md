@@ -31,6 +31,8 @@ Of course, your own cluster still has limits. CPU, memory, network bandwidth and
 
 In my own test setup, a 4-node Kubernetes cluster with 2 CPU cores and 2 GB RAM per node was able to run all active Binance Spot and Futures order books with 2 replicas each — roughly 4000 DepthCaches in total — without problems.
 
+This article is the practical Kubernetes installation guide. If you want the background first, start with [why every trading bot should not maintain its own Binance order book](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot) and [why a Binance order book can silently become wrong if synchronization, pruning and recovery are handled incorrectly](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why).
+
 * * *
 
 ## Important security note
@@ -121,6 +123,8 @@ You can also manage everything via REST:
 
 The optional UBDCC Dashboard gives you a web interface for monitoring, management and API building. It can generate request examples for Python, JavaScript, Rust, Bash, C# and other languages.
 
+If you want a simpler non-Kubernetes introduction first, I also wrote a [UBDCC + Dashboard quickstart that goes from `pip install` to a redundant Binance order book cluster](https://blog.technopathy.club/from-pip-install-to-a-redundant-binance-order-book-cluster-ubdcc-dashboard-quickstart). This Kubernetes guide builds on the same idea, but moves the infrastructure into a managed cluster.
+
 * * *
 
 # Costs
@@ -178,6 +182,8 @@ For example:
 > 4 nodes × 2 CPU cores = 8 DCNs
 
 In my test, this was enough to manage all active Binance Spot and Futures order books with 2 replicas each — roughly 4000 DepthCaches in total.
+
+That number is only useful if the DepthCaches are actually trustworthy. The reason UBDCC is strict about synchronization, failover and serving known-good replicas is the same failure mode I documented in [the 25-hour Binance DepthCache forensics test](https://blog.technopathy.club/your-binance-depthcache-is-rotting-here-s-the-proof-in-25-hours): a local order book can look alive while stale price levels accumulate quietly.
 
 The next important factor is your own query interval and client load. That depends on your setup and is something you should test yourself.
 
@@ -650,6 +656,8 @@ That is the basic idea.
 Your application does not need to build and maintain its own Binance order book anymore.
 
 It can just ask UBDCC.
+
+If you want to understand what happens behind that simple REST call, the architecture is explained in more detail in [the UBDCC deep dive about building a trust layer for Binance order books](https://blog.technopathy.club/ubdcc-deep-dive-building-a-trust-layer-for-binance-order-books).
 
 * * *
 
