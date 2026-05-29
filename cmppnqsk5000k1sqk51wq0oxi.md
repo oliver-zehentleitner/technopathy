@@ -64,7 +64,7 @@ To get a working UBDCC setup, we need three things:
 3.  [UBDCC deployed via Helm](https://blog.technopathy.club/how-to-install-the-unicorn-binance-depthcache-cluster-ubdcc-on-kubernetes-with-helm#helm)
     
 
-Creating the Kubernetes cluster is the only provider-specific part. I will show the process for OVHcloud and Vultr. Other managed Kubernetes providers work in a very similar way.
+Creating the Kubernetes cluster is the only provider-specific part. I will show the process for Vultr, OVHcloud and Google Cloud. Other managed Kubernetes providers work in a very similar way.
 
 If you do not know Kubernetes yet, it can sound scary at first. But for this setup, you do not need to become a Kubernetes expert.
 
@@ -185,6 +185,67 @@ The next important factor is your own query interval and client load. That depen
 
 # Create a Kubernetes cluster
 
+## Vultr
+
+1.  Register an account at [https://www.vultr.com](https://www.vultr.com) and add a payment method.
+    
+2.  Go to **Compute** → **Kubernetes** and click **Create Cluster**.
+    
+    ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/67a76530-f72d-4f81-acf3-6d369b68d791.png align="center")
+    
+3.  Choose a cluster name. I used `ubdcc`.
+    
+    The node pool requires a label. I used:
+    
+    ```bash
+    ubdcc-2cpu-2gb
+    ```
+    
+    For a first test, options like High Availability and Firewall are not required here. We keep this tutorial focused and simple.
+    
+    Choose a node type, for example **AMD High Performance**.
+    
+    Then select your preferred location.
+    
+    When everything is ready, click **Deploy Now**.
+    
+    From this point on, it costs money.
+    
+    ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/ba36ff53-a344-4116-be38-1fa85bcd71d1.png align="center")
+    
+4.  Vultr will now create the Kubernetes cluster.
+    
+    This usually takes around 5 to 10 minutes.
+    
+    ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/86039857-3a33-4353-a908-f4b827aa943c.png align="center")
+    
+5.  Once the cluster is `active`, click the cluster name and download the configuration file.
+    
+    Click **Download Configuration**.
+    
+    ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/2c05e54a-56fb-42a0-84eb-e3d9b07e535e.png align="center")
+    
+6.  Place this file in your home directory under:
+    
+    ```bash
+    .kube/config
+    ```
+    
+    This applies to Windows, Linux and macOS.
+    
+    Create the `.kube` directory if it does not exist yet.
+    
+    The file must be named exactly:
+    
+    ```bash
+    config
+    ```
+    
+    Not `config.txt`.
+    
+
+* * *
+
 ## OVHcloud
 
 1.  Register an account at [https://www.ovhcloud.com](https://www.ovhcloud.com) and add a payment method.
@@ -252,63 +313,56 @@ The next important factor is your own query interval and client load. That depen
 
 * * *
 
-## Vultr
+## Google Cloud
 
-1.  Register an account at [https://www.vultr.com](https://www.vultr.com) and add a payment method.
+1.  Register an account at [https://console.cloud.google.com](https://console.cloud.google.com) and add a payment method.
     
-2.  Go to **Compute** → **Kubernetes** and click **Create Cluster**.
+2.  Go to **Kubernetes Engine** → **Cluster** and click **Create**.
     
-    ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/67a76530-f72d-4f81-acf3-6d369b68d791.png align="center")
+    ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/7c3375cb-e9b9-47be-a006-404feee412c7.png align="center")
     
-3.  Choose a cluster name. I used `ubdcc`.
+3.  Now click **Switch to Standard cluster**.
     
-    The node pool requires a label. I used:
+    ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/702eb310-b94d-46be-8de6-e899ad2de129.png align="center")
     
-    ```bash
-    ubdcc-2cpu-2gb
-    ```
+4.  Choose a cluster name. I used `ubdcc`.
     
-    For a first test, options like High Availability and Firewall are not required here. We keep this tutorial focused and simple.
+    Select your preferred region. Important: You only need one location, not three as Google sets by default. That cuts the cost right down to a third :)
     
-    Choose a node type, for example **AMD High Performance**.
+    On this tab you can leave the remaining default values as they are.
     
-    Then select your preferred location.
+    ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/c6c28c57-02f0-4d53-9bac-d61505c0b795.png align="center")
     
-    When everything is ready, click **Deploy Now**.
+    Now you need to configure the node pool named "default-pool":  
+    Select the "Number of nodes".
     
-    From this point on, it costs money.
+    ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/9fef7d48-54ea-4b36-a866-37a159178474.png align="center")
     
-    ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/ba36ff53-a344-4116-be38-1fa85bcd71d1.png align="center")
+    For testing, I recommend the `E2` instance under **General purpose**, with 4 GB RAM and 2 vCores.
     
-4.  Vultr will now create the Kubernetes cluster.
+    ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/48f22ea6-9391-45b5-b9ab-389d73ab53fa.png align="center")
+    
+    When everything is ready, click **Create**.
+    
+5.  Google Cloud will now create the Kubernetes cluster.
     
     This usually takes around 5 to 10 minutes.
     
-    ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/86039857-3a33-4353-a908-f4b827aa943c.png align="center")
+    ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/df2de474-ba21-4020-8a85-6eeaa1de4ea7.png align="center")
     
-5.  Once the cluster is `active`, click the cluster name and download the configuration file.
+6.  Once the status is `Running` download the kubeconfig file.  
+      
+    For Google Cloud, you'll need to install, initialise and authorise the [Google Cloud CLI](https://docs.cloud.google.com/sdk/docs/install-sdk).  
+      
+    Install the required plugin using the following command: `gcloud components install gke-gcloud-auth-plugin`.  
+      
+    Then click **Connect**.
     
-    Click **Download Configuration**.
+    ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/868c69ab-9aca-4586-a1c7-8f78572fc4c7.png align="center")
     
-    ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/2c05e54a-56fb-42a0-84eb-e3d9b07e535e.png align="center")
+    Now copy the `gcloud` command from the web interface and run it locally on your PC or laptop to connect `kubectl` to the new cluster.
     
-6.  Place this file in your home directory under:
-    
-    ```bash
-    .kube/config
-    ```
-    
-    This applies to Windows, Linux and macOS.
-    
-    Create the `.kube` directory if it does not exist yet.
-    
-    The file must be named exactly:
-    
-    ```bash
-    config
-    ```
-    
-    Not `config.txt`.
+    ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/107d7e72-c28e-4980-9b3c-7bc9c761e907.png align="center")
     
 
 * * *
