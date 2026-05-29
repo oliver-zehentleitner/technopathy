@@ -1,8 +1,8 @@
 ---
-title: "How to Install the UNICORN Binance DepthCache Cluster (UBDCC) on Kubernetes with Helm"
+title: "Install UBDCC on Kubernetes with Helm: A Redundant Binance Order Book Cluster in 20 Minutes"
 datePublished: 2026-05-28T15:38:24.159Z
 cuid: cmppnqsk5000k1sqk51wq0oxi
-slug: how-to-install-the-unicorn-binance-depthcache-cluster-ubdcc-on-kubernetes-with-helm
+slug: install-ubdcc-on-kubernetes-with-helm-a-redundant-binance-order-book-cluster-in-20-minutes
 cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/e823afdf-b809-4dc8-865e-6ff5bbc67f62.png
 tags: python, opensource, kubernetes, devops, rest-api, helm, cryptocurrency, trading, binance, marketdata
 
@@ -125,7 +125,7 @@ The optional UBDCC Dashboard gives you a web interface for monitoring, managemen
 
 # Costs
 
-The full test setup with all Binance Spot and Futures DepthCaches on 4 nodes, as described here, cost me less than 3 EUR/USD for a short test run.
+The full test setup with all Binance Spot and Futures DepthCaches on 4 nodes, as described here, cost me less than 3 EUR for a short test run.
 
 For continuous operation, the cost depends mainly on:
 
@@ -147,6 +147,7 @@ For continuous operation, the cost depends mainly on:
 For testing, use hourly billing where possible and delete the cluster and LoadBalancer afterwards. Depending on the provider, the LoadBalancer may remain billable even after the workloads are gone, so make sure it is actually removed.
 
 * * *
+
 # Kubernetes cluster sizing
 
 The nodes are the servers on which your Kubernetes workloads run. They can have different sizes, just like virtual machines.
