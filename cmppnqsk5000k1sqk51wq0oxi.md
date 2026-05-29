@@ -538,6 +538,31 @@ We want to run UBDCC, not write a Kubernetes book.
 
 * * *
 
+# Changing the number of DCNs
+
+If you want to experiment with the number of DepthCacheNodes, you can change the DCN count while UBDCC is running.
+
+For example, to scale UBDCC to 16 DCNs, run:
+
+```bash
+helm upgrade ubdcc ubdcc/ubdcc --set dcn.replicas=16
+```
+
+Kubernetes will then adjust the running `ubdcc-dcn-*` pods.
+
+You can scale the number up or down and watch the result with:
+
+```bash
+kubectl get pods
+kubectl top pods
+```
+
+This is useful if you want to test how many DCNs your cluster can handle, how resource usage changes, or how fast large numbers of DepthCaches are initialized.
+
+For a simple rule of thumb, I recommend starting with 1 DCN per CPU core.
+
+* * *
+
 # How to find the UBDCC REST API IP
 
 During installation, Kubernetes created a LoadBalancer service for the UBDCC REST API.
