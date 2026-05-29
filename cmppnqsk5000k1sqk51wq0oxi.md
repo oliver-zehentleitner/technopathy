@@ -147,7 +147,6 @@ For continuous operation, the cost depends mainly on:
 For testing, use hourly billing where possible and delete the cluster and LoadBalancer afterwards. Depending on the provider, the LoadBalancer may remain billable even after the workloads are gone, so make sure it is actually removed.
 
 * * *
-
 # Kubernetes cluster sizing
 
 The nodes are the servers on which your Kubernetes workloads run. They can have different sizes, just like virtual machines.
@@ -180,6 +179,16 @@ For example:
 In my test, this was enough to manage all active Binance Spot and Futures order books with 2 replicas each — roughly 4000 DepthCaches in total.
 
 The next important factor is your own query interval and client load. That depends on your setup and is something you should test yourself.
+
+There is one more important sizing factor: market activity.
+
+A test during a quiet market period does not necessarily represent peak load. Binance WebSocket depth streams can deliver significantly more updates when the market gets busy. More updates mean more processing work for the DCNs, more internal synchronization work and higher CPU usage.
+
+So do not size your cluster only based on a calm test window.
+
+Depending on market conditions, the difference between low activity and peak activity can be huge. In practice, I would not be surprised to see several times more update traffic during busy periods. For stress planning, assuming up to 10x more load than during a quiet test is not crazy.
+
+For a simple rule of thumb, start with 1 DCN per CPU core and then watch real CPU usage with `kubectl top pods` during both quiet and active market periods. You can always adjust the number of DCNs later with Helm.
 
 * * *
 
