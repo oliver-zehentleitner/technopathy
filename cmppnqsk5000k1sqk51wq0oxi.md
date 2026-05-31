@@ -643,7 +643,7 @@ Linux, macOS or WSL:
 curl 'http://[YOUR_UBDCC_IP]/create_depthcache?exchange=binance.com&market=ETHBTC&desired_quantity=2'
 ```
 
-Windows PowerShell:
+Windows PowerShell or cmd.exe:
 
 ```powershell
 curl.exe "http://[YOUR_UBDCC_IP]/create_depthcache?exchange=binance.com&market=ETHBTC&desired_quantity=2"
@@ -663,7 +663,7 @@ Linux, macOS or WSL:
 curl 'http://[YOUR_UBDCC_IP]/get_asks?exchange=binance.com&market=ETHBTC&limit_count=100'
 ```
 
-Windows PowerShell:
+Windows PowerShell or cmd.exe:
 
 ```powershell
 curl.exe "http://[YOUR_UBDCC_IP]/get_asks?exchange=binance.com&market=ETHBTC&limit_count=100"
@@ -679,7 +679,7 @@ Linux, macOS or WSL:
 curl 'http://[YOUR_UBDCC_IP]/get_bids?exchange=binance.com&market=ETHBTC'
 ```
 
-Windows PowerShell:
+Windows PowerShell or cmd.exe:
 
 ```powershell
 curl.exe "http://[YOUR_UBDCC_IP]/get_bids?exchange=binance.com&market=ETHBTC"
