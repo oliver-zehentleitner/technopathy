@@ -633,22 +633,56 @@ For anything serious, restrict access with a firewall or IP whitelist.
 
 Now we create a Binance Spot DepthCache for `ETHBTC` with 2 replicas.
 
+Replace `[YOUR_UBDCC_IP]` with the external IP address of your UBDCC REST API service.
+
+## Create the DepthCache
+
+Linux, macOS or WSL:
+
 ```bash
 curl 'http://[YOUR_UBDCC_IP]/create_depthcache?exchange=binance.com&market=ETHBTC&desired_quantity=2'
 ```
 
-It takes a few seconds until the DepthCache is created and synchronized.
+Windows PowerShell:
 
-Once it is ready, query the first 100 asks:
+```powershell
+curl.exe "http://[YOUR_UBDCC_IP]/create_depthcache?exchange=binance.com&market=ETHBTC&desired_quantity=2"
+```
+
+The parameter `desired_quantity=2` tells UBDCC to create two synchronized replicas of this DepthCache.
+
+It takes a few seconds until the DepthCache is created, initialized from a Binance REST snapshot and synchronized with the live WebSocket stream.
+
+## Query asks
+
+Once the DepthCache is ready, query the first 100 asks.
+
+Linux, macOS or WSL:
 
 ```bash
 curl 'http://[YOUR_UBDCC_IP]/get_asks?exchange=binance.com&market=ETHBTC&limit_count=100'
 ```
 
-Query the first 20 bids:
+Windows PowerShell:
+
+```powershell
+curl.exe "http://[YOUR_UBDCC_IP]/get_asks?exchange=binance.com&market=ETHBTC&limit_count=100"
+```
+
+## Query bids
+
+Query the currently available bids.
+
+Linux, macOS or WSL:
 
 ```bash
-curl 'http://[YOUR_UBDCC_IP]/get_bids?exchange=binance.com&market=ETHBTC&limit_count=20'
+curl 'http://[YOUR_UBDCC_IP]/get_bids?exchange=binance.com&market=ETHBTC'
+```
+
+Windows PowerShell:
+
+```powershell
+curl.exe "http://[YOUR_UBDCC_IP]/get_bids?exchange=binance.com&market=ETHBTC"
 ```
 
 That is the basic idea.
@@ -656,6 +690,12 @@ That is the basic idea.
 Your application does not need to build and maintain its own Binance order book anymore.
 
 It can just ask UBDCC.
+
+The same REST API can be used from any operating system and from any programming language. The only difference in the examples above is the shell syntax:
+
+- Linux, macOS and WSL use `curl`.
+- Windows PowerShell should use `curl.exe` to make sure the real curl binary is called.
+- The URLs are quoted because they contain query parameters such as `&`.
 
 If you want to understand what happens behind that simple REST call, the architecture is explained in more detail in [the UBDCC deep dive about building a trust layer for Binance order books](https://blog.technopathy.club/ubdcc-deep-dive-building-a-trust-layer-for-binance-order-books).
 
