@@ -645,7 +645,7 @@ curl 'http://[YOUR_UBDCC_IP]/create_depthcache?exchange=binance.com&market=ETHBT
 
 Windows PowerShell or cmd.exe:
 
-```powershell
+```cmd
 curl.exe "http://[YOUR_UBDCC_IP]/create_depthcache?exchange=binance.com&market=ETHBTC&desired_quantity=2"
 ```
 
@@ -655,7 +655,7 @@ It takes a few seconds until the DepthCache is created, initialized from a Binan
 
 ## Query asks
 
-Once the DepthCache is ready, query the first 100 asks.
+Once the DepthCache is ready, query the first 100 ask levels.
 
 Linux, macOS or WSL:
 
@@ -665,9 +665,13 @@ curl 'http://[YOUR_UBDCC_IP]/get_asks?exchange=binance.com&market=ETHBTC&limit_c
 
 Windows PowerShell or cmd.exe:
 
-```powershell
+```cmd
 curl.exe "http://[YOUR_UBDCC_IP]/get_asks?exchange=binance.com&market=ETHBTC&limit_count=100"
 ```
+
+The parameter `limit_count=100` limits the response to the first 100 ask levels.
+
+Without `limit_count`, UBDCC returns the currently available ask side according to the API defaults. In most applications, you should request only the amount of order book depth you actually need.
 
 ## Query bids
 
@@ -681,7 +685,7 @@ curl 'http://[YOUR_UBDCC_IP]/get_bids?exchange=binance.com&market=ETHBTC'
 
 Windows PowerShell or cmd.exe:
 
-```powershell
+```cmd
 curl.exe "http://[YOUR_UBDCC_IP]/get_bids?exchange=binance.com&market=ETHBTC"
 ```
 
@@ -694,7 +698,7 @@ It can just ask UBDCC.
 The same REST API can be used from any operating system and from any programming language. The only difference in the examples above is the shell syntax:
 
 - Linux, macOS and WSL use `curl`.
-- Windows PowerShell should use `curl.exe` to make sure the real curl binary is called.
+- Windows PowerShell and cmd.exe should use `curl.exe` to make sure the real curl binary is called.
 - The URLs are quoted because they contain query parameters such as `&`.
 
 If you want to understand what happens behind that simple REST call, the architecture is explained in more detail in [the UBDCC deep dive about building a trust layer for Binance order books](https://blog.technopathy.club/ubdcc-deep-dive-building-a-trust-layer-for-binance-order-books).
