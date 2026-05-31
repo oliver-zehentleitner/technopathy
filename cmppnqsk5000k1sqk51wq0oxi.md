@@ -629,7 +629,7 @@ For anything serious, restrict access with a firewall or IP whitelist.
 
 * * *
 
-# Create a DepthCache with 2 replicas
+# Create and query your first DepthCache
 
 Now we create a Binance Spot DepthCache for `ETHBTC` with 2 replicas.
 
