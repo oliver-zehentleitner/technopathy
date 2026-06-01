@@ -39,11 +39,11 @@ This article is the practical Kubernetes installation guide. If you want the bac
 
 To get a working UBDCC setup, we need three things:
 
-1.  [A Kubernetes cluster](https://blog.technopathy.club/how-to-install-the-unicorn-binance-depthcache-cluster-ubdcc-on-kubernetes-with-helm#create-a-kubernetes-cluster)
+1.  [A Kubernetes cluster](https://blog.technopathy.club/install-ubdcc-on-kubernetes-with-helm-a-redundant-binance-order-book-cluster-in-20-minutes#create-a-kubernetes-cluster)
     
-2.  [`kubectl` and `helm` on your local machine](https://blog.technopathy.club/how-to-install-the-unicorn-binance-depthcache-cluster-ubdcc-on-kubernetes-with-helm#install-kubectl-and-helm)
+2.  [`kubectl` and `helm` on your local machine](https://blog.technopathy.club/install-ubdcc-on-kubernetes-with-helm-a-redundant-binance-order-book-cluster-in-20-minutes#install-kubectl-and-helm)
     
-3.  [UBDCC deployed via Helm](https://blog.technopathy.club/how-to-install-the-unicorn-binance-depthcache-cluster-ubdcc-on-kubernetes-with-helm#helm)
+3.  [Deploy UBDCC](https://blog.technopathy.club/install-ubdcc-on-kubernetes-with-helm-a-redundant-binance-order-book-cluster-in-20-minutes#deploy-ubdcc)
     
 
 Creating the Kubernetes cluster is the only provider-specific part. I will show the process for Vultr, OVHcloud and Google Cloud. Other managed Kubernetes providers work in a very similar way.
@@ -697,9 +697,12 @@ It can just ask UBDCC.
 
 The same REST API can be used from any operating system and from any programming language. The only difference in the examples above is the shell syntax:
 
-- Linux, macOS and WSL use `curl`.
-- Windows PowerShell and cmd.exe should use `curl.exe` to make sure the real curl binary is called.
-- The URLs are quoted because they contain query parameters such as `&`.
+*   Linux, macOS and WSL use `curl`.
+    
+*   Windows PowerShell and cmd.exe should use `curl.exe` to make sure the real curl binary is called.
+    
+*   The URLs are quoted because they contain query parameters such as `&`.
+    
 
 If you want to understand what happens behind that simple REST call, the architecture is explained in more detail in [the UBDCC deep dive about building a trust layer for Binance order books](https://blog.technopathy.club/ubdcc-deep-dive-building-a-trust-layer-for-binance-order-books).
 
