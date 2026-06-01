@@ -213,11 +213,11 @@ Google Cloud works too, of course, but for this specific tutorial it felt like t
 
 That is why the provider examples in this guide are ordered by my practical experience with this specific UBDCC setup:
 
-1.  [Vultr](https://blog.technopathy.club/how-to-install-the-unicorn-binance-depthcache-cluster-ubdcc-on-kubernetes-with-helm#vultr)
+1.  [Vultr](https://blog.technopathy.club/install-ubdcc-on-kubernetes-with-helm-a-redundant-binance-order-book-cluster-in-20-minutes#vultr)
     
-2.  [OVHcloud](https://blog.technopathy.club/how-to-install-the-unicorn-binance-depthcache-cluster-ubdcc-on-kubernetes-with-helm#ovhcloud)
+2.  [OVHcloud](https://blog.technopathy.club/install-ubdcc-on-kubernetes-with-helm-a-redundant-binance-order-book-cluster-in-20-minutes#ovhcloud)
     
-3.  [Google Cloud](https://blog.technopathy.club/how-to-install-the-unicorn-binance-depthcache-cluster-ubdcc-on-kubernetes-with-helm#google-cloud)
+3.  [Google Cloud](https://blog.technopathy.club/install-ubdcc-on-kubernetes-with-helm-a-redundant-binance-order-book-cluster-in-20-minutes#google-cloud)
     
 
 This is not a general cloud-provider ranking. It is only my practical impression for running UBDCC quickly and cheaply on managed Kubernetes.
