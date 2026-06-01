@@ -882,12 +882,21 @@ helm uninstall ubdcc
 kubectl delete -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 ```
 
+The second command removes the Kubernetes Metrics Server from the cluster.
+
+After that, resource usage commands such as these will no longer work until the Metrics Server is installed again:
+
+```bash
+kubectl top nodes
+kubectl top pods
+```
+
 > **Important:**  
 > After uninstalling UBDCC, check your cloud provider dashboard and make sure the public LoadBalancer for `ubdcc-restapi` is gone.  
 > Some providers keep external LoadBalancers as separate billable resources.  
 > If this was only a test, delete the cluster and the LoadBalancer.
 
-If you want to reset the UBDCC deployment, I recommend uninstalling it first:
+If you only want to reset the UBDCC deployment, uninstall UBDCC first:
 
 ```bash
 helm uninstall ubdcc
@@ -938,6 +947,10 @@ The better question is:
 > [Why does every bot maintain its own order book at all?](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot)
 
 UBDCC gives you a different answer.
+
+If something in this guide is unclear, missing, or does not work in your setup, please post it in the comments.
+
+I am happy about constructive feedback, real-world test results, error reports, edge cases, and improvement ideas. If something is useful for others too, I will try to pick it up and improve the article accordingly.
 
 * * *
 
