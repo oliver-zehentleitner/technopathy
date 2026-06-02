@@ -375,6 +375,8 @@ Or with HTTPie:
 http GET 'http://127.0.0.1:42081/get_asks?exchange=binance.com&market=BTCUSDT&limit_count=5'
 ```
 
+![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/47307998-6cd0-490b-9208-2ef3566d64ba.png align="center")
+
 This is where the practical benefit becomes obvious.
 
 You can hammer the local cluster with reads as much as you want.
@@ -388,8 +390,6 @@ If you want to see how this idea behaves once moved from a local quickstart to K
 [I Created 2013 Binance Order Books on Kubernetes with 2 Replicas in 25 Minutes — Then Stress-Tested the REST API](https://blog.technopathy.club/i-created-2013-binance-order-books-on-kubernetes-with-2-replicas-in-25-minutes-then-stress-tested-the-rest-api)
 
 In that follow-up, I created 2013 Binance Spot and Futures markets with 2 replicas each — 4026 replicated DepthCaches in total — on six low-cost Vultr Kubernetes nodes and then tested the REST API with Grafana Cloud k6.
-
-![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/47307998-6cd0-490b-9208-2ef3566d64ba.png align="center")
 
 ## Step 9 — Generate client code for your language
 
