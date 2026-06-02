@@ -187,6 +187,14 @@ That number is only useful if the DepthCaches are actually trustworthy. The reas
 
 The next important factor is your own query interval and client load. That depends on your setup and is something you should test yourself.
 
+I later did exactly that in a larger follow-up test.
+
+I created all 2013 active Binance Spot and Futures order books on Kubernetes with 2 replicas each — 4026 replicated DepthCaches in total — and then stress-tested the UBDCC REST API with Grafana Cloud k6.
+
+That follow-up article shows the difference between a single hot-market workload and distributed REST API load across many DepthCaches:
+
+[I Created 2013 Binance Order Books on Kubernetes with 2 Replicas in 25 Minutes — Then Stress-Tested the REST API](https://blog.technopathy.club/i-created-2013-binance-order-books-on-kubernetes-with-2-replicas-in-25-minutes-then-stress-tested-the-rest-api)
+
 There is one more important sizing factor: market activity.
 
 A test during a quiet market period does not necessarily represent peak load. Binance WebSocket depth streams can deliver significantly more updates when the market gets busy. More updates mean more processing work for the DCNs, more internal synchronization work and higher CPU usage.
