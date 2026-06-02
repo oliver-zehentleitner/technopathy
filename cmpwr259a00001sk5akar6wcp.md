@@ -482,7 +482,6 @@ Expected:
 6 netdata-child pods
 1 netdata-parent pod
 1 netdata-k8s-state pod
-no stuck PVCs
 ```
 
 ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/d1bfc690-fd65-49f3-a9cf-9c8ad734a54e.png align="center")
