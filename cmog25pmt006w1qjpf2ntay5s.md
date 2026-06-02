@@ -530,6 +530,10 @@ If you want to try it:
 *   **Telegram:** https://t.me/unicorndevs
     
 
+If something in this guide is unclear, missing, or does not work in your setup, please post it in the comments.
+
+I am happy about constructive feedback, real-world test results, error reports, edge cases, and improvement ideas. If something is useful for others too, I will try to pick it up and improve the article accordingly.
+
 * * *
 
 I hope you found this informative and useful.
