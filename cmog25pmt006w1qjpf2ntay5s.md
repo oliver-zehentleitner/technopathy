@@ -386,7 +386,6 @@ Your consumers are no longer going back to Binance for fresh snapshots over and 
 That is faster, easier on rate limits, and especially useful once several bots, dashboards, and services all need the same market view at the same time.
 
 If you want to see how this idea behaves once moved from a local quickstart to Kubernetes, I later ran a larger stress test:
-
 [I Created 2013 Binance Order Books on Kubernetes with 2 Replicas in 25 Minutes — Then Stress-Tested the REST API](https://blog.technopathy.club/i-created-2013-binance-order-books-on-kubernetes-with-2-replicas-in-25-minutes-then-stress-tested-the-rest-api)
 
 In that follow-up, I created 2013 Binance Spot and Futures markets with 2 replicas each — 4026 replicated DepthCaches in total — on six low-cost Vultr Kubernetes nodes and then tested the REST API with Grafana Cloud k6.
