@@ -31,8 +31,7 @@ Of course, your own cluster still has limits. CPU, memory, network bandwidth and
 
 In my own test setup, a 4-node Kubernetes cluster with 2 CPU cores and 2 GB RAM per node was able to run all active Binance Spot and Futures order books with 2 replicas each — roughly 4000 DepthCaches in total — without problems.
 
-I later repeated this as a larger documented stress test with 2013 markets, 4026 replicated DepthCaches, six low-cost Vultr nodes and Grafana Cloud k6:
-
+I later repeated this as a larger documented stress test with 2013 markets, 4026 replicated DepthCaches, six low-cost Vultr nodes and Grafana Cloud k6:  
 [I Created 2013 Binance Order Books on Kubernetes with 2 Replicas in 25 Minutes — Then Stress-Tested the REST API](https://blog.technopathy.club/i-created-2013-binance-order-books-on-kubernetes-with-2-replicas-in-25-minutes-then-stress-tested-the-rest-api)
 
 This article is the practical Kubernetes installation guide. If you want the background first, start with [why every trading bot should not maintain its own Binance order book](https://blog.technopathy.club/why-your-binance-order-book-should-not-live-inside-your-bot) and [why a Binance order book can silently become wrong if synchronization, pruning and recovery are handled incorrectly](https://blog.technopathy.club/your-binance-order-book-is-wrong-here-s-why).
@@ -195,8 +194,7 @@ I later did exactly that in a larger follow-up test.
 
 I created all 2013 active Binance Spot and Futures order books on Kubernetes with 2 replicas each — 4026 replicated DepthCaches in total — and then stress-tested the UBDCC REST API with Grafana Cloud k6.
 
-That follow-up article shows the difference between a single hot-market workload and distributed REST API load across many DepthCaches:
-
+That follow-up article shows the difference between a single hot-market workload and distributed REST API load across many DepthCaches:  
 [I Created 2013 Binance Order Books on Kubernetes with 2 Replicas in 25 Minutes — Then Stress-Tested the REST API](https://blog.technopathy.club/i-created-2013-binance-order-books-on-kubernetes-with-2-replicas-in-25-minutes-then-stress-tested-the-rest-api)
 
 There is one more important sizing factor: market activity.
