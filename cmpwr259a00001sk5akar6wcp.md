@@ -157,6 +157,18 @@ The interesting number is the highest load where latency, error rate and replica
 
 * * *
 
+## Video walkthrough
+
+I also recorded a full Kubernetes setup video for this UBDCC cluster.
+
+The video does not rerun the paid Grafana Cloud k6 stress test. Instead, it shows the reproducible setup path: creating the Kubernetes cluster, installing UBDCC with Helm, opening the dashboard, creating a first DepthCache with `curl`, and creating all currently active Binance Spot and Futures DepthCaches with replicas.
+
+The stress-test results themselves are documented in this article below.
+
+%[https://www.youtube.com/watch?v=erxIkwmqlmk]
+
+* * *
+
 # Test environment
 
 ## Kubernetes cluster
