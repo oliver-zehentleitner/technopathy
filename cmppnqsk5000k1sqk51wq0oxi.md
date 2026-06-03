@@ -38,6 +38,16 @@ This article is the practical Kubernetes installation guide. If you want the bac
 
 * * *
 
+## Video walkthrough
+
+If you prefer to watch the full Kubernetes setup before going through the written steps, I recorded a complete video walkthrough.
+
+In the video, I create the Kubernetes cluster, install UBDCC with Helm, open the dashboard, create the first DepthCache with `curl`, and then create all currently active Binance Spot and Futures DepthCaches with replicas.
+
+%[https://www.youtube.com/watch?v=erxIkwmqlmk]
+
+* * *
+
 ## What we are going to build
 
 To get a working UBDCC setup, we need three things:
