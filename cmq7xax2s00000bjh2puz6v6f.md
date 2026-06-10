@@ -112,7 +112,217 @@ To make prompting easier, I prepared a clean, machine-readable list of all curre
 You can copy the full list directly into your preferred AI model or use it as input for a custom workflow:
 
 ```text
-test
+
+# Prompt World Cup 2026 — Prediction Questions
+
+This document contains all match prediction questions currently shown on Tippster.
+
+> **Time note:** All dates and times below are reproduced exactly as displayed on the platform. Confirm the timezone shown in your Tippster account before using them programmatically.
+
+> **Knockout scoring:** In knockout matches, the final score counts, including extra time and penalty shootouts.
+
+---
+
+## Group A
+
+| Date & time | Home | Away |
+|---|---|---|
+| 2026-06-11 21:00 | Mexico (`MEX`) | South Africa (`RSA`) |
+| 2026-06-12 04:00 | South Korea (`KOR`) | Czechia (`CZE`) |
+| 2026-06-18 18:00 | Czechia (`CZE`) | South Africa (`RSA`) |
+| 2026-06-19 03:00 | Mexico (`MEX`) | South Korea (`KOR`) |
+| 2026-06-25 03:00 | Czechia (`CZE`) | Mexico (`MEX`) |
+| 2026-06-25 03:00 | South Africa (`RSA`) | South Korea (`KOR`) |
+
+## Group B
+
+| Date & time | Home | Away |
+|---|---|---|
+| 2026-06-12 21:00 | Canada (`CAN`) | Bosnia-Herzegovina (`BIH`) |
+| 2026-06-13 21:00 | Qatar (`QAT`) | Switzerland (`SUI`) |
+| 2026-06-18 21:00 | Switzerland (`SUI`) | Bosnia-Herzegovina (`BIH`) |
+| 2026-06-19 00:00 | Canada (`CAN`) | Qatar (`QAT`) |
+| 2026-06-24 21:00 | Switzerland (`SUI`) | Canada (`CAN`) |
+| 2026-06-24 21:00 | Bosnia-Herzegovina (`BIH`) | Qatar (`QAT`) |
+
+## Group C
+
+| Date & time | Home | Away |
+|---|---|---|
+| 2026-06-14 00:00 | Brazil (`BRA`) | Morocco (`MAR`) |
+| 2026-06-14 03:00 | Haiti (`HAI`) | Scotland (`SCO`) |
+| 2026-06-20 00:00 | Scotland (`SCO`) | Morocco (`MAR`) |
+| 2026-06-20 02:30 | Brazil (`BRA`) | Haiti (`HAI`) |
+| 2026-06-25 00:00 | Scotland (`SCO`) | Brazil (`BRA`) |
+| 2026-06-25 00:00 | Morocco (`MAR`) | Haiti (`HAI`) |
+
+## Group D
+
+| Date & time | Home | Away |
+|---|---|---|
+| 2026-06-13 03:00 | United States (`USA`) | Paraguay (`PAR`) |
+| 2026-06-14 06:00 | Australia (`AUS`) | Turkey (`TUR`) |
+| 2026-06-19 21:00 | United States (`USA`) | Australia (`AUS`) |
+| 2026-06-20 05:00 | Turkey (`TUR`) | Paraguay (`PAR`) |
+| 2026-06-26 04:00 | Turkey (`TUR`) | United States (`USA`) |
+| 2026-06-26 04:00 | Paraguay (`PAR`) | Australia (`AUS`) |
+
+## Group E
+
+| Date & time | Home | Away |
+|---|---|---|
+| 2026-06-14 19:00 | Germany (`GER`) | Curaçao (`CUW`) |
+| 2026-06-15 01:00 | Ivory Coast (`CIV`) | Ecuador (`ECU`) |
+| 2026-06-20 22:00 | Germany (`GER`) | Ivory Coast (`CIV`) |
+| 2026-06-21 02:00 | Ecuador (`ECU`) | Curaçao (`CUW`) |
+| 2026-06-25 22:00 | Ecuador (`ECU`) | Germany (`GER`) |
+| 2026-06-25 22:00 | Curaçao (`CUW`) | Ivory Coast (`CIV`) |
+
+## Group F
+
+| Date & time | Home | Away |
+|---|---|---|
+| 2026-06-14 22:00 | Netherlands (`NED`) | Japan (`JPN`) |
+| 2026-06-15 04:00 | Sweden (`SWE`) | Tunisia (`TUN`) |
+| 2026-06-20 19:00 | Netherlands (`NED`) | Sweden (`SWE`) |
+| 2026-06-21 06:00 | Tunisia (`TUN`) | Japan (`JPN`) |
+| 2026-06-26 01:00 | Tunisia (`TUN`) | Netherlands (`NED`) |
+| 2026-06-26 01:00 | Japan (`JPN`) | Sweden (`SWE`) |
+
+## Group G
+
+| Date & time | Home | Away |
+|---|---|---|
+| 2026-06-15 21:00 | Belgium (`BEL`) | Egypt (`EGY`) |
+| 2026-06-16 03:00 | Iran (`IRN`) | New Zealand (`NZL`) |
+| 2026-06-21 21:00 | Belgium (`BEL`) | Iran (`IRN`) |
+| 2026-06-22 03:00 | New Zealand (`NZL`) | Egypt (`EGY`) |
+| 2026-06-27 05:00 | New Zealand (`NZL`) | Belgium (`BEL`) |
+| 2026-06-27 05:00 | Egypt (`EGY`) | Iran (`IRN`) |
+
+## Group H
+
+| Date & time | Home | Away |
+|---|---|---|
+| 2026-06-15 18:00 | Spain (`ESP`) | Cape Verde Islands (`CPV`) |
+| 2026-06-16 00:00 | Saudi Arabia (`KSA`) | Uruguay (`URY`) |
+| 2026-06-21 18:00 | Spain (`ESP`) | Saudi Arabia (`KSA`) |
+| 2026-06-22 00:00 | Uruguay (`URY`) | Cape Verde Islands (`CPV`) |
+| 2026-06-27 02:00 | Uruguay (`URY`) | Spain (`ESP`) |
+| 2026-06-27 02:00 | Cape Verde Islands (`CPV`) | Saudi Arabia (`KSA`) |
+
+## Group I
+
+| Date & time | Home | Away |
+|---|---|---|
+| 2026-06-16 21:00 | France (`FRA`) | Senegal (`SEN`) |
+| 2026-06-17 00:00 | Iraq (`IRQ`) | Norway (`NOR`) |
+| 2026-06-22 23:00 | France (`FRA`) | Iraq (`IRQ`) |
+| 2026-06-23 02:00 | Norway (`NOR`) | Senegal (`SEN`) |
+| 2026-06-26 21:00 | Norway (`NOR`) | France (`FRA`) |
+| 2026-06-26 21:00 | Senegal (`SEN`) | Iraq (`IRQ`) |
+
+## Group J
+
+| Date & time | Home | Away |
+|---|---|---|
+| 2026-06-17 03:00 | Argentina (`ARG`) | Algeria (`ALG`) |
+| 2026-06-17 06:00 | Austria (`AUT`) | Jordan (`JOR`) |
+| 2026-06-22 19:00 | Argentina (`ARG`) | Austria (`AUT`) |
+| 2026-06-23 05:00 | Jordan (`JOR`) | Algeria (`ALG`) |
+| 2026-06-28 04:00 | Jordan (`JOR`) | Argentina (`ARG`) |
+| 2026-06-28 04:00 | Algeria (`ALG`) | Austria (`AUT`) |
+
+## Group K
+
+| Date & time | Home | Away |
+|---|---|---|
+| 2026-06-17 19:00 | Portugal (`POR`) | Congo DR (`COD`) |
+| 2026-06-18 04:00 | Uzbekistan (`UZB`) | Colombia (`COL`) |
+| 2026-06-23 19:00 | Portugal (`POR`) | Uzbekistan (`UZB`) |
+| 2026-06-24 04:00 | Colombia (`COL`) | Congo DR (`COD`) |
+| 2026-06-28 01:30 | Colombia (`COL`) | Portugal (`POR`) |
+| 2026-06-28 01:30 | Congo DR (`COD`) | Uzbekistan (`UZB`) |
+
+## Group L
+
+| Date & time | Home | Away |
+|---|---|---|
+| 2026-06-17 22:00 | England (`ENG`) | Croatia (`CRO`) |
+| 2026-06-18 01:00 | Ghana (`GHA`) | Panama (`PAN`) |
+| 2026-06-23 22:00 | England (`ENG`) | Ghana (`GHA`) |
+| 2026-06-24 01:00 | Panama (`PAN`) | Croatia (`CRO`) |
+| 2026-06-27 23:00 | Panama (`PAN`) | England (`ENG`) |
+| 2026-06-27 23:00 | Croatia (`CRO`) | Ghana (`GHA`) |
+
+---
+
+# Knockout Stage
+
+The participating teams are not known yet.
+
+## Round of 32
+
+| Match | Date & time | Home | Away |
+|---:|---|---|---|
+| R32-01 | 2026-06-28 21:00 | TBD | TBD |
+| R32-02 | 2026-06-29 19:00 | TBD | TBD |
+| R32-03 | 2026-06-29 22:30 | TBD | TBD |
+| R32-04 | 2026-06-30 03:00 | TBD | TBD |
+| R32-05 | 2026-06-30 19:00 | TBD | TBD |
+| R32-06 | 2026-06-30 23:00 | TBD | TBD |
+| R32-07 | 2026-07-01 03:00 | TBD | TBD |
+| R32-08 | 2026-07-01 18:00 | TBD | TBD |
+| R32-09 | 2026-07-01 22:00 | TBD | TBD |
+| R32-10 | 2026-07-02 02:00 | TBD | TBD |
+| R32-11 | 2026-07-02 21:00 | TBD | TBD |
+| R32-12 | 2026-07-03 01:00 | TBD | TBD |
+| R32-13 | 2026-07-03 05:00 | TBD | TBD |
+| R32-14 | 2026-07-03 20:00 | TBD | TBD |
+| R32-15 | 2026-07-04 00:00 | TBD | TBD |
+| R32-16 | 2026-07-04 03:30 | TBD | TBD |
+
+## Round of 16
+
+| Match | Date & time | Home | Away |
+|---:|---|---|---|
+| R16-01 | 2026-07-04 19:00 | TBD | TBD |
+| R16-02 | 2026-07-04 23:00 | TBD | TBD |
+| R16-03 | 2026-07-05 22:00 | TBD | TBD |
+| R16-04 | 2026-07-06 02:00 | TBD | TBD |
+| R16-05 | 2026-07-06 21:00 | TBD | TBD |
+| R16-06 | 2026-07-07 02:00 | TBD | TBD |
+| R16-07 | 2026-07-07 18:00 | TBD | TBD |
+| R16-08 | 2026-07-07 22:00 | TBD | TBD |
+
+## Quarter-finals
+
+| Match | Date & time | Home | Away |
+|---:|---|---|---|
+| QF-01 | 2026-07-09 22:00 | TBD | TBD |
+| QF-02 | 2026-07-10 21:00 | TBD | TBD |
+| QF-03 | 2026-07-11 23:00 | TBD | TBD |
+| QF-04 | 2026-07-12 03:00 | TBD | TBD |
+
+## Semi-finals
+
+| Match | Date & time | Home | Away |
+|---:|---|---|---|
+| SF-01 | 2026-07-14 21:00 | TBD | TBD |
+| SF-02 | 2026-07-15 21:00 | TBD | TBD |
+
+## Third-place match
+
+| Match | Date & time | Home | Away |
+|---:|---|---|---|
+| 3P | 2026-07-18 23:00 | TBD | TBD |
+
+## Final
+
+| Match | Date & time | Home | Away |
+|---:|---|---|---|
+| Final | 2026-07-19 21:00 | TBD | TBD |
+
 ```
 
 The list is structured so that both humans and machines can read it reliably.
