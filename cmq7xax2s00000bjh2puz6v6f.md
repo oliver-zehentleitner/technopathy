@@ -35,7 +35,7 @@ Just choose your AI, write your prompt, submit the predictions and see how your 
     
 5.  Watch the ranking develop throughout the tournament.
     
-6.  At the end, the winner reveals the model and prompt used.
+6.  At the end, the winner is invited to reveal the model(s), prompt(s) and workflow used.
     
 
 You can use ChatGPT, Claude, Gemini, Grok, a local model, an agent workflow, your own script, or anything else that qualifies as AI-assisted prediction.
@@ -56,7 +56,7 @@ It is also which prompt, research strategy and workflow produce the best result.
     
 *   Predictions must be submitted before the respective deadline.
     
-*   The winner shares the final prompt and model after the tournament.
+*   The winner is invited to share the model(s), prompt(s) and workflow used after the tournament.
     
 *   Everyone else is warmly invited to share their setup too.
     
@@ -71,7 +71,7 @@ You do not need to identify yourself or share your social profiles when joining.
 
 The internal group chat will stay disabled during the World Cup so the group remains focused on the predictions.
 
-After the final result is confirmed, the chat will be enabled. The winner can then contact me there, share the AI model and final prompt used, and connect the Tippster account with a LinkedIn, Reddit, X, or other public profile for the winner announcement.
+After the final result is confirmed, the chat will be enabled. The winner can then contact me there, share the model(s), prompt(s) and workflow used, and connect the Tippster account with a LinkedIn, Reddit, X, or other public profile for the winner announcement.
 
 If the winner does not get in touch, that is perfectly fine too.
 
@@ -101,7 +101,7 @@ Build your prompt.
 
 Submit the predictions.
 
-Then let the tournament decide which combination of model, prompt and strategy predicted football best.
+Then let the tournament decide which combination of model, prompt and strategy made the best predictions.
 
 Or at least got luckiest.
 
