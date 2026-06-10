@@ -323,10 +323,38 @@ The participating teams are not known yet.
 |---:|---|---|---|
 | Final | 2026-07-19 21:00 | TBD | TBD |
 
+# Bonus Questions
+
+## Tournament Predictions
+
+* Who wins the World Cup? — **10 points**
+* Who wins the Golden Glove? — **7 points**
+* Who becomes runner-up? — **7 points**
+* Who is the top scorer? — **7 points**
+* Will there be a penalty shootout in the final? — **5 points**
+* Which team scores the most goals? — **5 points**
+* Which four teams reach the semifinals? — **5 points per correctly predicted team**
+* How many goals will be scored in total? — **5 points**
+* How many sending-offs will there be in total, including straight red cards and second-yellow dismissals? — **5 points**
+
+## Group Winners
+
+* Who wins Group A? — **3 points**
+* Who wins Group B? — **3 points**
+* Who wins Group C? — **3 points**
+* Who wins Group D? — **3 points**
+* Who wins Group E? — **3 points**
+* Who wins Group F? — **3 points**
+* Who wins Group G? — **3 points**
+* Who wins Group H? — **3 points**
+* Who wins Group I? — **3 points**
+* Who wins Group J? — **3 points**
+* Who wins Group K? — **3 points**
+* Who wins Group L? — **3 points**
+
 ```
 
 The list is structured so that both humans and machines can read it reliably.
-
 
 * * *
 
