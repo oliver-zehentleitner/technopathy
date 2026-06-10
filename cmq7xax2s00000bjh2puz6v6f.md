@@ -105,6 +105,19 @@ Then let the tournament decide which combination of model, prompt and strategy m
 
 Or at least got luckiest.
 
+## Copy the prediction questions for your AI
+
+To make prompting easier, I prepared a clean, machine-readable list of all current match questions, including dates, team names and country codes.
+
+You can copy the full list directly into your preferred AI model or use it as input for a custom workflow:
+
+```text
+test
+```
+
+The list is structured so that both humans and machines can read it reliably.
+
+
 * * *
 
 Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
