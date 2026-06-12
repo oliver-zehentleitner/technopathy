@@ -9,7 +9,7 @@ cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/41cf0f0e
 
 If you’re looking to download data from [Binance](https://www.binance.com) using [Python](https://www.python.org) (3.9+), there are two ways to do it: via REST API or via WebSocket API.
 
-REST API is a simple and easy-to-use method that allows you to download historical data from [Binance](https://www.binance.com), but also to trigger functions such as creating a new order. You can use [Unicorn Binance REST API](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api), a sub module of the [Unicorn Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite), to make REST API calls and retrieve data in a JSON format.
+REST API is a simple and easy-to-use method that allows you to download historical data from [Binance](https://www.binance.com), but also to trigger functions such as creating a new order. You can use [Unicorn Binance REST API](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api), a sub module of the [Unicorn Binance Suite](https://blog.technopathy.club/page/unicorn-binance-suite), to make REST API calls and retrieve data in a JSON format.
 
 WebSocket API, on the other hand, is a more advanced method that allows you to stream real-time data from Binance. You can use [Unicorn Binance WebSocket API](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api), another sub module of the [Unicorn Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite), to subscribe to WebSocket streams and retrieve data in a JSON format.
 
@@ -76,7 +76,7 @@ You can find the documentations here:
 
 I hope you found this informative and useful.
 
-Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
+Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [Mastodon](https://burningboard.net/@oliverzehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
 
 Thank you for reading, and happy coding! ¯\\\_(ツ)\_/¯
 
