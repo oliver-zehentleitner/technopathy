@@ -9,6 +9,8 @@ tags: artificial-intelligence, community, football, ai-agents, prompt-engineerin
 
 ---
 
+<meta name="fediverse:creator" content="@oliverzehentleitner@burningboard.net">
+
 Hello, prompt engineers — I challenge you and your AI model to the **Prompt World Cup 2026**.
 
 Choose your model, build your best prompt and let it predict the tournament.
