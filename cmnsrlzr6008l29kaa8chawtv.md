@@ -21,7 +21,7 @@ For this solution you need a simple virtual cloud Linux server such as a 4.51 EU
 
 > We would like to explicitly point out that in our opinion US citizens are exclusively authorized to trade on Binance.US and that this restriction must not be circumvented!
 
-> The purpose of supporting a SOCKS5 proxy in the [UNICORN Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite) and its modules is to allow non-US citizens to use US services. For example, Github actions with UBS will not work without a SOCKS5 proxy, as they will inevitably run on servers in the US and be blocked by Binance.com. Moreover, it also seems justified that traders, data scientists and companies from the US analyze binance.com market data — as long as they do not trade there.
+> The purpose of supporting a SOCKS5 proxy in the [UNICORN Binance Suite](https://blog.technopathy.club/page/unicorn-binance-suite) and its modules is to allow non-US citizens to use US services. For example, Github actions with UBS will not work without a SOCKS5 proxy, as they will inevitably run on servers in the US and be blocked by Binance.com. Moreover, it also seems justified that traders, data scientists and companies from the US analyze binance.com market data — as long as they do not trade there.
 
 ### **1\. Step — Set up the** SOCKS5 **service**
 
@@ -121,6 +121,7 @@ Install/upgrade the dependencies:
 Info: [https://pypi.org/project/unicorn-binance-websocket-api](https://pypi.org/project/unicorn-binance-websocket-api/)
 
 [Save or copy this script](https://gist.github.com/oliver-zehentleitner/74f6c5a461b01b5249c44e335ccf4e88) to your system and replace “*1.2.3.4*” in `_socks5_proxy_` with the IP address of your Socks5 Proxy server:
+
 %[https://gist.github.com/oliver-zehentleitner/74f6c5a461b01b5249c44e335ccf4e88] 
 
 Start the file:  
@@ -132,7 +133,7 @@ You can find the full **documentation for unicorn-binance-websocket-api** here: 
 
 I hope you found this informative and useful.
 
-Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
+Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [Mastodon](https://burningboard.net/@oliverzehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
 
 Thank you for reading, and happy coding! ¯\\\_(ツ)\_/¯
 
