@@ -165,7 +165,7 @@ The video does not rerun the paid Grafana Cloud k6 stress test. Instead, it show
 
 The stress-test results themselves are documented in this article below.
 
-%[https://www.youtube.com/watch?v=erxIkwmqlmk]
+%[https://www.youtube.com/watch?v=erxIkwmqlmk] 
 
 * * *
 
@@ -1207,6 +1207,6 @@ If something is useful for others too, I will try to pick it up and improve the 
 
 I hope you found this informative and useful.
 
-Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
+Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [Mastodon](https://burningboard.net/@oliverzehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
 
 Thank you for reading, and happy coding! ¯\\\_(ツ)\_/¯
