@@ -44,7 +44,7 @@ To create an API access, next click on the yellow "create API" button in the upp
 
 Now a modal window pops up and you can decide which API key type you want to create. The definitely easier and faster process is the "System generated" HMAC-SHA256 type — the advantage of the "Self-generated" RSA type (private/public key pair) is that technically not even Binance knows your key for signing and RSA key pairs can also be stored with higher security, as they can be stored in a LUKS container or HSM and the mandatory entry of a passphrase can be activated to make the keys usable.
 
-At the moment RSA signatures are not yet supported by the [UNICORN Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite), as soon as this is the case we will adapt the instructions here.
+At the moment RSA signatures are not yet supported by the [UNICORN Binance Suite](https://blog.technopathy.club/page/unicorn-binance-suite), as soon as this is the case we will adapt the instructions here.
 
 So we continue with "System generated" and click "Next":
 
@@ -124,7 +124,7 @@ Now you can use your API key/secret pair!
 
 I hope you found this tutorial informative and enjoyable!
 
-Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
+Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [Mastodon](https://burningboard.net/@oliverzehentleitner), [X](https://x.com/unicorn_oz) and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/) to stay updated on my latest releases. Your constructive feedback is always appreciated!
 
 Thank you for reading, and happy coding!
 
