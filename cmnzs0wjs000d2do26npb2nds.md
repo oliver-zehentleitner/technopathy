@@ -21,7 +21,7 @@ For this solution you need a simple virtual cloud Linux server such as a 4.51 EU
 
 > We would like to explicitly point out that in our opinion US citizens are exclusively authorized to trade on Binance.US and that this restriction must not be circumvented!
 
-> The purpose of supporting a SOCKS5 proxy in the [UNICORN Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite) and its modules is to allow non-US citizens to use US services. For example, GitHub Actions with UBS will not work without a SOCKS5 proxy, as they will inevitably run on servers in the US and be blocked by Binance.com. Moreover, it also seems justified that traders, data scientists and companies from the US analyze binance.com market data — as long as they do not trade there.
+> The purpose of supporting a SOCKS5 proxy in the [UNICORN Binance Suite](https://blog.technopathy.club/page/unicorn-binance-suite) and its modules is to allow non-US citizens to use US services. For example, GitHub Actions with UBS will not work without a SOCKS5 proxy, as they will inevitably run on servers in the US and be blocked by Binance.com. Moreover, it also seems justified that traders, data scientists and companies from the US analyze binance.com market data — as long as they do not trade there.
 
 * * *
 
