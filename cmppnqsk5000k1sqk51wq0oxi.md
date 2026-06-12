@@ -44,7 +44,7 @@ If you prefer to watch the full Kubernetes setup before going through the writte
 
 In the video, I create the Kubernetes cluster, install UBDCC with Helm, open the dashboard, create the first DepthCache with `curl`, and then create all currently active Binance Spot and Futures DepthCaches with replicas.
 
-%[https://www.youtube.com/watch?v=erxIkwmqlmk]
+%[https://www.youtube.com/watch?v=erxIkwmqlmk] 
 
 * * *
 
@@ -976,6 +976,6 @@ I am happy about constructive feedback, real-world test results, error reports, 
 
 I hope you found this informative and useful.
 
-Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
+Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [Mastodon](https://burningboard.net/@oliverzehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
 
 Thank you for reading, and happy coding! ¯\\\_(ツ)\_/¯
