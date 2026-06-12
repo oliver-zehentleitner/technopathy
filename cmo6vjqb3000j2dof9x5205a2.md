@@ -374,12 +374,12 @@ If your order books are trapped inside individual bot processes, UBDCC is the es
 *   [Telegram community](https://t.me/unicorndevs)
     
 
-UBDCC is MIT-licensed and part of the [**UNICORN Binance Suite**](https://github.com/oliver-zehentleitner/unicorn-binance-suite).
+UBDCC is MIT-licensed and part of the [**UNICORN Binance Suite**](https://blog.technopathy.club/page/unicorn-binance-suite).
 
 * * *
 
 I hope you found this informative and useful.
 
-Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
+Follow me on [Binance Square](https://www.binance.com/en/square/profile/oliver-zehentleitner), [GitHub](https://github.com/oliver-zehentleitner), [Mastodon](https://burningboard.net/@oliverzehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
 
 Thank you for reading, and happy coding! ¯\\\_(ツ)\_/¯
