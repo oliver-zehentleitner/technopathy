@@ -470,7 +470,7 @@ For example:
 *   How do we keep old rationale from becoming trusted but stale?
     
 
-There is also a small but relevant body of supporting research. A 2026 position paper audited 62 architectural decisions across two internal projects and found that roughly 23% had stale supporting evidence within two months. The sample is small and the result is not a universal law, but it supports something maintainers already know: documentation does not stay correct by existing. It has to be maintained.
+There is also a small but relevant body of supporting research. [A 2026 position paper](https://arxiv.org/abs/2601.21116) audited 62 architectural decisions across two internal projects and found that roughly 23% had stale supporting evidence within two months. The sample is small and the result is not a universal law, but it supports something maintainers already know: documentation does not stay correct by existing. It has to be maintained.
 
 I do not yet have automated cross-agent eval results or a published before-and-after study.
 
