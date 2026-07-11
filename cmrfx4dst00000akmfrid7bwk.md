@@ -3,14 +3,12 @@ title: "Keep the Why: Code Becomes Legacy When Nobody Remembers Why"
 datePublished: 2026-07-11T05:22:37.714Z
 cuid: cmrfx4dst00000akmfrid7bwk
 slug: keep-the-why-code-becomes-legacy-when-nobody-remembers-why
-cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/30ec9b71-3790-42be-afd0-5424c8bd6689.png
+cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/1be315d8-3566-4c00-96bc-9ac02675d254.png
 tags: ai, opensource, documentation, developer-tools, legacy-code, agents
 
 ---
 
 > **Keep a Changelog records what changed. Keep the Why preserves why it changed.**
-
-*I turned four months of working with AI coding agents into an open-source skill for preserving the reasoning behind a codebase.*
 
 I've been maintaining the [UNICORN Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite) since 2019. It is a set of open-source Python packages for building automated trading systems on Binance, and parts of it have been running in production for years.
 
@@ -396,15 +394,11 @@ Keep the Why preserves **why it changed**.
 
 There is also prior work in this space:
 
-*   Architecture Decision Records
-    
-*   [git-why](https://github.com/hexapode/git-why)
-    
-*   Addy Osmani's `documentation-and-adrs` skill
-    
-*   Agent Decision Records
-    
-*   repository-memory and agent-context tools
+- Architecture Decision Records
+- [git-why](https://github.com/hexapode/git-why)
+- [Addy Osmani's `documentation-and-adrs` skill](https://github.com/addyosmani/agent-skills/blob/main/skills/documentation-and-adrs/SKILL.md)
+- [Agent Decision Records (AgDR)](https://github.com/me2resh/agent-decision-record)
+- repository-memory and agent-context tools
     
 
 I did not invent the idea that software decisions should be documented.
