@@ -10,16 +10,20 @@ tags: ai, opensource, documentation, developer-tools, legacy-code, agents
 
 > **Keep a Changelog records what changed. Keep the Why preserves why it changed.**
 
-I've been maintaining the [UNICORN Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite) since 2019. It is a set of open-source Python packages for building automated trading systems on Binance, and parts of it have been running in production for years.
+I've been maintaining the [UNICORN Binance Suite](https://blog.technopathy.club/page/unicorn-binance-suite) since 2019. It is a set of open-source Python packages for building automated trading systems on Binance, and parts of it have been running in production for years.
 
 For the last few months, I have also been working with an AI coding agent on these projects every day.
 
 Early on, I invested quite a bit of time into the harness around it:
 
 *   conventions
+    
 *   project structure
+    
 *   persistent context
+    
 *   documentation the agent could actually use
+    
 *   rules for how it should work inside a mature codebase
     
 
@@ -40,8 +44,11 @@ If structured context makes an AI agent useful in a codebase it did not grow up 
 A new developer should not have to reverse-engineer every strange retry loop, compatibility workaround or architectural boundary from the code alone. They should be able to ask:
 
 *   Why is this retry logic so defensive?
+    
 *   Why are we not using the obvious library?
+    
 *   Why does this component wait for a snapshot before processing buffered events?
+    
 *   What broke the last time somebody simplified this?
     
 
@@ -92,10 +99,15 @@ But they require somebody to notice that a decision deserves an ADR, stop the cu
 Those smaller decisions are frequently the ones that become dangerous later:
 
 *   a defensive timeout
+    
 *   an odd startup sequence
+    
 *   a compatibility branch
+    
 *   a strange cache invalidation rule
+    
 *   a library that was evaluated and rejected
+    
 *   a workaround linked to a production incident
     
 
@@ -120,10 +132,15 @@ It teaches a coding agent four related workflows.
 During normal development, the agent notices when a conversation contains useful rationale:
 
 *   an architectural choice
+    
 *   a rejected alternative
+    
 *   a production constraint
+    
 *   an incident finding
+    
 *   an intentional workaround
+    
 *   a behaviour that looks strange but is deliberate
     
 
@@ -140,9 +157,13 @@ The skill can also be applied to an existing repository.
 The agent inspects:
 
 *   code
+    
 *   git history
+    
 *   issues
+    
 *   pull requests
+    
 *   existing documentation
     
 
@@ -183,10 +204,15 @@ Documentation can become legacy too.
 So the skill also defines how to:
 
 *   update existing topic files
+    
 *   resolve contradictions
+    
 *   mark old decisions as superseded
+    
 *   split files before they become too large
+    
 *   keep indexes lean enough for humans and agents
+    
 *   avoid creating five documents for one small decision
     
 
@@ -210,11 +236,17 @@ This answers:
 Examples:
 
 *   installation
+    
 *   configuration
+    
 *   API usage
+    
 *   testing
+    
 *   deployment
+    
 *   operations
+    
 *   troubleshooting
     
 
@@ -227,11 +259,17 @@ This answers:
 Examples:
 
 *   architectural rationale
+    
 *   rejected alternatives
+    
 *   historical constraints
+    
 *   incident learnings
+    
 *   compatibility decisions
+    
 *   deliberate workarounds
+    
 *   superseded approaches
     
 
@@ -269,8 +307,11 @@ That is not just an implementation detail.
 It contains:
 
 *   the rejected alternative
+    
 *   the reason it was rejected
+    
 *   the failure mode
+    
 *   the constraint future maintainers must preserve
     
 
@@ -293,7 +334,9 @@ Plausible-sounding historical explanations are worse than missing documentation.
 Each relevant rationale entry should make clear whether its evidence is:
 
 *   **confirmed** — supported by a maintainer or authoritative project evidence
+    
 *   **inferred** — reasonably derived, but not confirmed
+    
 *   **unknown** — the available evidence is insufficient
     
 
@@ -312,10 +355,15 @@ A self-explanatory decision may need one sentence.
 A surprising architecture boundary may need:
 
 *   context
+    
 *   decision
+    
 *   alternatives
+    
 *   consequences
+    
 *   evidence
+    
 *   conditions under which it should be revisited
     
 
@@ -326,10 +374,15 @@ Not every decision deserves a ceremony. Not every strange-looking line deserves 
 Keep the Why is not a replacement for:
 
 *   tests
+    
 *   README files
+    
 *   `CONTRIBUTING.md`
+    
 *   ADRs
+    
 *   issue trackers
+    
 *   [Keep a Changelog](https://keepachangelog.com/)
     
 
@@ -342,9 +395,13 @@ Keep the Why preserves **why it changed**.
 There is also prior work in this space:
 
 *   Architecture Decision Records
+    
 *   [git-why](https://github.com/hexapode/git-why)
+    
 *   [Addy Osmani's `documentation-and-adrs` skill](https://github.com/addyosmani/agent-skills/blob/main/skills/documentation-and-adrs/SKILL.md)
+    
 *   [Agent Decision Records (AgDR)](https://github.com/me2resh/agent-decision-record)
+    
 *   repository-memory and agent-context tools
     
 
@@ -353,10 +410,15 @@ I did not invent the idea that software decisions should be documented.
 What I wanted was a practical combination of:
 
 *   continuous capture
+    
 *   retrospective recovery
+    
 *   code-guided knowledge-transfer interviews
+    
 *   topic-based living documentation
+    
 *   repository-native storage
+    
 *   no required external platform
     
 
@@ -373,10 +435,15 @@ But the public project is not a copy of that private setup.
 It is a new incarnation of it:
 
 *   cleaned up
+    
 *   generalised
+    
 *   made cross-agent
+    
 *   turned into an explicit method
+    
 *   separated from my own repository conventions
+    
 *   packaged as an open-source skill
     
 
@@ -389,10 +456,15 @@ I expect some parts to change.
 For example:
 
 *   When does the agent capture too much?
+    
 *   When does it ask too little?
+    
 *   Which structure works for a small library and which one works for a large multi-repository system?
+    
 *   How much classification is useful before it becomes bureaucracy?
+    
 *   When should a topic be split?
+    
 *   How do we keep old rationale from becoming trusted but stale?
     
 
@@ -422,9 +494,13 @@ gh skill install oliver-zehentleitner/keep-the-why keep-the-why
 It is instructions only:
 
 *   no scripts
+    
 *   no network calls of its own
+    
 *   no external service
+    
 *   no account
+    
 *   no database
     
 
@@ -445,10 +521,15 @@ The base is there, but the method now needs real use outside my own projects.
 I am especially interested in feedback from people working with:
 
 *   mature codebases
+    
 *   long-running production systems
+    
 *   AI coding agents
+    
 *   developer onboarding
+    
 *   knowledge transfer
+    
 *   maintainers who have inherited code nobody wants to touch
     
 
