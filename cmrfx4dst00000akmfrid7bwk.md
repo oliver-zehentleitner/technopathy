@@ -866,8 +866,6 @@ I did not invent the idea that software decisions should be documented.
 
 Formal ADRs remain the right tool for major, discrete architectural decisions.
 
-`git-why` takes a useful source-file-oriented approach.
-
 Agent Decision Records provide more deliberate, checkpointed records.
 
 `AGENTS.md` provides a common entry point that tells agents where to look.
