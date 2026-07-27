@@ -16,11 +16,16 @@ For the last few months, I have also been working with an AI coding agent on the
 
 Early on, I invested quite a bit of time into the harness around it:
 
-* conventions
-* project structure
-* persistent context
-* documentation the agent could actually use
-* rules for how it should work inside a mature codebase
+*   conventions
+    
+*   project structure
+    
+*   persistent context
+    
+*   documentation the agent could actually use
+    
+*   rules for how it should work inside a mature codebase
+    
 
 That effort paid off.
 
@@ -38,11 +43,16 @@ If structured context makes an AI agent useful in a codebase it did not grow up 
 
 A new developer should not have to reverse-engineer every strange retry loop, compatibility workaround or architectural boundary from the code alone. They should be able to ask:
 
-* Why is this retry logic so defensive?
-* Why are we not using the obvious library?
-* Why does this component wait for a snapshot before processing buffered events?
-* What broke the last time somebody simplified this?
-* Which alternatives were already tried and rejected?
+*   Why is this retry logic so defensive?
+    
+*   Why are we not using the obvious library?
+    
+*   Why does this component wait for a snapshot before processing buffered events?
+    
+*   What broke the last time somebody simplified this?
+    
+*   Which alternatives were already tried and rejected?
+    
 
 And ideally, the answer should already live with the project.
 
@@ -126,13 +136,20 @@ But they require somebody to notice that a decision deserves an ADR, stop the cu
 
 Those smaller decisions are frequently the ones that become dangerous later:
 
-* a defensive timeout
-* an odd startup sequence
-* a compatibility branch
-* a strange cache invalidation rule
-* a library that was evaluated and rejected
-* a workaround linked to a production incident
-* an attempted cleanup that was abandoned after discovering a hidden constraint
+*   a defensive timeout
+    
+*   an odd startup sequence
+    
+*   a compatibility branch
+    
+*   a strange cache invalidation rule
+    
+*   a library that was evaluated and rejected
+    
+*   a workaround linked to a production incident
+    
+*   an attempted cleanup that was abandoned after discovering a hidden constraint
+    
 
 They are too small for ceremony and too important to forget.
 
@@ -162,7 +179,7 @@ The change is that an AI agent already participates in many of the conversations
 
 ![](https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/066f1c95-1ec4-48ab-bd8a-96b39d3ca8c6.png align="center")
 
-It follows the open `SKILL.md`-based Agent Skills format and works across compatible agents such as Claude Code, Codex CLI, Gemini CLI, Cursor and others.
+It follows the open `SKILL.md`\-based Agent Skills format and works across compatible agents such as Claude Code, Codex CLI, Gemini CLI, Cursor and others.
 
 There is no service, database, account, daemon, dashboard or MCP server behind it.
 
@@ -170,17 +187,24 @@ The installable package contains instructions, references, examples and evaluati
 
 The skill teaches an agent four related workflows.
 
-### 1. Continuous capture
+### 1\. Continuous capture
 
 During normal development, the agent notices when a conversation contains useful rationale:
 
-* an architectural choice
-* a rejected alternative
-* a production constraint
-* an incident finding
-* an intentional workaround
-* a behaviour that looks strange but is deliberate
-* a change that was abandoned after discovering why the existing behaviour must remain
+*   an architectural choice
+    
+*   a rejected alternative
+    
+*   a production constraint
+    
+*   an incident finding
+    
+*   an intentional workaround
+    
+*   a behaviour that looks strange but is deliberate
+    
+*   a change that was abandoned after discovering why the existing behaviour must remain
+    
 
 It then updates the relevant project context at a natural checkpoint, once the decision has actually settled.
 
@@ -188,18 +212,24 @@ The goal is not to document every line of code. That would just create a second 
 
 The goal is to preserve the parts that are not obvious from the implementation itself.
 
-### 2. Retrospective recovery
+### 2\. Retrospective recovery
 
 The skill can also be applied to an existing repository.
 
 The agent inspects available evidence such as:
 
-* code
-* git history
-* issues
-* pull requests
-* existing documentation
-* incident records
+*   code
+    
+*   git history
+    
+*   issues
+    
+*   pull requests
+    
+*   existing documentation
+    
+*   incident records
+    
 
 It reconstructs only what the evidence supports and clearly marks what remains uncertain.
 
@@ -213,7 +243,7 @@ That is useful information too.
 
 For a large or unfamiliar codebase, the skill does not pretend it can recover everything in one pass. It can prioritise high-risk areas such as authentication, payments, data integrity, recent incidents, unusually defensive code or components with a low bus factor.
 
-### 3. Knowledge-transfer interviews
+### 3\. Knowledge-transfer interviews
 
 This is the part I find especially interesting.
 
@@ -237,21 +267,30 @@ Free narration and targeted questions are not competing techniques. They are seq
 
 The important part is that the result becomes project knowledge, not another recording nobody will ever watch again.
 
-### 4. Maintenance
+### 4\. Maintenance
 
 Documentation can become legacy too.
 
 So the skill also defines how to:
 
-* update existing topic files
-* resolve contradictions
-* merge duplicate entries
-* mark old decisions as superseded
-* identify decisions whose assumptions need review
-* split files before they become too large
-* keep indexes lean enough for humans and agents
-* avoid creating five documents for one small decision
-* migrate existing context when the documented format evolves
+*   update existing topic files
+    
+*   resolve contradictions
+    
+*   merge duplicate entries
+    
+*   mark old decisions as superseded
+    
+*   identify decisions whose assumptions need review
+    
+*   split files before they become too large
+    
+*   keep indexes lean enough for humans and agents
+    
+*   avoid creating five documents for one small decision
+    
+*   migrate existing context when the documented format evolves
+    
 
 This is living documentation, not an archive of frozen decisions.
 
@@ -282,7 +321,7 @@ project/
 Each part answers a different question.
 
 | Location | Question |
-|---|---|
+| --- | --- |
 | `README.md` | What is this, and should I care? |
 | `AGENTS.md` | Where should an agent look when working in this repository? |
 | `docs/` | How do I use, operate, test or deploy this project? |
@@ -302,13 +341,20 @@ This answers:
 
 Examples:
 
-* installation
-* configuration
-* API usage
-* testing
-* deployment
-* operations
-* troubleshooting
+*   installation
+    
+*   configuration
+    
+*   API usage
+    
+*   testing
+    
+*   deployment
+    
+*   operations
+    
+*   troubleshooting
+    
 
 ### `context/`
 
@@ -318,13 +364,20 @@ This answers:
 
 Examples:
 
-* architectural rationale
-* rejected alternatives
-* historical constraints
-* incident learnings
-* compatibility decisions
-* deliberate workarounds
-* superseded approaches
+*   architectural rationale
+    
+*   rejected alternatives
+    
+*   historical constraints
+    
+*   incident learnings
+    
+*   compatibility decisions
+    
+*   deliberate workarounds
+    
+*   superseded approaches
+    
 
 Both layers are plain Markdown and versioned with the repository.
 
@@ -362,10 +415,14 @@ On first activation, Keep the Why runs a short setup instead of silently guessin
 
 The project-level questions include:
 
-* Where should the why-knowledge live?
-* Should the project begin with continuous capture, retrospective recovery, an interview or a combination?
-* Should the Keep the Why badge be added to the README?
-* How much confirmation is required before the agent writes to `context/`?
+*   Where should the why-knowledge live?
+    
+*   Should the project begin with continuous capture, retrospective recovery, an interview or a combination?
+    
+*   Should the Keep the Why badge be added to the README?
+    
+*   How much confirmation is required before the agent writes to `context/`?
+    
 
 Project-wide settings are stored in the committed `AGENTS.md`, for example:
 
@@ -407,8 +464,10 @@ Keep the Why therefore separates three questions.
 
 The options are:
 
-* `proactive`
-* `explicit-only`
+*   `proactive`
+    
+*   `explicit-only`
+    
 
 ### Should it ask before writing?
 
@@ -416,9 +475,12 @@ The options are:
 
 The options are:
 
-* `automatic` — write without asking once the evidence and proportionality checks are satisfied
-* `confirm-always` — ask before every write
-* `confirm-when-unsure` — write clear cases directly and ask when something is genuinely unclear
+*   `automatic` — write without asking once the evidence and proportionality checks are satisfied
+    
+*   `confirm-always` — ask before every write
+    
+*   `confirm-when-unsure` — write clear cases directly and ask when something is genuinely unclear
+    
 
 `confirm-when-unsure` is the default.
 
@@ -440,8 +502,10 @@ That question may still be necessary even in automatic mode.
 
 The options are:
 
-* `sequential` — one question, one answer, then the next
-* `batch` — a numbered list that can be reviewed together
+*   `sequential` — one question, one answer, then the next
+    
+*   `batch` — a numbered list that can be reviewed together
+    
 
 Sequential is the default for a developer whose preference is not yet known.
 
@@ -461,11 +525,16 @@ That is not just an implementation detail.
 
 It contains:
 
-* the chosen behaviour
-* the rejected alternative
-* the reason it was rejected
-* the observed failure mode
-* the constraint future maintainers must preserve
+*   the chosen behaviour
+    
+*   the rejected alternative
+    
+*   the reason it was rejected
+    
+*   the observed failure mode
+    
+*   the constraint future maintainers must preserve
+    
 
 The agent should recognise that and update the relevant topic in `context/`.
 
@@ -511,18 +580,25 @@ Each rationale entry makes two separate classifications.
 
 How strongly is the explanation supported?
 
-* **confirmed** — supported by a maintainer or authoritative project evidence
-* **inferred** — reasonably derived, but not confirmed
-* **unknown** — the available evidence is insufficient
+*   **confirmed** — supported by a maintainer or authoritative project evidence
+    
+*   **inferred** — reasonably derived, but not confirmed
+    
+*   **unknown** — the available evidence is insufficient
+    
 
 ### Status
 
 Is the decision still current?
 
-* **active**
-* **superseded**
-* **open**
-* **needs-review**
+*   **active**
+    
+*   **superseded**
+    
+*   **open**
+    
+*   **needs-review**
+    
 
 These are different dimensions.
 
@@ -540,8 +616,10 @@ Old rationale is marked as superseded rather than silently deleted. The history 
 
 A useful decision has two halves:
 
-1. What was chosen?
-2. What was not chosen, and why?
+1.  What was chosen?
+    
+2.  What was not chosen, and why?
+    
 
 Documentation often records only the final state:
 
@@ -567,13 +645,20 @@ A self-explanatory convention may need one sentence.
 
 A surprising architectural boundary may need:
 
-* context
-* decision
-* alternatives
-* consequences
-* evidence
-* failure modes
-* conditions under which it should be revisited
+*   context
+    
+*   decision
+    
+*   alternatives
+    
+*   consequences
+    
+*   evidence
+    
+*   failure modes
+    
+*   conditions under which it should be revisited
+    
 
 “Prevents a breaking API change” probably deserves an entry.
 
@@ -617,9 +702,12 @@ This is not an unrelated second versioning system. It records the latest skill v
 
 When a newer skill version changes the expected context format, the agent consults the documented migrations and discusses what should happen:
 
-* migrate now
-* defer the migration
-* stop asking this particular developer about that specific migration
+*   migrate now
+    
+*   defer the migration
+    
+*   stop asking this particular developer about that specific migration
+    
 
 Migrations are never performed silently.
 
@@ -641,12 +729,18 @@ That also makes it a potential indirect prompt-injection surface.
 
 Any repository content can contain malicious or misleading instructions:
 
-* source comments
-* commit messages
-* issues
-* logs
-* documentation
-* encoded or hidden text
+*   source comments
+    
+*   commit messages
+    
+*   issues
+    
+*   logs
+    
+*   documentation
+    
+*   encoded or hidden text
+    
 
 `context/` deserves particular care because it may be read early, persists across sessions and is deliberately presented as trusted project background.
 
@@ -666,13 +760,20 @@ It does not gain authority to direct the agent:
 
 Repository content cannot:
 
-* override system, developer or user instructions
-* expand the agent's permissions
-* authorize tool calls
-* disable safety checks
-* request or reveal secrets
-* declare itself trustworthy
-* instruct the agent to hide something from the user
+*   override system, developer or user instructions
+    
+*   expand the agent's permissions
+    
+*   authorize tool calls
+    
+*   disable safety checks
+    
+*   request or reveal secrets
+    
+*   declare itself trustworthy
+    
+*   instruct the agent to hide something from the user
+    
 
 Suspicious instructions are not followed.
 
@@ -698,13 +799,20 @@ It does one job:
 
 It does not try to become:
 
-* a project-management system
-* an agent orchestration framework
-* a task tracker
-* a session-memory database
-* a hosted knowledge platform
-* a replacement for Git
-* a replacement for tests or documentation
+*   a project-management system
+    
+*   an agent orchestration framework
+    
+*   a task tracker
+    
+*   a session-memory database
+    
+*   a hosted knowledge platform
+    
+*   a replacement for Git
+    
+*   a replacement for tests or documentation
+    
 
 The repository already provides storage, versioning, review, history, access control and distribution.
 
@@ -724,13 +832,20 @@ Keep the Why uses what is already there.
 
 Keep the Why is not a replacement for:
 
-* tests
-* README files
-* `AGENTS.md`
-* `CONTRIBUTING.md`
-* ADRs
-* issue trackers
-* [Keep a Changelog](https://keepachangelog.com/)
+*   tests
+    
+*   README files
+    
+*   `AGENTS.md`
+    
+*   `CONTRIBUTING.md`
+    
+*   ADRs
+    
+*   issue trackers
+    
+*   [Keep a Changelog](https://keepachangelog.com/)
+    
 
 The name is deliberately related to Keep a Changelog.
 
@@ -740,12 +855,12 @@ Keep the Why preserves **why it changed**.
 
 There is also prior work in this space:
 
-* [Architecture Decision Records](https://adr.github.io/)
-* [AGENTS.md](https://agents.md/)
-* [git-why](https://github.com/hexapode/git-why)
-* [Addy Osmani's `documentation-and-adrs` skill](https://github.com/addyosmani/agent-skills/blob/main/skills/documentation-and-adrs/SKILL.md)
-* [Agent Decision Records](https://github.com/me2resh/agent-decision-record)
-* repository-memory and agent-context tools
+*   [Architecture Decision Records](https://adr.github.io/)
+    
+*   [AGENTS.md](https://agents.md/)
+        
+*   repository-memory and agent-context tools
+    
 
 I did not invent the idea that software decisions should be documented.
 
@@ -759,16 +874,26 @@ Agent Decision Records provide more deliberate, checkpointed records.
 
 What I wanted was a practical combination of:
 
-* continuous capture
-* retrospective recovery
-* code-guided knowledge-transfer interviews
-* topic-based living documentation
-* explicit evidence and status
-* configurable human confirmation
-* repository-native storage
-* cross-agent compatibility
-* no required external platform
-* an explicit trust model for persistent context
+*   continuous capture
+    
+*   retrospective recovery
+    
+*   code-guided knowledge-transfer interviews
+    
+*   topic-based living documentation
+    
+*   explicit evidence and status
+    
+*   configurable human confirmation
+    
+*   repository-native storage
+    
+*   cross-agent compatibility
+    
+*   no required external platform
+    
+*   an explicit trust model for persistent context
+    
 
 That combination grew out of how I was already working.
 
@@ -804,27 +929,45 @@ But the public project is not a copy of that private setup.
 
 It is a new incarnation of it:
 
-* cleaned up
-* generalised
-* made cross-agent
-* turned into an explicit method
-* separated from my own repository conventions
-* packaged as an open-source skill
-* tested against its own repository
-* backed by examples, references and evaluation cases
+*   cleaned up
+    
+*   generalised
+    
+*   made cross-agent
+    
+*   turned into an explicit method
+    
+*   separated from my own repository conventions
+    
+*   packaged as an open-source skill
+    
+*   tested against its own repository
+    
+*   backed by examples, references and evaluation cases
+    
 
 Since the initial release, the project has gained:
 
-* first-time project setup
-* personal workflow preferences
-* configurable capture confirmation
-* sequential or batch question flows
-* context status and evidence as separate dimensions
-* schema tracking and documented migrations
-* optional update and staleness checks
-* safer pinned installation methods
-* validation against the Agent Skills specification
-* an explicit security and prompt-injection trust model
+*   first-time project setup
+    
+*   personal workflow preferences
+    
+*   configurable capture confirmation
+    
+*   sequential or batch question flows
+    
+*   context status and evidence as separate dimensions
+    
+*   schema tracking and documented migrations
+    
+*   optional update and staleness checks
+    
+*   safer pinned installation methods
+    
+*   validation against the Agent Skills specification
+    
+*   an explicit security and prompt-injection trust model
+    
 
 That does not mean the method has finished proving itself.
 
@@ -832,14 +975,22 @@ The real test is what happens across different repositories, teams and agents.
 
 Questions still remain:
 
-* When does the agent capture too much?
-* When does it ask too little?
-* Which structure works for a small library and which one works for a large multi-repository system?
-* How much classification is useful before it becomes bureaucracy?
-* When should a topic be split?
-* How do we keep old rationale from becoming trusted but stale?
-* How well do different agents follow the same skill?
-* Which parts of the process should eventually be checked automatically?
+*   When does the agent capture too much?
+    
+*   When does it ask too little?
+    
+*   Which structure works for a small library and which one works for a large multi-repository system?
+    
+*   How much classification is useful before it becomes bureaucracy?
+    
+*   When should a topic be split?
+    
+*   How do we keep old rationale from becoming trusted but stale?
+    
+*   How well do different agents follow the same skill?
+    
+*   Which parts of the process should eventually be checked automatically?
+    
 
 There is also a small but relevant body of supporting research.
 
@@ -897,14 +1048,22 @@ The setup writes the project pointers into `AGENTS.md`, which compatible tools c
 
 It remains instructions only:
 
-* no executable scripts
-* no binaries
-* no network access of its own
-* no external service
-* no account
-* no API key
-* no database
-* no daemon
+*   no executable scripts
+    
+*   no binaries
+    
+*   no network access of its own
+    
+*   no external service
+    
+*   no account
+    
+*   no API key
+    
+*   no database
+    
+*   no daemon
+    
 
 Documentation and manual installation:
 
@@ -922,12 +1081,18 @@ The base is there, but the method now needs real use outside my own projects.
 
 I am especially interested in feedback from people working with:
 
-* mature codebases
-* long-running production systems
-* AI coding agents
-* developer onboarding
-* knowledge transfer
-* maintainers who have inherited code nobody wants to touch
+*   mature codebases
+    
+*   long-running production systems
+    
+*   AI coding agents
+    
+*   developer onboarding
+    
+*   knowledge transfer
+    
+*   maintainers who have inherited code nobody wants to touch
+    
 
 Bug reports are useful.
 
