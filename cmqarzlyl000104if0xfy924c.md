@@ -298,4 +298,4 @@ I hope this quick fix saves you some time if Google Search Console refuses to pr
 
 Follow me on [GitHub](https://github.com/oliver-zehentleitner), [Mastodon](https://burningboard.net/@oliverzehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
 
-Thank you for reading, and happy indexing! ¯\_(ツ)\_/¯
+Thank you for reading, and happy indexing! ¯\\_(ツ)\\_/¯
