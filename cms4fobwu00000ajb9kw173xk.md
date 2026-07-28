@@ -3,7 +3,7 @@ title: "Keep the Why: Project Memory for Humans and AI Agents"
 datePublished: 2026-07-28T09:08:29.689Z
 cuid: cms4fobwu00000ajb9kw173xk
 slug: keep-the-why-project-memory-for-humans-and-ai-agents
-cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/9e1e802f-94f8-48e3-b07c-4e185ab41c3c.png
+cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/650f12d8-c208-42ab-8412-d83ab95e7cb7.png
 tags: ai, opensource, security, documentation, ai-agents
 
 ---
