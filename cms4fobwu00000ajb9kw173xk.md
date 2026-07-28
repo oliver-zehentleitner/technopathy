@@ -4,23 +4,9 @@ datePublished: 2026-07-28T09:08:29.689Z
 cuid: cms4fobwu00000ajb9kw173xk
 slug: keep-the-why-project-memory-for-humans-and-ai-agents
 cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/b5fcea9c-7658-4525-b161-c0f84f3523a9.png
+tags: ai, opensource, security, documentation, ai-agents
 
 ---
-
----
-title: "Keep the Why 0.5.1: AI Agents Need Project Memory — and a Trust Boundary"
-subtitle: "How a simple rationale-capture skill evolved into a repository-native knowledge lifecycle without a database, daemon, or dashboard."
-slug: "keep-the-why-0-5-1-ai-agents-project-memory-trust-boundary"
-cover: "./keep-the-why-0.5.1-banner.png"
-tags:
-  - ai
-  - ai-agents
-  - opensource
-  - documentation
-  - security
----
-
-![Keep the Why 0.5.1 — project memory with a trust boundary](./keep-the-why-0.5.1-banner.png)
 
 Persistent project memory is where an AI coding agent becomes genuinely useful.
 
@@ -54,21 +40,31 @@ Code preserves implementation. Git preserves changes. Tests preserve expected be
 
 None of them reliably preserve the reasoning that connects those artifacts:
 
-- why one implementation was chosen over another
-- which external limitation forced a workaround
-- what failed during an earlier attempt
-- which “temporary” exception is still protecting production
-- what only one long-term maintainer knows
-- what was considered and deliberately not changed
+*   why one implementation was chosen over another
+    
+*   which external limitation forced a workaround
+    
+*   what failed during an earlier attempt
+    
+*   which “temporary” exception is still protecting production
+    
+*   what only one long-term maintainer knows
+    
+*   what was considered and deliberately not changed
+    
 
 Keep the Why stores that layer as plain Markdown inside the repository, normally under `context/`.
 
 At 0.5.1, four modes cover the full knowledge lifecycle:
 
-1. **Continuous capture** records important rationale during normal development.
-2. **Retrospective recovery** reconstructs what can still be established in an existing or legacy repository.
-3. **Knowledge-transfer interviews** use repository analysis to recover what only people still know.
-4. **Maintenance** keeps captured rationale current, compact, and honest.
+1.  **Continuous capture** records important rationale during normal development.
+    
+2.  **Retrospective recovery** reconstructs what can still be established in an existing or legacy repository.
+    
+3.  **Knowledge-transfer interviews** use repository analysis to recover what only people still know.
+    
+4.  **Maintenance** keeps captured rationale current, compact, and honest.
+    
 
 The important word is not “capture.” It is **lifecycle**.
 
@@ -76,7 +72,7 @@ Documentation that is written once and then trusted forever is not reliable proj
 
 ## Four ways knowledge enters the repository
 
-### 1. Continuous capture
+### 1\. Continuous capture
 
 This is the simplest path.
 
@@ -88,7 +84,7 @@ Not every explanation deserves a permanent record. Renaming a variable or applyi
 
 That distinction is enforced by a proportionality gate: preserve rationale when it prevents future rework, regression, or dangerous misunderstanding — not merely because some reasoning occurred.
 
-### 2. Retrospective recovery
+### 2\. Retrospective recovery
 
 Legacy projects are harder because the original conversation is gone.
 
@@ -96,11 +92,16 @@ Keep the Why does not respond by generating a confident architecture document fr
 
 It searches for evidence:
 
-1. Git history
-2. issues and pull requests
-3. existing documentation
-4. code and tests
-5. people who may still know
+1.  Git history
+    
+2.  issues and pull requests
+    
+3.  existing documentation
+    
+4.  code and tests
+    
+5.  people who may still know
+    
 
 That is a search order, not a universal trust ranking. A commit can be wrong. Documentation can be stale. Code can contradict the design that was originally intended.
 
@@ -108,17 +109,22 @@ When sources disagree, the conflict remains visible. The agent does not silently
 
 The honest result of retrospective analysis may contain many entries marked `inferred` or `unknown`. That is better than a polished fiction.
 
-### 3. Knowledge-transfer interviews
+### 3\. Knowledge-transfer interviews
 
 A repository can tell you where knowledge is missing before you spend a retiring maintainer’s limited time.
 
 Keep the Why first analyses the codebase and identifies areas where:
 
-- ownership is concentrated
-- important behavior lacks rationale
-- unusual constraints are visible but unexplained
-- only one person appears repeatedly in the relevant history
-- a failure would have a high operational cost
+*   ownership is concentrated
+    
+*   important behavior lacks rationale
+    
+*   unusual constraints are visible but unexplained
+    
+*   only one person appears repeatedly in the relevant history
+    
+*   a failure would have a high operational cost
+    
 
 For narrow gaps, the agent prepares targeted questions.
 
@@ -126,7 +132,7 @@ For a developer who has carried a system for fifteen years, a rigid questionnair
 
 The output is not a raw transcript. It is synthesized, topic-based project knowledge.
 
-### 4. Maintenance
+### 4\. Maintenance
 
 The “why” can decay just like any other documentation.
 
@@ -134,11 +140,16 @@ A current decision can become historical. A confirmed statement can remain confi
 
 Maintenance therefore includes:
 
-- marking old rationale as `superseded` instead of deleting it
-- setting entries to `needs-review` when a stated revisit condition occurs
-- resolving or exposing contradictions
-- splitting oversized topic files
-- keeping the index short enough to act as a routing layer
+*   marking old rationale as `superseded` instead of deleting it
+    
+*   setting entries to `needs-review` when a stated revisit condition occurs
+    
+*   resolving or exposing contradictions
+    
+*   splitting oversized topic files
+    
+*   keeping the index short enough to act as a routing layer
+    
 
 This last point matters for agents. An index is not merely navigation for humans; it is context engineering. It lets an agent load the smallest relevant slice instead of spending its context window on the project’s entire history.
 
@@ -159,11 +170,16 @@ The change is abandoned.
 
 Nothing appears in Git:
 
-- no code change
-- no diff
-- no commit
-- no pull request
-- no reverted implementation
+*   no code change
+    
+*   no diff
+    
+*   no commit
+    
+*   no pull request
+    
+*   no reverted implementation
+    
 
 Yet something valuable was learned.
 
@@ -197,23 +213,32 @@ That was wrong.
 
 These labels answer two different questions:
 
-- **Evidence:** How strongly is this claim supported?
-- **Status:** Is this knowledge currently applicable?
+*   **Evidence:** How strongly is this claim supported?
+    
+*   **Status:** Is this knowledge currently applicable?
+    
 
 Version 0.3.0 separated them.
 
 ### Evidence
 
-- `confirmed` — directly established by a reliable source
-- `inferred` — supported by clues but not directly confirmed
-- `unknown` — not established
+*   `confirmed` — directly established by a reliable source
+    
+*   `inferred` — supported by clues but not directly confirmed
+    
+*   `unknown` — not established
+    
 
 ### Status
 
-- `active` — currently applicable
-- `superseded` — historically useful, no longer current
-- `open` — unresolved
-- `needs-review` — a trigger suggests it may no longer apply
+*   `active` — currently applicable
+    
+*   `superseded` — historically useful, no longer current
+    
+*   `open` — unresolved
+    
+*   `needs-review` — a trigger suggests it may no longer apply
+    
 
 A decision can be both `confirmed` and `superseded`.
 
@@ -221,8 +246,10 @@ A maintainer may have definitively confirmed why a protocol worked a certain way
 
 That distinction prevents two common failures:
 
-1. deleting valuable history because it is no longer active
-2. treating well-sourced old knowledge as if it must still govern the current system
+1.  deleting valuable history because it is no longer active
+    
+2.  treating well-sourced old knowledge as if it must still govern the current system
+    
 
 Optional `Source` and `Verification` fields make important claims traceable without turning every entry into bureaucracy.
 
@@ -240,23 +267,30 @@ Keep the Why now models three independent settings.
 
 When should the agent look for rationale?
 
-- `proactive`
-- `explicit-only`
+*   `proactive`
+    
+*   `explicit-only`
+    
 
 ### `capture-confirmation`
 
 How much permission is required before writing project knowledge?
 
-- `automatic`
-- `confirm-always`
-- `confirm-when-unsure`
+*   `automatic`
+    
+*   `confirm-always`
+    
+*   `confirm-when-unsure`
+    
 
 ### `confirmation-flow`
 
 How should multiple questions be presented?
 
-- `sequential`
-- `batch`
+*   `sequential`
+    
+*   `batch`
+    
 
 The scopes are deliberately different.
 
@@ -298,8 +332,10 @@ Once projects begin accumulating rationale, the structure itself becomes part of
 
 Keep the Why therefore distinguishes:
 
-- the installed skill version
-- the version against which the project’s `context/` format has been checked
+*   the installed skill version
+    
+*   the version against which the project’s `context/` format has been checked
+    
 
 The latter is stored as `context-schema`.
 
@@ -319,11 +355,16 @@ The most important change in 0.5.0 — and therefore in the current 0.5.1 state 
 
 This became necessary because `context/` has properties that make it more sensitive than an arbitrary file:
 
-- the agent is encouraged to read it automatically
-- its content is meant to influence future decisions
-- it persists across sessions
-- retrospective recovery may populate it from issues, commits, logs, webpages, or interviews
-- humans may gradually treat it as a trusted summary
+*   the agent is encouraged to read it automatically
+    
+*   its content is meant to influence future decisions
+    
+*   it persists across sessions
+    
+*   retrospective recovery may populate it from issues, commits, logs, webpages, or interviews
+    
+*   humans may gradually treat it as a trusted summary
+    
 
 Those are exactly the properties that make persistent context useful.
 
@@ -346,13 +387,20 @@ Neither `Evidence: confirmed` nor a plausible heading can promote repository tex
 
 The agent must not:
 
-- follow embedded commands
-- expand its permissions
-- authorize a tool call
-- disable a safety check
-- disclose a secret
-- hide an action from the user
-- trust a claim because it labels itself confirmed
+*   follow embedded commands
+    
+*   expand its permissions
+    
+*   authorize a tool call
+    
+*   disable a safety check
+    
+*   disclose a secret
+    
+*   hide an action from the user
+    
+*   trust a claim because it labels itself confirmed
+    
 
 It should identify the suspicious content and surface it to the user.
 
@@ -380,9 +428,12 @@ At the same time, even a low-confidence source can contain a high-risk directive
 
 Keep the Why therefore separates three questions:
 
-1. Where should the agent search?
-2. How much evidentiary weight should a claim receive?
-3. Is any content attempting to instruct the agent rather than describe the project?
+1.  Where should the agent search?
+    
+2.  How much evidentiary weight should a claim receive?
+    
+3.  Is any content attempting to instruct the agent rather than describe the project?
+    
 
 These questions overlap, but they are not interchangeable.
 
@@ -398,14 +449,22 @@ That is deliberate.
 
 Keep the Why connects things a software project already has:
 
-- conversations where reasoning appears
-- Markdown
-- the repository
-- Git history
-- branches and pull requests
-- code review
-- coding agents
-- human maintainers
+*   conversations where reasoning appears
+    
+*   Markdown
+    
+*   the repository
+    
+*   Git history
+    
+*   branches and pull requests
+    
+*   code review
+    
+*   coding agents
+    
+*   human maintainers
+    
 
 There is no external service to keep synchronized with the code. No account to lose. No proprietary format that becomes inaccessible when a vendor disappears. No background daemon deciding what to collect. No dashboard containing knowledge that is absent from the repository.
 
@@ -433,17 +492,28 @@ The architectural shift happened in 0.5.0: the trust model, security entry point
 
 But 0.5.1 is the current coherent snapshot of the whole system:
 
-- four capture and maintenance modes
-- topic-based repository context
-- separate Evidence and Status axes
-- explicit sources and verification where useful
-- abandoned-change capture
-- project and personal configuration
-- sequential or batch confirmation flows
-- schema awareness and migrations
-- opportunistic update and consistency checks
-- prompt-injection handling
-- no executable code or external service
+*   four capture and maintenance modes
+    
+*   topic-based repository context
+    
+*   separate Evidence and Status axes
+    
+*   explicit sources and verification where useful
+    
+*   abandoned-change capture
+    
+*   project and personal configuration
+    
+*   sequential or batch confirmation flows
+    
+*   schema awareness and migrations
+    
+*   opportunistic update and consistency checks
+    
+*   prompt-injection handling
+    
+*   no executable code or external service
+    
 
 It is still a `0.x` project.
 
@@ -492,11 +562,16 @@ The repository is open source, the documentation is at [keepthewhy.com](https://
 
 I am especially interested in where the methodology breaks:
 
-- Does continuous capture become noisy in your project?
-- Which rationale still fails to resurface when it matters?
-- Where does retrospective recovery become too speculative?
-- Which trust-boundary cases are still missing?
-- Is the stored knowledge still useful six months later?
+*   Does continuous capture become noisy in your project?
+    
+*   Which rationale still fails to resurface when it matters?
+    
+*   Where does retrospective recovery become too speculative?
+    
+*   Which trust-boundary cases are still missing?
+    
+*   Is the stored knowledge still useful six months later?
+    
 
 Because project memory is only valuable when it remains relevant, honest, and safe to use.
 
