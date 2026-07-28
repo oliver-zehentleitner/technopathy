@@ -858,7 +858,7 @@ There is also prior work in this space:
 *   [Architecture Decision Records](https://adr.github.io/)
     
 *   [AGENTS.md](https://agents.md/)
-        
+    
 *   repository-memory and agent-context tools
     
 
@@ -1107,3 +1107,12 @@ The project is open source because I do not think this should become another pri
 The whole point is to keep the reasoning with the code.
 
 Because “ask Bob” is not documentation.
+
+
+* * *
+
+I hope you found this informative and useful.
+
+Follow me on [GitHub](https://github.com/oliver-zehentleitner), [Mastodon](https://burningboard.net/@oliverzehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
+
+Thank you for reading, and happy coding! ¯\\\_(ツ)\_/¯
