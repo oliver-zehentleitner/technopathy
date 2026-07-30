@@ -122,8 +122,6 @@ The published results were substantial:
     
 *   More than **EUR 41 million / USD 47 million** in criminal crypto assets identified, flagged, and restricted from use.
     
-*   More than **140,000 infected computers** linked by Microsoft telemetry to Amadey and StealC during the first two weeks of May 2026.
-    
 
 In its own [technical report](https://www.microsoft.com/en-us/security/blog/2026/06/24/stealc-and-amadey-breaking-down-infostealers-and-the-cybercrime-services-that-deliver-them/), Microsoft's Digital Crimes Unit said it had identified **over 200 malicious Amadey and StealC command-and-control domains and IPs** and moved to shut them down through court orders, domain seizures, registrations, and provider notifications.
 
