@@ -23,9 +23,7 @@ tags: github, security, malware, threat-intelligence, stealer
 > *   IOCs submitted to ThreatFox/AlienVault and published into the public threat-intelligence ecosystem
 >     
 
-> **Update (2026-07-30):**
-> 
-> I revisited the infrastructure after the June 2026 Operation Endgame disruption targeting StealC and related malware infrastructure. All 19 GitHub repositories are now gone, but the two documented malware routes on `api.nailproxy.space` still return the same route-specific responses observed after the original disclosure. This does not prove that the complete malware workflow remains operational, but it shows that the known application routes are still present.
+> **Update (2026-07-30):** I revisited the infrastructure after the June 2026 Operation Endgame disruption targeting StealC and related malware infrastructure. All 19 GitHub repositories are now gone, but the two documented malware routes on `api.nailproxy.space` still return the same route-specific responses observed after the original disclosure. This does not prove that the complete malware workflow remains operational, but it shows that the known application routes are still present.
 > 
 > [Operation Endgame Disrupted 326 Servers. The StealC Backend I Reported Still Responds.](https://blog.technopathy.club/operation-endgame-stealc-backend-still-responds)
 
