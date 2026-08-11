@@ -24,6 +24,10 @@ This post is a follow-up to my earlier write-up on the fraudulent repository imp
 
 That first article focused on one repository. Further analysis shows that the UBWA-themed repository is very likely **one lure inside a broader campaign**.
 
+> **Further update (2026-07-30):** The visible GitHub side of the campaign has since been removed: all 19 confirmed repositories now return `404`. After the June 2026 Operation Endgame disruption targeting StealC and related infrastructure, I revisited the backend documented in this investigation. The two known `api.nailproxy.space` malware routes still respond with their characteristic route-specific status pattern.
+> 
+> [Operation Endgame Disrupted 326 Servers. The StealC Backend I Reported Still Responds.](https://blog.technopathy.club/operation-endgame-stealc-backend-still-responds)
+
 ## How This Started
 
 The starting point was a repository using the **UNICORN-Binance-WebSocket-API** name while the legitimate project is maintained separately through the official project channels:
