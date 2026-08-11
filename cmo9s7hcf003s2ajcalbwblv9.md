@@ -28,6 +28,10 @@ After reviewing the public repository contents, my assessment is:
 
 This post documents what I observed, why I consider it malicious, and what I am doing next.
 
+> **Update (2026-07-30):** What began with the single fraudulent repository documented here ultimately led to 19 confirmed GitHub repositories, a multi-stage malware delivery chain, and a final payload consistent with StealC v2. The GitHub repositories have since been removed. After the June 2026 Operation Endgame disruption targeting StealC infrastructure, I revisited the backend from this investigation and found that its two documented malware routes still respond.
+> 
+> [Operation Endgame Disrupted 326 Servers. The StealC Backend I Reported Still Responds.](https://blog.technopathy.club/operation-endgame-stealc-backend-still-responds)
+
 ## Why I Looked at It
 
 I maintain the legitimate **UNICORN Binance WebSocket API** project through the official project channels:
