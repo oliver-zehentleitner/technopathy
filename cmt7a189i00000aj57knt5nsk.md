@@ -12,7 +12,7 @@ tags: ai, opensource, developer-tools, llm, evals, coding-agents
 
 *The model mattered. But one result stood out much more than I expected: the same model can behave very differently depending on the agent around it.*
 
-Publishing an agent skill and saying "works great with Claude Code" is not much of a claim.
+Publishing an agent skill and saying "works great in my coding agent" is not much of a claim.
 
 It is an anecdote.
 
@@ -24,7 +24,7 @@ So eventually I had to answer a more interesting question:
 
 I built matrix support into the Keep the Why eval tooling and started running it.
 
-The current [Agent & Model Matrix](https://keepthewhy.com/agent-matrix/) contains real runs across Cline, Codex CLI, Kimi Code, opencode, Pi, and Claude Code, spanning hosted models from Anthropic, DeepSeek, Google, OpenAI, xAI, Mistral, Moonshot, Z.ai, and Qwen, plus a local Ollama run.
+The [Agent & Model Matrix](https://keepthewhy.com/agent-matrix/) contains real runs across six tested coding agents: Cline, Codex CLI, Kimi Code, opencode, Pi, and Claude Code. The model set spans Anthropic, DeepSeek, Google, OpenAI, xAI, Mistral, Moonshot, Z.ai, and Qwen, plus a local Ollama run.
 
 I expected meaningful differences between models.
 
@@ -32,19 +32,19 @@ What I did not expect was how much the **agent harness itself** would matter.
 
 One terminology note before going further:
 
-When I say **agent harness**, I mean the coding agent and its surrounding scaffolding: Cline, Codex CLI, Kimi Code, opencode, Pi, or Claude Code.
+When I say **agent harness**, I mean the coding agent and its surrounding scaffolding.
 
 When I say **eval harness**, I mean my own runner, fixtures, isolation, capture, and judging infrastructure.
 
-Those are two different things, and this experiment taught me something useful about both.
+Those are two different things.
 
-The main finding is about the first one.
+The main finding in this article is about the first one.
 
 ## The model is not the agent
 
-We talk about coding models as if the model determines the behavior.
+We often talk about coding models as if the model determines the behavior.
 
-GPT-5.2 did this.
+GPT did this.
 
 Gemini failed that.
 
@@ -104,7 +104,7 @@ The interesting question is what the agent **does next**.
 
 Take Gemini 3.1 Pro through OpenRouter.
 
-In the v0.9.0 matrix snapshot from August 20-21, 2026:
+In the matrix snapshot used for this article:
 
 | Agent | Result |
 |---|---:|
@@ -118,7 +118,7 @@ That is not a subtle difference.
 
 Under Cline, the run fully matched the expected behavior.
 
-The same model through Kimi Code or opencode received a zero from the same judge.
+The same model through Kimi Code or opencode received a zero from the same judging setup.
 
 Nothing about the underlying Gemini model changed.
 
@@ -140,9 +140,9 @@ Kimi K3 is even more interesting:
 | opencode | Fail - 2/10 |
 | Pi | Pass - 10/10 |
 
-Yes, Kimi K3 performed perfectly in several harnesses and badly inside Kimi Code itself.
+The same model scored perfectly in several harnesses and poorly in others.
 
-That sounds almost absurd when you reduce a system to the name of its model.
+That sounds almost absurd when you reduce the system to the name of its model.
 
 It makes much more sense once you stop doing that.
 
@@ -237,7 +237,7 @@ Pi, using the same model and provider, asked **before** modifying the code every
 
 That was the moment the agent harness became interesting to me as its own variable.
 
-The current formal matrix no longer reproduces that exact Qwen split. Qwen3.8 now passes the representative case across all five tested OpenRouter harnesses.
+The current formal matrix no longer reproduces that exact Qwen split. In the documented matrix, Qwen3.8 performs well across the tested OpenRouter harnesses.
 
 That is useful information too.
 
@@ -253,13 +253,13 @@ The matrix is deliberately a spot check.
 
 A failure is a lead worth investigating, not a permanent verdict.
 
-But the broader effect remains visible across multiple other models in the current matrix.
+But the broader effect remains visible across multiple other models in the matrix.
 
 ## The opposite pattern matters too
 
 Not every model is equally sensitive to the harness.
 
-Grok 4.6 is remarkably consistent in the current snapshot:
+Grok 4.6 is remarkably consistent in the matrix snapshot:
 
 | Agent | Result |
 |---|---:|
@@ -291,41 +291,54 @@ Others appear much more harness-sensitive.
 
 That sensitivity may itself be something worth measuring.
 
-## One important caveat: this is not the full eval suite
+## Two eval views: depth and breadth
 
-Keep the Why actually has two different kinds of testing now.
+The cross-agent matrix is not trying to replace a full behavioral eval suite.
 
-The main [eval suite](https://keepthewhy.com/evals/) currently ships 70 behavioral cases.
+They answer different questions.
 
-Those tests go deep against Claude Code specifically. Each case is designed as a prompt paired with expected behavior, including negative cases where the skill should not activate or should stay minimal.
+A deep behavioral suite asks:
 
-The runner materializes an isolated fixture repository, starts a fresh non-interactive Claude Code session, captures the transcript and actual file changes, and has a separate LLM judge evaluate the result.
+> Does the skill behave correctly across many different situations?
 
-One detail matters here: the latest published **full-suite** snapshot still predates the current 70-case set. It is the older 59/67 run from July 31, 2026. The suite has changed since then, so I do not treat that older pass rate as the current state.
+The matrix asks:
 
-The [Agent & Model Matrix](https://keepthewhy.com/agent-matrix/) answers a different question.
+> What changes when I hold one representative situation roughly constant and vary the model-agent combination?
 
-It goes wide.
+One goes deep across behaviors.
 
-Instead of running all 70 cases for every possible agent-model combination, each matrix cell is a spot check against one representative case.
+The other goes wide across systems.
 
-That makes the matrix affordable enough to run across many combinations and useful for spotting exactly the kind of harness effect described above.
+That distinction is important because running every behavioral case against every model-agent combination would quickly become expensive, slow, and difficult to interpret.
 
-A `10/10` cell therefore does **not** mean ten tests passed.
+So the matrix deliberately uses a representative case as a spot check.
 
-It is the judge score for that run.
+Each judged cell gets two outputs:
 
-The judge is always Claude, regardless of which agent or model is under test, so the grading side stays consistent across the matrix.
+- a pass/fail verdict against the expected behavior
+- a score from 0 to 10 describing how closely the run matched it
 
-There is another deliberate difference in the setup: Claude Code is tested through native skill discovery. The other agents are explicitly given the exact skill path and instructed to read and follow it.
+A `10/10` therefore does **not** mean ten independent tests passed.
 
-So for those agents, the matrix is testing behavior **given the skill**, not whether their own discovery mechanism would have found the skill automatically.
+It is the score for that individual run.
 
-Likewise, one `fail` does not establish that a model-agent combination always fails.
+Likewise, one failed cell does not establish that the combination always fails.
 
-This is an engineering diagnostic.
+The same judging setup is used across the matrix so the comparison itself stays consistent.
 
-Not a scientific leaderboard.
+There is also an important scope decision around skill loading.
+
+The purpose of the cross-agent comparison is primarily to observe what the agent does **once it has the skill available**, not to turn every cell into a separate test of each product's skill-discovery mechanism.
+
+Where necessary, drivers are therefore given the exact skill path explicitly.
+
+That keeps the main variable closer to the thing I actually want to observe:
+
+**How does this model-agent system behave after receiving the same skill and task?**
+
+The [live matrix](https://keepthewhy.com/agent-matrix/) documents the exact methodology, versions, dates, and per-cell details.
+
+It is the source of truth as the matrix evolves.
 
 ## Then I discovered that my eval setup could lie too
 
@@ -367,23 +380,23 @@ They were **invalid**.
 
 ### Codex CLI had a different problem
 
-Codex CLI was running non-interactively inside a sandbox that did not allow writes without approval.
+Codex CLI had a different setup issue.
 
-There was nobody there to approve them.
+The non-interactive run was initially configured in a way that prevented the writes required by the test.
 
-So writes could be rejected even though the transcript itself still looked plausible.
+Again, the transcript could still look plausible.
 
 That creates a nasty ambiguity.
 
 Did the agent decide not to modify the file?
 
-Or was the agent structurally unable to modify it?
+Or was the environment structurally preventing the modification?
 
 Those are completely different things.
 
 From a shallow look at the final repository, they can look identical.
 
-Once fixed, further driver-specific configuration was needed for some model combinations.
+Once the driver configuration was corrected, the runs became meaningful.
 
 Again, none of this says anything interesting about model intelligence.
 
@@ -482,7 +495,7 @@ Tool output accumulates.
 
 Repository context may be repeatedly reused.
 
-Prompt caching can therefore matter a lot.
+Caching behavior and provider pricing can therefore matter a lot.
 
 In one matrix run, Mistral Medium 3.5 averaged around **$3.77 per run**.
 
@@ -510,11 +523,9 @@ Pi produced a clean 9/10 result.
 
 opencode produced 2/10.
 
-Three other drivers were attempted but did not yield meaningful model/skill verdicts.
+Other agent combinations were attempted but did not produce meaningful model/skill verdicts because they hit practical integration constraints in the tested setup.
 
-Each hit a different practical blocker in the setup being tested: API compatibility, client timeout, or execution speed.
-
-That is why those cells are not simply marked as failures in the published matrix.
+That is useful data too.
 
 There is a fundamental difference between:
 
@@ -524,9 +535,11 @@ and:
 
 > This combination did not reach a point where the task could be evaluated.
 
-Turning both into the same red X creates a nicer-looking table.
+Turning both into the same red `FAIL` creates a nicer-looking table.
 
 It also destroys information.
+
+The live matrix records those blockers separately instead of pretending they are reasoning failures.
 
 ## What I'm taking away from this
 
@@ -540,25 +553,25 @@ Sometimes enormously.
 
 If I want to know whether a setup is safe and useful for my work, I need to test the system I am actually going to run.
 
-Not just the weights behind it.
+Not just the model behind it.
 
 That means:
 
 **The model matters.**
 
-Grok and Mistral being relatively consistent across harnesses show that clearly.
+Some models are much more consistent across harnesses than others.
 
 **The agent harness matters.**
 
-Gemini, Kimi K3, and GLM-5.3 produced dramatically different results depending on the coding agent around them.
+The same model can produce dramatically different results depending on the coding agent around it.
 
 **The interaction matters.**
 
-A strong model in the wrong harness can be a worse system than the same model somewhere else.
+A strong model in one harness can become a much weaker system in another.
 
 **The eval harness matters too, but for a different reason.**
 
-If your test environment is broken, your benchmark can confidently measure something that never happened.
+If the test environment is broken, a benchmark can confidently measure something that never happened.
 
 **Fabricated compliance deserves explicit testing.**
 
@@ -566,7 +579,7 @@ An agent can produce artifacts that look correct while inventing the evidence be
 
 **Cost and compatibility belong in the result.**
 
-A system that is correct but unusably expensive, slow, or incompatible is still not a good system for the job.
+A system that is correct but unusably expensive, slow, or incompatible may still be the wrong system for the job.
 
 And most importantly:
 
@@ -588,13 +601,15 @@ without adding:
 
 > In which agent?
 
-The full live matrix, including versions, dates, methodology, and per-cell results, is here:
+The live matrix, including exact versions, dates, methodology, and per-cell results, is here:
 
 **[keepthewhy.com/agent-matrix/](https://keepthewhy.com/agent-matrix/)**
 
-It gets updated roughly monthly, plus targeted re-checks whenever a specific result needs verifying.
+It gets updated as new combinations are tested and specific findings are re-checked.
 
-The concrete scores in this article refer to the Keep the Why v0.9.0 matrix snapshot tested on August 20-21, 2026. The live matrix may have newer results by the time you read this.
+The concrete scores shown in this article are a snapshot.
+
+The live matrix is the source of truth.
 
 This is one skill, one representative cross-agent case, and a growing amount of data.
 
@@ -602,4 +617,10 @@ It is not enough to rank the world's coding models.
 
 But it is enough to make me stop treating the **agent harness** as plumbing.
 
-Related: [I Let an AI Agent Maintain My Open Source Suite for a Week - Here's What Actually Happened](https://blog.technopathy.club/i-let-an-ai-agent-maintain-my-open-source-suite-for-a-week-heres-what-actually-happened)
+* * *
+
+I hope you found this informative and useful.
+
+Follow me on [GitHub](https://github.com/oliver-zehentleitner), [Mastodon](https://burningboard.net/@oliverzehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
+
+Thank you for reading, and happy coding! ¯\\\_(ツ)\_/¯
