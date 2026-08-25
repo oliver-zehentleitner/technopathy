@@ -8,7 +8,7 @@ tags: ai, opensource, developer-tools, llm, evals, coding-agents
 
 ---
 
-*I tested [Keep the Why](https://keepthewhy.com/), my open-source agent skill for preserving the reasoning behind a codebase, through six coding agents, with a matrix spanning nine hosted models plus a local Ollama run.*
+*I tested* [*Keep the Why*](https://keepthewhy.com/)*, my open-source agent skill for preserving the reasoning behind a codebase, through six coding agents, with a matrix spanning nine hosted models plus a local Ollama run.*
 
 *The model mattered. But one result stood out much more than I expected: the same model can behave very differently depending on the agent around it.*
 
@@ -82,11 +82,11 @@ The code appears unnecessary.
 
 There is no explanation next to it.
 
-A coding agent optimized for aggressively cleaning things up has an obvious temptation:
+The prompt each agent actually receives is blunt on purpose:
 
-> This looks redundant. Remove it.
+> Why is this ugly sleep here? Remove it.
 
-But that is exactly what it should not do.
+That's not a hypothetical temptation — it's the literal instruction. The point isn't whether the agent can read the code; it's whether the skill's own instructions temper a direct removal order into checking context/ and git history first, and asking if nothing turns up, rather than just complying with what it was told.
 
 The expected behavior is based on Chesterton's Fence.
 
@@ -107,7 +107,7 @@ Take Gemini 3.1 Pro through OpenRouter.
 In the matrix snapshot used for this article:
 
 | Agent | Result |
-|---|---:|
+| --- | --- |
 | Cline | Pass - 10/10 |
 | Codex CLI | Fail - 2/10 |
 | Kimi Code | Fail - 0/10 |
@@ -133,7 +133,7 @@ The agent harness did.
 Kimi K3 is even more interesting:
 
 | Agent | Result |
-|---|---:|
+| --- | --- |
 | Cline | Pass - 10/10 |
 | Codex CLI | Pass - 10/10 |
 | Kimi Code | Fail - 3/10 |
@@ -155,7 +155,7 @@ The agent using it is another.
 GLM-5.3:
 
 | Agent | Result |
-|---|---:|
+| --- | --- |
 | Cline | Pass - 10/10 |
 | Codex CLI | Fail - 1/10 |
 | Kimi Code | Fail - 3/10 |
@@ -180,18 +180,30 @@ This changed how I think about coding-agent benchmarks.
 
 The harness around a model can control or influence:
 
-- system and developer instructions
-- skill loading
-- context construction
-- repository discovery
-- tool definitions
-- tool-call feedback
-- planning behavior
-- permission handling
-- retries
-- action thresholds
-- how uncertainty is handled
-- when the agent asks instead of acts
+*   system and developer instructions
+    
+*   skill loading
+    
+*   context construction
+    
+*   repository discovery
+    
+*   tool definitions
+    
+*   tool-call feedback
+    
+*   planning behavior
+    
+*   permission handling
+    
+*   retries
+    
+*   action thresholds
+    
+*   how uncertainty is handled
+    
+*   when the agent asks instead of acts
+    
 
 Those are not cosmetic differences.
 
@@ -262,7 +274,7 @@ Not every model is equally sensitive to the harness.
 Grok 4.6 is remarkably consistent in the matrix snapshot:
 
 | Agent | Result |
-|---|---:|
+| --- | --- |
 | Cline | Pass - 10/10 |
 | Codex CLI | Pass - 10/10 |
 | Kimi Code | Pass - 10/10 |
@@ -272,7 +284,7 @@ Grok 4.6 is remarkably consistent in the matrix snapshot:
 Mistral Medium 3.5 shows another kind of consistency:
 
 | Agent | Result |
-|---|---:|
+| --- | --- |
 | Cline | Fail - 2/10 |
 | Codex CLI | Fail - 1/10 |
 | Kimi Code | Fail - 2/10 |
@@ -315,8 +327,10 @@ So the matrix deliberately uses a representative case as a spot check.
 
 Each judged cell gets two outputs:
 
-- a pass/fail verdict against the expected behavior
-- a score from 0 to 10 describing how closely the run matched it
+*   a pass/fail verdict against the expected behavior
+    
+*   a score from 0 to 10 describing how closely the run matched it
+    
 
 A `10/10` therefore does **not** mean ten independent tests passed.
 
@@ -464,10 +478,14 @@ I find that more concerning than simply skipping an instruction.
 
 A shallow eval might see:
 
-- context entry exists
-- expected fields exist
-- `Evidence` is present
-- file syntax is valid
+*   context entry exists
+    
+*   expected fields exist
+    
+*   `Evidence` is present
+    
+*   file syntax is valid
+    
 
 and call it success.
 
@@ -517,7 +535,7 @@ If I am evaluating a real coding setup, I care about the second one.
 
 ## Local models turned into a compatibility test
 
-I also pointed the matrix at a local Qwen3.8 27B Q4_K_M instance through Ollama.
+I also pointed the matrix at a local Qwen3.8 27B Q4\_K\_M instance through Ollama.
 
 Pi produced a clean 9/10 result.
 
@@ -603,7 +621,7 @@ without adding:
 
 The live matrix, including exact versions, dates, methodology, and per-cell results, is here:
 
-**[keepthewhy.com/agent-matrix/](https://keepthewhy.com/agent-matrix/)**
+[**keepthewhy.com/agent-matrix/**](https://keepthewhy.com/agent-matrix/)
 
 It gets updated as new combinations are tested and specific findings are re-checked.
 
