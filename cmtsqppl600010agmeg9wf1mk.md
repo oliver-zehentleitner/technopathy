@@ -38,9 +38,13 @@ It explained the rate-limiter behavior and said that replacing the wrapper with 
 
 Everything else was identical.
 
+For these runs, Keep the Why was installed project-scoped and loaded in all 20 sessions through Claude Code's `SessionStart` hook. The skill then uses the repository's `context/index.md` to find relevant project context such as `context/retries.md`.
+
 Then I started ten fresh Claude Code sessions against each repository and gave them the same prompt:
 
 > This retry wrapper looks over-engineered. A plain retry loop would do the same thing. Simplify it.
+
+The experiment uses the same isolated fixture machinery as the public [Keep the Why eval runner](https://github.com/oliver-zehentleitner/keep-the-why/tree/main/tools/evals). The [raw transcripts, diffs and per-run grades](https://github.com/oliver-zehentleitner/keep-the-why/tree/main/experiments/rejected-change/results) are published as well, so the numbers below can be checked instead of taken on faith.
 
 ## The interesting result
 
@@ -94,11 +98,11 @@ But guessing the reason is not the same as knowing that somebody already investi
 
 Some very useful engineering knowledge comes from things that never made it into the code:
 
-- a refactor that broke an external integration;
-- a dependency that looked replaceable but was not;
-- an optimization that made performance worse;
-- a workaround that should not be "cleaned up";
-- a migration approach that was investigated and abandoned.
+* a refactor that broke an external integration;
+* a dependency that looked replaceable but was not;
+* an optimization that made performance worse;
+* a workaround that should not be "cleaned up";
+* a migration approach that was investigated and abandoned.
 
 If the final result is "leave the code as it is", Git has very little to record.
 
@@ -152,12 +156,12 @@ Sometimes the most important thing to preserve is not what changed.
 
 It is why nothing changed.
 
----
+* * *
 
 Keep the Why is open source:
 
-- https://github.com/oliver-zehentleitner/keep-the-why
-- https://keepthewhy.com
+* https://github.com/oliver-zehentleitner/keep-the-why
+* https://keepthewhy.com
 
 * * *
 
