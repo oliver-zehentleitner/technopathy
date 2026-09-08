@@ -72,6 +72,10 @@ All ten understood that the requested simplification had already been rejected.
 
 None of them put the bad idea back on the table.
 
+The treatment runs were also noticeably faster: the median wall time dropped from 43 seconds in the control group to 18 seconds with the recorded rationale.
+
+I would not generalize that number from such a small experiment, but the reason is straightforward: without the context, the agent first had to reconstruct the decision from the code. With it, the session could start where the previous one had ended.
+
 That was the interesting part for me.
 
 The Markdown file did not make the agent smarter.
