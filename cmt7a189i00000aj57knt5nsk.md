@@ -4,7 +4,7 @@ datePublished: 2026-08-24T13:33:34.644Z
 cuid: cmt7a189i00000aj57knt5nsk
 slug: same-skill-six-agents-nine-models-what-a-real-eval-matrix-taught-me
 cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/f35526fb-7e72-4d18-8fa9-d1b7895494aa.png
-tags: ai, opensource, developer-tools, llm, evals, coding-agents
+tags: ai, opensource, developer-tools, llm, evals, coding-agents, keepthewhy
 
 ---
 
