@@ -4,7 +4,7 @@ datePublished: 2026-09-08T14:03:40.375Z
 cuid: cmtsqppl600010agmeg9wf1mk
 slug: what-happens-when-a-coding-agent-forgets-why-a-change-was-rejected
 cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/7eb58525-cc33-480c-86a6-f2b738c771c8.png
-tags: ai, programming-blogs, opensource, devtools
+tags: ai, programming-blogs, opensource, devtools, keepthewhy
 
 ---
 
@@ -102,11 +102,16 @@ But guessing the reason is not the same as knowing that somebody already investi
 
 Some very useful engineering knowledge comes from things that never made it into the code:
 
-* a refactor that broke an external integration;
-* a dependency that looked replaceable but was not;
-* an optimization that made performance worse;
-* a workaround that should not be "cleaned up";
-* a migration approach that was investigated and abandoned.
+*   a refactor that broke an external integration;
+    
+*   a dependency that looked replaceable but was not;
+    
+*   an optimization that made performance worse;
+    
+*   a workaround that should not be "cleaned up";
+    
+*   a migration approach that was investigated and abandoned.
+    
 
 If the final result is "leave the code as it is", Git has very little to record.
 
@@ -164,8 +169,10 @@ It is why nothing changed.
 
 Keep the Why is open source:
 
-* https://github.com/oliver-zehentleitner/keep-the-why
-* https://keepthewhy.com
+*   https://github.com/oliver-zehentleitner/keep-the-why
+    
+*   https://keepthewhy.com
+    
 
 * * *
 
