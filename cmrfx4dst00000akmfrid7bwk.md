@@ -4,7 +4,7 @@ datePublished: 2026-07-11T05:22:37.714Z
 cuid: cmrfx4dst00000akmfrid7bwk
 slug: keep-the-why-code-becomes-legacy-when-nobody-remembers-why
 cover: https://cdn.hashnode.com/uploads/covers/69d4b99a5da14bc70e00d4f6/1be315d8-3566-4c00-96bc-9ac02675d254.png
-tags: ai, opensource, documentation, developer-tools, legacy-code, agents
+tags: ai, opensource, documentation, developer-tools, legacy-code, agents, keepthewhy
 
 ---
 
@@ -1107,7 +1107,6 @@ The project is open source because I do not think this should become another pri
 The whole point is to keep the reasoning with the code.
 
 Because “ask Bob” is not documentation.
-
 
 * * *
 
