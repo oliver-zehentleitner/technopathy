@@ -14,7 +14,7 @@ Starting with the next UBWA release, you can switch a manager instance to [`pico
 
 For typical Binance messages below ~1 KB, picows delivers roughly 1.7–2× the throughput with significantly lower CPU cost. At normal trading-bot message rates, however, you probably won't notice a difference.
 
-That's why picows is opt-in for now.
+The performance is there. The long-term production history isn't — yet. That's why picows is opt-in for now.
 
 ## Why picows?
 
@@ -103,7 +103,7 @@ picows did not suddenly get faster.
 
 UBWA stopped hiding its speed.
 
-The details are documented in `context/stream-loop.md`.
+The details are documented in [`context/stream-loop.md`](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api/blob/master/context/stream-loop.md).
 
 ## Why I did not use the native picows API
 
@@ -197,6 +197,8 @@ One difference remains: `websockets` currently does not URL-decode proxy credent
 
 UBWA rejects affected credentials up front when using `websockets` instead of entering a reconnect loop.
 
+REST requests used for listenKey handling still follow SOCKS5 proxies only; HTTP(S) proxy support there is tracked in [unicorn-binance-rest-api#139](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues/139).
+
 The performance and soak tests below were run with picows 2.1.3. During integration, 2.2.0 fixed the handshake compatibility issue and 2.3.0 added native proxy support. That is why UBWA requires picows 2.3.0.
 
 ## 24 hours against live Binance
@@ -226,7 +228,7 @@ Host: 8 cores, 12 GB RAM, Python 3.13.5.
 | Avg / peak msgs/s | 1,606 / 8,260 | 1,596 / 7,695 |
 | RSS start → end | 62 → 126 MB | 63 → 149 MB |
 | CPU avg | 9.5 % | 12.8 % |
-| Reconnects (3 streams) | 2 / 80 / 2 | 2 / 88 / 2 |
+| Reconnects (arr / markets / depth) | 2 / 80 / 2 | 2 / 88 / 2 |
 | Reconnect duration | 5–6 s | 5–6 s |
 | Max seconds without data | 5 s | 5 s |
 | Errors / stalls / unrepairable streams | 0 / 0 / 0 | 0 / 0 / 0 |
