@@ -10,11 +10,11 @@ tags: websockets, python, performance, opensource, benchmarking, binance, asynci
 
 [UNICORN Binance WebSocket API](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api) (UBWA) has used [`websockets`](https://github.com/python-websockets/websockets) since day one.
 
-Starting with the next UBWA release, you can switch a manager instance to [`picows`](https://github.com/tarasko/picows), a Cython WebSocket implementation.
+Since UBWA 2.16.0, you can switch a manager instance to [`picows`](https://github.com/tarasko/picows), a Cython WebSocket implementation.
 
 For typical Binance messages below ~1 KB, picows delivers roughly 1.7–2× the throughput with significantly lower CPU cost. At normal trading-bot message rates, however, you probably won't notice a difference.
 
-The performance is there. The long-term production history isn't — yet. That's why picows is opt-in for now.
+That's why picows is opt-in for now.
 
 ## Why picows?
 
@@ -48,7 +48,7 @@ ubwa = BinanceWebSocketApiManager(
 picows is optional:
 
 ```bash
-pip install unicorn-binance-websocket-api[picows]
+pip install --upgrade "unicorn-binance-websocket-api[picows]>=2.16.0"
 ```
 
 Streams, WebSocket API, userData streams, subscribe/unsubscribe, reconnects, signals and proxies use the same UBWA code path.
@@ -63,10 +63,10 @@ If a bot says it is running on picows, it should actually be running on picows.
 
 The benchmark runs both libraries through the full UBWA stack against a local server sending Binance-shaped messages.
 
-Python 3.13, websockets 16.0, picows 2.1.3, x86_64 Linux, `output_default="raw_data"`, median of three runs:
+Python 3.13, websockets 16.0, picows 2.1.3, x86\_64 Linux, `output_default="raw_data"`, median of three runs:
 
 | Scenario | ~msg size | websockets msgs/s | picows msgs/s | speedup | websockets CPU µs/msg | picows CPU µs/msg |
-|---|---:|---:|---:|---:|---:|---:|
+| --- | --- | --- | --- | --- | --- | --- |
 | aggTrade | 0.2 KB | 201,912 | 403,316 | 2.00x | 5.1 | 2.5 |
 | kline | 0.3 KB | 195,460 | 371,019 | 1.90x | 5.2 | 2.9 |
 | depth20 | 1.0 KB | 153,187 | 259,960 | 1.70x | 6.8 | 4.1 |
@@ -96,14 +96,16 @@ UBWA had 18 `logger.debug()` f-strings formatted for every message even when deb
 
 After removing that overhead:
 
-- websockets: **116k → 202k msgs/s**
-- picows: **163k → 403k msgs/s**
+*   websockets: **116k → 202k msgs/s**
+    
+*   picows: **163k → 403k msgs/s**
+    
 
 picows did not suddenly get faster.
 
 UBWA stopped hiding its speed.
 
-The details are documented in [`context/stream-loop.md`](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api/blob/master/context/stream-loop.md).
+The details are documented in `context/stream-loop.md`.
 
 ## Why I did not use the native picows API
 
@@ -127,15 +129,24 @@ Performance benchmarks are easy. Failure handling is more interesting.
 
 The test suite now runs both libraries through scenarios including:
 
-- server-side closes and reconnects
-- fragmented frames
-- 450 KB payloads
-- messages above `max_size`
-- server pings
-- Unicode
-- rejected handshakes
-- WebSocket API round trips
-- keepalive timeouts
+*   server-side closes and reconnects
+    
+*   fragmented frames
+    
+*   450 KB payloads
+    
+*   messages above `max_size`
+    
+*   server pings
+    
+*   Unicode
+    
+*   rejected handshakes
+    
+*   WebSocket API round trips
+    
+*   keepalive timeouts
+    
 
 The rejected-handshake test found a real compatibility issue.
 
@@ -188,16 +199,16 @@ The old `socks5_proxy_server` parameters still work and are converted internally
 
 Testing also found two UBWA issues in the old proxy path:
 
-- rejected SOCKS5 credentials could kill a stream thread without a useful log message
-- TLS certificate verification was not actually enabled on the proxy path despite the option defaulting to `True`
+*   rejected SOCKS5 credentials could kill a stream thread without a useful log message
+    
+*   TLS certificate verification was not actually enabled on the proxy path despite the option defaulting to `True`
+    
 
 Both are fixed.
 
 One difference remains: `websockets` currently does not URL-decode proxy credentials such as `p%40ss`, while python-socks/picows does. I reported that as [python-websockets/websockets#1761](https://github.com/python-websockets/websockets/issues/1761).
 
 UBWA rejects affected credentials up front when using `websockets` instead of entering a reconnect loop.
-
-REST requests used for listenKey handling still follow SOCKS5 proxies only; HTTP(S) proxy support there is tracked in [unicorn-binance-rest-api#139](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues/139).
 
 The performance and soak tests below were run with picows 2.1.3. During integration, 2.2.0 fixed the handshake compatibility issue and 2.3.0 added native proxy support. That is why UBWA requires picows 2.3.0.
 
@@ -209,26 +220,34 @@ So both libraries ran for 24 hours in parallel against `binance.com` with identi
 
 Load:
 
-- `!ticker@arr`
-- `!miniTicker@arr`
-- aggTrade
-- trade
-- `depth20@100ms`
-- `kline_1m`
-- bookTicker
-- `depth@100ms`
+*   `!ticker@arr`
+    
+*   `!miniTicker@arr`
+    
+*   aggTrade
+    
+*   trade
+    
+*   `depth20@100ms`
+    
+*   `kline_1m`
+    
+*   bookTicker
+    
+*   `depth@100ms`
+    
 
 across up to 50 USDT markets.
 
 Host: 8 cores, 12 GB RAM, Python 3.13.5.
 
-| | picows | websockets |
-|---|---:|---:|
+|  | picows | websockets |
+| --- | --- | --- |
 | Messages / data | 138.8 M / 49.9 GB | 137.9 M / 49.7 GB |
 | Avg / peak msgs/s | 1,606 / 8,260 | 1,596 / 7,695 |
 | RSS start → end | 62 → 126 MB | 63 → 149 MB |
 | CPU avg | 9.5 % | 12.8 % |
-| Reconnects (arr / markets / depth) | 2 / 80 / 2 | 2 / 88 / 2 |
+| Reconnects (3 streams) | 2 / 80 / 2 | 2 / 88 / 2 |
 | Reconnect duration | 5–6 s | 5–6 s |
 | Max seconds without data | 5 s | 5 s |
 | Errors / stalls / unrepairable streams | 0 / 0 / 0 | 0 / 0 / 0 |
@@ -264,7 +283,7 @@ The switch will remain either way.
 ## Try it
 
 ```bash
-pip install --upgrade unicorn-binance-websocket-api[picows]
+pip install --upgrade "unicorn-binance-websocket-api[picows]>=2.16.0"
 ```
 
 ```python
