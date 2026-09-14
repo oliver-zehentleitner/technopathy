@@ -12,7 +12,7 @@ Every coding agent starts the day as a goldfish. It can read the code, reason ab
 
 A whole product category has grown around that: [project memory for agents](https://blog.technopathy.club/keep-the-why-project-memory-for-humans-and-ai-agents). Databases, MCP servers, knowledge graphs, subscriptions. I think much of it starts from the wrong question, because most of the memory already exists.
 
-That idea is what I call [repo-native project memory](https://oliver-zehentleitner.github.io/repo-native-project-memory/).
+That is the idea behind [repo-native project memory](https://oliver-zehentleitner.github.io/repo-native-project-memory/).
 
 It is called the repository.
 
