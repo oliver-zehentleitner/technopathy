@@ -76,7 +76,7 @@ Python 3.13, websockets 16.0, picows 2.1.3, x86\_64 Linux, `output_default="raw_
 
 The pattern is simple.
 
-For small Binance messages, picows is clearly faster. Around 10 KB the difference mostly disappears. On the huge 450 KB `!ticker@arr` payload, picows is slightly slower.
+For small Binance messages, picows is clearly faster. Around 10 KB the difference mostly disappears. On the huge 450 KB `!ticker@arr` payload, picows even comes out a few percent behind. That row turned out to be an artifact of the benchmark, see the next section.
 
 With `output_default="dict"` and JSON parsing included, the advantage for small messages is still around 1.4–1.7×.
 
@@ -85,6 +85,10 @@ Against live Binance at only a few hundred messages per second, there is effecti
 If that is your workload, switching gives you little.
 
 If you push tens of thousands of messages per second through one process, it matters.
+
+## The big-message row is a benchmark artifact
+
+The `!ticker@arr` row is real and reproducible, not noise: a follow-up sweep from 9 KB to 900 KB with ten paired runs per size shows picows 4 to 12 percent behind websockets through UBWA for everything from 32 KB upwards, with a run-to-run spread of only a few percent. It is also an artifact of the benchmark, not of picows. Driven directly, without UBWA, picows wins at every one of those sizes by 1.6x to 2.1x. The difference is how the two libraries drain the socket. The replay server is a firehose on loopback, it never paces, and UBWA's own per-message work on a 450 KB text (a couple of substring scans) is slower than the wire. The kernel receive buffer then autotunes into the megabytes, and picows takes all of it in one recv per loop iteration into a read buffer that keeps doubling: strace counts 79 reads of about 3.4 MB for 600 messages. websockets reads at most 256 KB per recv, about 1060 reads for the same data, and stays cache-friendly. Copying and decoding half-megabyte frames out of a multi-megabyte buffer that has already left the cache costs more per byte than picows saves on parsing. The proof is a one-line change: capping `SO_RCVBUF` to 128 KB on the client socket flips the 450 KB result to picows 1.3x to 1.4x ahead, with nothing else touched. The benchmark script has a `--rcvbuf` option for that now, and the full tables are in [context/websocket-library.md](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api/blob/master/context/websocket-library.md). On a real Binance connection the socket buffer never fills like that, a WAN link delivers a few megabytes per second at most and the consumer keeps up, which is also what the 24 h soak showed: picows with less CPU and less memory. Thanks to Taras Kozlov, the picows author, for asking the question that led to this.
 
 ## The benchmark found a UBWA bottleneck first
 
