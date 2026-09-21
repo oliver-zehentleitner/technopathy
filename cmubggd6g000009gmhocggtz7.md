@@ -56,13 +56,20 @@ The agent then presents the project setup. With the defaults, there is very litt
 
 Among other things, the setup covers:
 
-- where the project's why-knowledge should live - `context/` by default unless an existing decision location is a better fit
-- how you want to start capturing project knowledge
-- proactive capture during normal work
-- asking before writing only when something is genuinely unclear
-- no constant questions for issue or ticket references
-- structural linting where supported and detected
-- loading Keep the Why automatically in future sessions
+*   where the project's why-knowledge should live - `context/` by default unless an existing decision location is a better fit
+    
+*   how you want to start capturing project knowledge
+    
+*   proactive capture during normal work
+    
+*   asking before writing only when something is genuinely unclear
+    
+*   no constant questions for issue or ticket references
+    
+*   structural linting where supported and detected
+    
+*   loading Keep the Why automatically in future sessions
+    
 
 The wizard is presented as a list with defaults already filled in where the setup defines them.
 
@@ -180,7 +187,7 @@ I increasingly think this is a feature, not a cost.
 
 A reviewer normally receives the result of the coding process. The code changed. Maybe some tests changed. But much of the reasoning that led there disappeared with the coding session.
 
-With repo-native project memory, some of that reasoning can arrive in the same pull request. That also helps during code review: the reviewer gets the implementation and the relevant project reasoning in the same diff.
+With repo-native project memory, some of that reasoning can arrive in the same pull request.
 
 The reviewer can see not just:
 
