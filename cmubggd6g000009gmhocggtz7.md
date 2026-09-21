@@ -180,7 +180,7 @@ I increasingly think this is a feature, not a cost.
 
 A reviewer normally receives the result of the coding process. The code changed. Maybe some tests changed. But much of the reasoning that led there disappeared with the coding session.
 
-With repo-native project memory, some of that reasoning can arrive in the same pull request.
+With repo-native project memory, some of that reasoning can arrive in the same pull request. That also helps during code review: the reviewer gets the implementation and the relevant project reasoning in the same diff.
 
 The reviewer can see not just:
 
