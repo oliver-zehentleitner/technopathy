@@ -22,8 +22,8 @@ Run the names that usually appear in these lists through those questions and mos
 
 Checked on 2026-09-22 against [Claude Code's memory page](https://code.claude.com/docs/en/memory), [MemoryCustodian's README](https://github.com/waittim/MemoryCustodian), [AgentsRoom's Project Memory page](https://agentsroom.dev/features/project-memory) and [the Keep the Why specification](https://keepthewhy.com/specification/).
 
-| | Keep the Why | Claude Code Auto Memory | MemoryCustodian | AgentsRoom Project Memory |
-|---|---|---|---|---|
+|  | Keep the Why | Claude Code Auto Memory | MemoryCustodian | AgentsRoom Project Memory |
+| --- | --- | --- | --- | --- |
 | **Where it lives** | `context/` in the repository (or an existing decisions folder) | by default `~/.claude/projects/<project>/memory/` on the user's machine; the auto-memory directory can be configured | `docs/memory/` in the repository | AgentsRoom's server, keyed by a project id committed in the repo |
 | **Who reads it** | anyone with the clone, the reviewer in the pull request, any agent | one user in Claude Code wherever that memory directory is available | anyone with the clone | anyone logged in to AgentsRoom who has the project id |
 | **Versioned** | Git, with the code | no, unless the configured directory is versioned separately | Git, with the code | a note history on the server; not Git |
@@ -42,9 +42,12 @@ Checked on 2026-09-22 against [Claude Code's memory page](https://code.claude.co
 
 ## What Keep the Why doesn't do, on purpose
 
-- **No similarity search.** Retrieval is the index and the topic name; entries are synthesized and read in full, not stored verbatim and ranked. `context/` is Markdown, any search tool can index it, none is shipped.
-- **No commit gating.** No Git hooks; the linter checks the form of an entry, never a decision. Prevention happens in the session, before the change: with the entry in place, 0 of 10 fresh sessions proposed a rejected simplification; without it, 7 of 10 did ([the experiment](https://blog.technopathy.club/what-happens-when-a-coding-agent-forgets-why-a-change-was-rejected)).
-- **No UI that holds anything.** `context/` renders on GitHub for anyone who can open the repository; the dashboard reads and holds nothing.
+*   **No similarity search.** Retrieval is the index and the topic name; entries are synthesized and read in full, not stored verbatim and ranked. `context/` is Markdown, any search tool can index it, none is shipped.
+    
+*   **No commit gating.** No Git hooks; the linter checks the form of an entry, never a decision. Prevention happens in the session, before the change: with the entry in place, 0 of 10 fresh sessions proposed a rejected simplification; without it, 7 of 10 did ([the experiment](https://blog.technopathy.club/what-happens-when-a-coding-agent-forgets-why-a-change-was-rejected)).
+    
+*   **No UI that holds anything.** `context/` renders on GitHub for anyone who can open the repository; the [dashboard](https://keepthewhy.com/dashboard/) reads and holds nothing.
+    
 
 The reasons for each are in the [FAQ](https://keepthewhy.com/faq/).
 
