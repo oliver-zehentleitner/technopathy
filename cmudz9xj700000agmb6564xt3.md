@@ -18,9 +18,12 @@ Two different things answer that complaint. They get compared as if they were ri
 
 Three properties define it, and none of them is a flaw:
 
-- **It belongs to one person on one machine.** The directory is under your home, not in the repository. A teammate's clone does not have it. Your second laptop does not have it. That is by design: a memory that holds *your* preferences and *your* corrections should not automatically travel with the code.
-- **It belongs to one tool.** The notes are Claude Code's; Codex, Cursor or Copilot on the same repository do not inherit them.
-- **It is not reviewed with the code.** You can inspect and edit the memory, but it is not part of the repository's normal Git and pull-request review flow.
+*   **It belongs to one person on one machine.** The directory is under your home, not in the repository. A teammate's clone does not have it. Your second laptop does not have it. That is by design: a memory that holds *your* preferences and *your* corrections should not automatically travel with the code.
+    
+*   **It belongs to one tool.** The notes are Claude Code's; Codex, Cursor or Copilot on the same repository do not inherit them.
+    
+*   **It is not reviewed with the code.** You can inspect and edit the memory, but it is not part of the repository's normal Git and pull-request review flow.
+    
 
 This is the right shape for what it holds. Your preferences are yours. A note like "keep explanations short unless I ask for detail" is between you and your agent. Nobody needs that in a shared project file.
 
@@ -30,7 +33,7 @@ The complaint session memory answers is: *the agent forgot what I told it.*
 
 ## Project memory: what the repository keeps for everyone
 
-A repository already is a project's memory, and has been for decades. The README says what it is, the docs how to use it, the tests what it must do, the changelog what changed, the history who changed it and when. Whoever has the clone has all of it, in every tool, on every machine, reviewed in every pull request.
+[A repository already is a project's memory](https://oliver-zehentleitner.github.io/repo-native-project-memory/), and has been for decades. The README says what it is, the docs how to use it, the tests what it must do, the changelog what changed, the history who changed it and when. Whoever has the clone has all of it, in every tool, on every machine, reviewed in every pull request.
 
 What the classic layout never had a clear place for is the *why*: the decision, the alternative that was rejected and the reason it lost, the constraint the code doesn't show, the workaround that must not be cleaned up. That reasoning used to live in people's heads, and left with them.
 
@@ -38,9 +41,12 @@ What the classic layout never had a clear place for is the *why*: the decision, 
 
 Three properties again, and they are the mirror image:
 
-- **It belongs to the project.** It is in the repository, so the clone carries it. Your teammate's agent can read the same file yours wrote.
-- **It belongs to no tool.** Any agent that can read the repository can read it, and switching tools does not remove the information.
-- **It is reviewed.** The why arrives in the same pull request as the code, and a wrong entry is a diff somebody can see.
+*   **It belongs to the project.** It is in the repository, so the clone carries it. Your teammate's agent can read the same file yours wrote.
+    
+*   **It belongs to no tool.** Any agent that can read the repository can read it, and switching tools does not remove the information.
+    
+*   **It is reviewed.** The why arrives in the same pull request as the code, and a wrong entry is a diff somebody can see.
+    
 
 The complaint project memory answers is: *the agent forgot why the code is the way it is.*
 
@@ -49,7 +55,7 @@ The complaint project memory answers is: *the agent forgot why the code is the w
 "The agent forgets" covers several different losses. Sort them and the answer sorts itself:
 
 | What the agent forgot | Which memory answers it |
-|---|---|
+| --- | --- |
 | that you prefer short commit messages | session memory: personal, one tool, one machine |
 | what you two did yesterday afternoon | session memory, or `git log` |
 | where the staging dashboard is | session memory as a personal reference, or the README if the team needs it |
