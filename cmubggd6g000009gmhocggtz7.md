@@ -107,23 +107,23 @@ That is the default.
 
 The result is deliberately boring: plain Markdown in the project.
 
-A real example from the Keep the Why documentation looks like this:
+A real example from the Keep the Why documentation, the file context/retries.md, looks like this:
 
 ```markdown
-context/retries.md
+# Retries
 
-### Why retry_with_jitter isn't a plain retry loop
+## Why retry_with_jitter isn't a plain retry loop
 
-Type: constraint
-Status: active
-Evidence: confirmed
-Source: discovered while considering simplifying it, 2026-07-22
+**Type:** constraint
+**Status:** active
+**Evidence:** confirmed
+**Source:** discovered while considering simplifying it, 2026-07-22
 
 The payment gateway's rate limiter returns 429 with a per-request
 Retry-After header. A fixed-delay retry loop would frequently retry
 before the limiter resets, causing repeated 429s under load.
 
-Considered: replacing it with a plain retry loop, since the wrapper
+**Considered:** replacing it with a plain retry loop, since the wrapper
 looked like unnecessary complexity with nothing documenting why.
 Not adopted once the Retry-After behavior surfaced during review.
 ```
