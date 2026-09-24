@@ -46,7 +46,7 @@ Checked on 2026-09-22 against [Claude Code's memory page](https://code.claude.co
     
 *   **No commit gating.** No Git hooks; the linter checks the form of an entry, never a decision. Prevention happens in the session, before the change: with the entry in place, 0 of 10 fresh sessions proposed a rejected simplification; without it, 7 of 10 did ([the experiment](https://blog.technopathy.club/what-happens-when-a-coding-agent-forgets-why-a-change-was-rejected)).
     
-**No UI that holds anything.** `context/` renders on GitHub for anyone who can open the repository; Git provides the history and review trail, while the [read-only dashboard](https://keepthewhy.com/dashboard/live/) provides another view of the same repository-held memory without storing a copy.  
+*   **No UI that holds anything.** `context/` renders on GitHub for anyone who can open the repository; Git provides the history and review trail, while the [read-only dashboard](https://keepthewhy.com/dashboard/live/) provides another view of the same repository-held memory without storing a copy.  
   
 
 The reasons for each are in the [FAQ](https://keepthewhy.com/faq/).
