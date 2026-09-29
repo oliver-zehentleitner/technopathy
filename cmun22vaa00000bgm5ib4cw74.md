@@ -32,6 +32,8 @@ The project in the centre is Keep the Why itself.
 
 Its hubs are topics from `context/`. Around them are individual entries: decisions, rejected alternatives, workarounds, incident learnings and constraints — things the code can tell you happened, but usually cannot tell you **why**.
 
+[![Keep the Why graph view](https://keepthewhy.com/assets/dashboard-graph-screenschot.png)](https://keepthewhy.com/dashboard/live/#graph)
+
 Each entry is an ordinary Markdown section in the repository.
 
 For example:
@@ -39,16 +41,16 @@ For example:
 ```markdown
 ## Keep dashboard exports read-only
 
-Id: ...
-Type: decision
-Status: active
-Evidence: confirmed
-See: ...
+**Id:** <uuid>
+**Type:** decision
+**Status:** active
+**Evidence:** confirmed
+**See:** https://github.com/owner/repo — <entry-id> — as of 2026-09-29
 
-Reason:
+**Reason:**
 ...
 
-Rejected alternative:
+**Rejected alternative:**
 ...
 ```
 
@@ -68,7 +70,7 @@ The more interesting part is further out.
 
 You will see other projects around Keep the Why.
 
-One is [repo-native project memory](https://oliver-zehentleitner.github.io/repo-native-project-memory/), the thesis Keep the Why grew out of.
+One is [repo-native project memory](https://oliver-zehentleitner.github.io/repo-native-project-memory/), the thesis Keep the Why belongs to.
 
 Another is the [UNICORN Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite), a family of related repositories.
 
@@ -79,7 +81,7 @@ They appear because an entry in one repository cites an entry in another.
 That citation is still just text:
 
 ```text
-See: https://github.com/... <entry-id>
+**See:** https://github.com/owner/repo — <entry-id> — as of 2026-09-29
 ```
 
 The entry ID is stable. A heading can be reworded, a topic file can be split, and the reference still identifies the same piece of reasoning.
@@ -140,7 +142,7 @@ That is why the graph around Keep the Why contains projects that were never conf
 
 They are there because the data says they are related.
 
-### Thoughts: how did one reason lead to another?
+### Thoughts: how do the reasons connect?
 
 This is the part I find most interesting.
 
@@ -224,7 +226,7 @@ One is:
 
 Every entry carries an evidence level.
 
-If the first step of a thought is only `inferred` or `unknown`, every later decision may be perfectly reasonable — but the chain started on shaky ground.
+If the first step of a thought is only `inferred` or `unknown`, every later decision may still be perfectly reasonable — but the chain started from an unconfirmed reason.
 
 The Thoughts view can now surface those origins.
 
@@ -242,7 +244,7 @@ Which later decisions link back to it?
 
 Do those relationships cross into another repository?
 
-The dashboard can show the later entries resting on that point and the projects they live in.
+The dashboard can show the later entries linked after that point and the projects they live in.
 
 It still does not claim those decisions are wrong.
 
