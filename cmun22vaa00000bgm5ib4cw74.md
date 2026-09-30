@@ -184,7 +184,7 @@ So a thought is not a proof.
 
 It is a trail through the project's recorded reasoning.
 
-[Open **Thoughts**](https://keepthewhy.com/dashboard/live/#thoughts) in the dashboard and you can read one from beginning to end, with every entry in full, even when the chain crosses repository boundaries.
+[Open **Thoughts** in the dashboard](https://keepthewhy.com/dashboard/live/#thoughts) and you can read one from beginning to end, with every entry in full, even when the chain crosses repository boundaries.
 
 ## The web is deliberately incomplete
 
