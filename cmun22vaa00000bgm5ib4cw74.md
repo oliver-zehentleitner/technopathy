@@ -10,7 +10,7 @@ tags: ai, opensource, documentation, git, developer-tools, ai-tools, ai-agents, 
 
 Open this before you read on:
 
-**[keepthewhy.com/dashboard/live/#graph](https://keepthewhy.com/dashboard/live/#graph)**
+[**keepthewhy.com/dashboard/live/#graph**](https://keepthewhy.com/dashboard/live/#graph)
 
 Give it a few seconds to settle.
 
@@ -32,7 +32,7 @@ The project in the centre is Keep the Why itself.
 
 Its hubs are topics from `context/`. Around them are individual entries: decisions, rejected alternatives, workarounds, incident learnings and constraints — things the code can tell you happened, but usually cannot tell you **why**.
 
-[![Keep the Why graph view](https://keepthewhy.com/assets/dashboard-graph-screenschot.png)](https://keepthewhy.com/dashboard/live/#graph)
+[![Keep the Why graph view](https://keepthewhy.com/assets/dashboard-graph-screenschot.png align="center")](https://keepthewhy.com/dashboard/live/#graph)
 
 Each entry is an ordinary Markdown section in the repository.
 
@@ -98,6 +98,8 @@ They sound informal, but the distinction turned out to be useful.
 
 ### Family: where does this reasoning belong?
 
+[![Keep the Why family view](https://keepthewhy.com/assets/dashboard-family-screenschot.png)](https://oliver-zehentleitner.github.io/unicorn-binance-suite/keep-the-why-dashboard/#family)
+
 A family is a group of projects that belong together.
 
 A backend, frontend, shared library and infrastructure repository may all be parts of one product.
@@ -122,6 +124,8 @@ Families can nest, so the same idea still works for a suite containing a cluster
 
 ### Friends: what does this project relate to?
 
+[![Keep the Why friends view](https://keepthewhy.com/assets/dashboard-graph-screenschot.png)](https://keepthewhy.com/dashboard/live/#friends)
+
 Not every relationship means two repositories belong to the same system.
 
 Any Keep the Why entry can cite an entry in any other repository.
@@ -143,6 +147,8 @@ That is why the graph around Keep the Why contains projects that were never conf
 They are there because the data says they are related.
 
 ### Thoughts: how do the reasons connect?
+
+[![Keep the Why thoughts view](https://keepthewhy.com/assets/dashboard-thoughts-screenschot.png)](https://keepthewhy.com/dashboard/live/#thoughts)
 
 This is the part I find most interesting.
 
@@ -278,11 +284,16 @@ You work with a coding agent.
 
 During that work a real reason surfaces:
 
-- an architectural decision,
-- an alternative that lost,
-- a workaround whose purpose is not visible from the code,
-- a production constraint,
-- an attempted change that gets abandoned.
+*   an architectural decision,
+    
+*   an alternative that lost,
+    
+*   a workaround whose purpose is not visible from the code,
+    
+*   a production constraint,
+    
+*   an attempted change that gets abandoned.
+    
 
 The agent records it in `context/`.
 
