@@ -66,6 +66,10 @@ That is what the **Globe** does.
 
 **[Open the Globe](https://keepthewhy.com/dashboard/live/#globe)**
 
+[![Keep the Why Globe - cross-repository reasoning graph](https://keepthewhy.com/assets/dashboard-globe-screenschot.png)](https://keepthewhy.com/dashboard/live/#globe)
+
+*The Globe follows explicit reasoning links across repositories. Click the screenshot to open the live dashboard.*
+
 The public graph is still small. We are just starting to connect projects, so right now the Globe is more a demonstration of the model than a map of a mature ecosystem.
 
 That is also why the registry exists: to give this network a place to start growing.
