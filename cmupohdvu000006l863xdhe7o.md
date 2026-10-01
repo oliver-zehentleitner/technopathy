@@ -84,6 +84,8 @@ The Globe starts with the project you already loaded.
 
 From there you decide how far it should follow external references:
 
+Select the number of hops you want to follow, then press "go" to start loading the next wave.
+
 *   **Hop 1** loads repositories directly referenced by the current project.
     
 *   **Hop 2** follows references found inside those repositories.
@@ -428,7 +430,7 @@ Start with Keep the Why itself:
 
 [**Open the Globe**](https://keepthewhy.com/dashboard/live/#globe)
 
-Try one or two hops first.
+Select one or two hops, press Go, and watch the graph expand one wave at a time.
 
 Then load the registry and explore the first projects joining the graph.
 
