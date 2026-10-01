@@ -8,11 +8,11 @@ tags: ai, github, opensource, documentation, git, developer-tools, ai-tools, kno
 
 ---
 
-A decision rarely stands alone.
+**A decision rarely stands alone.**
 
-*We retry three times* may exist because *the payment provider counts every attempt against our error budget*.
+**We retry three times** may exist because **the payment provider counts every attempt against our error budget**.
 
-*We pinned this WebSocket library* may exist because *the upstream fix has not been released yet*.
+**We pinned this WebSocket library** may exist because **the upstream fix has not been released yet**.
 
 And sometimes the reasoning behind your decision does not live in your repository at all.
 
@@ -64,11 +64,11 @@ And the references from those repositories?
 
 That is what the **Globe** does.
 
-**[Open the Globe](https://keepthewhy.com/dashboard/live/#globe)**
+[**Open the Globe**](https://keepthewhy.com/dashboard/live/#globe)
 
-[![Keep the Why Globe - cross-repository reasoning graph](https://keepthewhy.com/assets/dashboard-globe-screenschot.png)](https://keepthewhy.com/dashboard/live/#globe)
+[![Keep the Why Globe - cross-repository reasoning graph](https://keepthewhy.com/assets/dashboard-globe-screenschot.png align="center")](https://keepthewhy.com/dashboard/live/#globe)
 
-*The Globe follows explicit reasoning links across repositories. Click the screenshot to open the live dashboard.*
+**The Globe follows explicit reasoning links across repositories. Click the screenshot to open the live dashboard.**
 
 The public graph is still small. We are just starting to connect projects, so right now the Globe is more a demonstration of the model than a map of a mature ecosystem.
 
@@ -84,9 +84,12 @@ The Globe starts with the project you already loaded.
 
 From there you decide how far it should follow external references:
 
-- **Hop 1** loads repositories directly referenced by the current project.
-- **Hop 2** follows references found inside those repositories.
-- The process continues outward, up to ten hops.
+*   **Hop 1** loads repositories directly referenced by the current project.
+    
+*   **Hop 2** follows references found inside those repositories.
+    
+*   The process continues outward, up to ten hops.
+    
 
 Each hop is a separate wave.
 
@@ -423,7 +426,7 @@ The Globe just follows them.
 
 Start with Keep the Why itself:
 
-**[Open the Globe](https://keepthewhy.com/dashboard/live/#globe)**
+[**Open the Globe**](https://keepthewhy.com/dashboard/live/#globe)
 
 Try one or two hops first.
 
