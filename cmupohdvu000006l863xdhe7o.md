@@ -8,7 +8,7 @@ tags: ai, github, opensource, documentation, git, developer-tools, ai-tools, kno
 
 ---
 
-**A decision rarely stands alone.**
+A decision rarely stands alone.
 
 **We retry three times** may exist because **the payment provider counts every attempt against our error budget**.
 
