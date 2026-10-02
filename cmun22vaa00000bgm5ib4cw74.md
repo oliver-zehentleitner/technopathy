@@ -98,7 +98,7 @@ They sound informal, but the distinction turned out to be useful.
 
 ### Family: where does this reasoning belong?
 
-[![Keep the Why family view](https://keepthewhy.com/assets/dashboard-family-screenschot.png)](https://oliver-zehentleitner.github.io/unicorn-binance-suite/keep-the-why-dashboard/#family)
+[![Keep the Why family view](https://keepthewhy.com/assets/dashboard-family-screenschot.png align="center")](https://oliver-zehentleitner.github.io/unicorn-binance-suite/keep-the-why-dashboard/#family)
 
 A family is a group of projects that belong together.
 
@@ -124,7 +124,7 @@ Families can nest, so the same idea still works for a suite containing a cluster
 
 ### Friends: what does this project relate to?
 
-[![Keep the Why friends view](https://keepthewhy.com/assets/dashboard-graph-screenschot.png)](https://keepthewhy.com/dashboard/live/#friends)
+[![Keep the Why friends view](https://keepthewhy.com/assets/dashboard-graph-screenschot.png align="center")](https://keepthewhy.com/dashboard/live/#friends)
 
 Not every relationship means two repositories belong to the same system.
 
@@ -148,7 +148,7 @@ They are there because the data says they are related.
 
 ### Thoughts: how do the reasons connect?
 
-[![Keep the Why thoughts view](https://keepthewhy.com/assets/dashboard-thoughts-screenschot.png)](https://keepthewhy.com/dashboard/live/#thoughts)
+[![Keep the Why thoughts view](https://keepthewhy.com/assets/dashboard-thoughts-screenschot.png align="center")](https://keepthewhy.com/dashboard/live/#thoughts)
 
 This is the part I find most interesting.
 
@@ -200,7 +200,7 @@ Its friends form the first neighbourhood.
 
 Click one and you can walk there, making it the new centre. The path you walked remains visible, so you can move back through the reasoning the same way you came.
 
-Thoughts can go further.
+[The Globe can go further.](https://blog.technopathy.club/the-globe-following-your-reasoning-into-other-people-s-repositories)
 
 If a chain continues into another repository, the dashboard says so. Ask it to continue and it loads exactly the repositories needed to follow that chain, hop by hop.
 
