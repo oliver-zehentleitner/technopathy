@@ -218,9 +218,9 @@ It is a small architectural change with a useful property:
 
 The farther you explore, the less unnecessary text you move around.
 
-## Then there was one missing direction
+## Then there was one direction the graph could not discover on its own
 
-Following references works well, but it has a blind spot.
+Following references works well, but it has a natural blind spot.
 
 You can discover what your project cites.
 
@@ -228,15 +228,23 @@ You can discover what those projects cite.
 
 But you cannot discover a repository that nothing in your current graph points to.
 
-More importantly, you cannot discover who cites **you**.
+And without some external discovery mechanism, you cannot know who cites **you**.
 
-That information exists somewhere out there, but there is no link you can follow backwards to find it.
+There is no backwards link to follow from your own repository.
 
 This is where the [Keep the Why Registry](https://keepthewhy.com/registry/) came from.
 
 Not as a replacement for the distributed graph.
 
-As a discovery mechanism for the one thing the graph itself cannot do.
+As a small discovery layer for the one direction the graph cannot derive by itself.
+
+Once registered projects are known, the dashboard can also expose the reverse direction: **who cites this project**.
+
+That means the Globe can now move in both useful directions.
+
+You can follow reasoning outward through explicit references.
+
+And, through the registry, you can discover reasoning elsewhere that points back to you.
 
 ## The registry is intentionally boring
 
@@ -259,6 +267,14 @@ It does not copy your entries.
 And it does not even need to permanently store the location of your export.
 
 If you move the published dashboard state later, the next registry build follows the repository configuration again and finds the new location.
+
+Because the registry has a view across registered projects, it can also derive the reverse edge that an individual repository cannot know by itself.
+
+If project B contains an explicit reasoning link to project A, the registry can tell you that project A is cited by B without project A copying anything from B or maintaining a backlink manually.
+
+The project memory still remains distributed.
+
+The registry only adds discovery around it.
 
 Project families work here too.
 
@@ -292,7 +308,11 @@ Tick `registry` in the Globe and it becomes another wave you can load.
 
 Suddenly you are not limited to projects already reachable from your own references.
 
-You can see the first published Keep the Why projects joining the graph and then explore their reasoning exactly the same way.
+You can see the first published Keep the Why projects joining the graph, discover which registered projects cite each other, and then explore their reasoning exactly the same way.
+
+That reverse direction is useful precisely because it is discovery metadata.
+
+It does not change ownership of the underlying rationale.
 
 Once loaded, there is no special registry graph.
 
@@ -434,7 +454,9 @@ Select one or two hops, press Go, and watch the graph expand one wave at a time.
 
 Then load the registry and explore the first projects joining the graph.
 
-The [registry](https://keepthewhy.com/registry/) explains how discovery works and how to add a project.
+Follow their references outward, then use the registry's reverse direction to see which registered projects point back to another project.
+
+The [registry](https://keepthewhy.com/registry/) explains how discovery works, how reverse citations are derived, and how to add a project.
 
 The [dashboard documentation](https://keepthewhy.com/dashboard/) covers publishing an export and the rest of the graph features.
 
