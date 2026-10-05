@@ -12,9 +12,12 @@ tags: software-architecture, git, ai-agents, context-engineering, coding-agents,
 
 "Project memory for coding agents" is becoming a broad category. Three projects are especially interesting because all are repository-oriented, all preserve knowledge beyond individual AI sessions, and all can deal with architectural decisions:
 
-- [Keep the Why](https://keepthewhy.com/)
-- [OKF Agent Memory](https://github.com/okf-memory/okf-agent-memory)
-- [RepoWise](https://repowise.dev/)
+*   [Keep the Why](https://keepthewhy.com/)
+    
+*   [OKF Agent Memory](https://github.com/okf-memory/okf-agent-memory)
+    
+*   [RepoWise](https://repowise.dev/)
+    
 
 They overlap, but they start from different questions.
 
@@ -32,11 +35,11 @@ This article is a snapshot from **October 5, 2026**.
 
 ## The short version
 
-**[Keep the Why 0.20.0](https://github.com/oliver-zehentleitner/keep-the-why)** is a complete, deliberately narrow rationale system. It preserves the why behind a codebase as Markdown in the repository.
+[**Keep the Why 0.20.0**](https://github.com/oliver-zehentleitner/keep-the-why) is a complete, deliberately narrow rationale system. It preserves the why behind a codebase as Markdown in the repository.
 
-**[OKF Agent Memory](https://github.com/okf-memory/okf-agent-memory)** is a broader Git-native knowledge architecture. It structures persistent knowledge and provides dedicated local retrieval over it.
+[**OKF Agent Memory**](https://github.com/okf-memory/okf-agent-memory) is a broader Git-native knowledge architecture. It structures persistent knowledge and provides dedicated local retrieval over it.
 
-**[RepoWise](https://repowise.dev/)** is a codebase intelligence system. It indexes the repository, derives multiple intelligence layers, and includes architectural decisions as one of them.
+[**RepoWise**](https://repowise.dev/) is a codebase intelligence system. It indexes the repository, derives multiple intelligence layers, and includes architectural decisions as one of them.
 
 The feature overlap is real. The architectural responsibility is different.
 
@@ -120,7 +123,7 @@ The [architectural decision layer](https://docs.repowise.dev/intelligence/decisi
 
 Current decision sources include six index-time lanes: ADR files, inline markers, Git archaeology, PR bodies, code comments, and a harvest during LLM documentation generation. Decisions can also come from coding-agent sessions and manual CLI capture. Earlier CHANGELOG and README mining have been retired.
 
-Session mining exists as a separate source; it is **off in the default preset** and enabled in the **balanced**, **full**, and **local_only** presets. The older `decisions.session_mining` key is still read for compatibility, but the current configuration uses `sources.session`.
+Session mining exists as a separate source; it is **off in the default preset** and enabled in the **balanced**, **full**, and **local\_only** presets. The older `decisions.session_mining` key is still read for compatibility, but the current configuration uses `sources.session`.
 
 RepoWise distinguishes candidates from accepted decisions. Its CLI documentation states:
 
@@ -208,8 +211,8 @@ RepoWise builds a derived intelligence model and exposes that model to the agent
 
 ## Side by side
 
-| | Keep the Why 0.20.0 | OKF Agent Memory | RepoWise |
-|---|---|---|---|
+|  | Keep the Why 0.20.0 | OKF Agent Memory | RepoWise |
+| --- | --- | --- | --- |
 | Primary purpose | Preserve software rationale | Persistent structured agent knowledge | Codebase intelligence |
 | Core unit | Rationale entry | Knowledge concept | Derived intelligence / decision record |
 | Scope | Deliberately narrow | Broad and domain-neutral | Broad software-engineering analysis |
@@ -271,7 +274,7 @@ OKF makes local BM25 retrieval part of the design. RepoWise makes retrieval fund
 
 Keep the Why currently relies on files, stable IDs, `grep`, `rg`, and its indexes. An open [scaling issue](https://github.com/oliver-zehentleitner/keep-the-why/issues/256) deliberately waits for real repositories to reveal the limit instead of inventing one.
 
-If retrieval ever becomes a real problem, an optional, derived, disposable local index would preserve the core rule: **`context/` remains the source of truth.** There is no reason to build that infrastructure before the need exists.
+If retrieval ever becomes a real problem, an optional, derived, disposable local index would preserve the core rule: `context/` **remains the source of truth.** There is no reason to build that infrastructure before the need exists.
 
 ## "Git-native" means different things here
 
@@ -327,41 +330,63 @@ They optimize for different things. Watching those boundaries evolve is more int
 
 ### Keep the Why
 
-- [Keep the Why](https://keepthewhy.com/)
-- [GitHub repository](https://github.com/oliver-zehentleitner/keep-the-why)
-- [Specification](https://keepthewhy.com/specification/)
-- [Full eval suite](https://keepthewhy.com/evals/)
-- [Rejected-change experiment](https://github.com/oliver-zehentleitner/keep-the-why/tree/main/experiments/rejected-change)
-- [Dashboard](https://keepthewhy.com/dashboard/)
-- [Registry](https://keepthewhy.com/registry/)
-- [Scaling observation issue #256](https://github.com/oliver-zehentleitner/keep-the-why/issues/256)
-- [Architecture Decision Record community resources](https://github.com/architecture-decision-record/architecture-decision-record)
+*   [Keep the Why](https://keepthewhy.com/)
+    
+*   [GitHub repository](https://github.com/oliver-zehentleitner/keep-the-why)
+    
+*   [Specification](https://keepthewhy.com/specification/)
+    
+*   [Full eval suite](https://keepthewhy.com/evals/)
+    
+*   [Rejected-change experiment](https://github.com/oliver-zehentleitner/keep-the-why/tree/main/experiments/rejected-change)
+    
+*   [Dashboard](https://keepthewhy.com/dashboard/)
+    
+*   [Registry](https://keepthewhy.com/registry/)
+    
+*   [Scaling observation issue #256](https://github.com/oliver-zehentleitner/keep-the-why/issues/256)
+    
+*   [Architecture Decision Record community resources](https://github.com/architecture-decision-record/architecture-decision-record)
+    
 
 ### OKF Agent Memory
 
-- [OKF Agent Memory on GitHub](https://github.com/okf-memory/okf-agent-memory)
-- [Open Knowledge Format](https://github.com/GoogleCloudPlatform/open-knowledge-format)
-- [Agent Memory Convention](https://github.com/okf-memory/okf-agent-memory/blob/develop/docs/spec/CONVENTION.md)
+*   [OKF Agent Memory on GitHub](https://github.com/okf-memory/okf-agent-memory)
+    
+*   [Open Knowledge Format](https://github.com/GoogleCloudPlatform/open-knowledge-format)
+    
+*   [Agent Memory Convention](https://github.com/okf-memory/okf-agent-memory/blob/develop/docs/spec/CONVENTION.md)
+    
 
 ### RepoWise
 
-- [RepoWise](https://repowise.dev/)
-- [Architectural decisions](https://docs.repowise.dev/intelligence/decisions)
-- [`get_why`](https://docs.repowise.dev/mcp/get-why)
-- [Decision CLI and manifest](https://docs.repowise.dev/cli/decision)
-- [Proactive agent hooks](https://docs.repowise.dev/intelligence/hooks)
-- [Licensing](https://docs.repowise.dev/licensing)
+*   [RepoWise](https://repowise.dev/)
+    
+*   [Architectural decisions](https://docs.repowise.dev/intelligence/decisions)
+    
+*   [`get_why`](https://docs.repowise.dev/mcp/get-why)
+    
+*   [Decision CLI and manifest](https://docs.repowise.dev/cli/decision)
+    
+*   [Proactive agent hooks](https://docs.repowise.dev/intelligence/hooks)
+    
+*   [Licensing](https://docs.repowise.dev/licensing)
+    
 
 ### Related articles
 
-- [Keep the Why vs. Claude Code Auto Memory vs. MemoryCustodian vs. AgentsRoom](https://blog.technopathy.club/keep-the-why-vs-claude-code-auto-memory-vs-memorycustodian-vs-agentsroom)
-- [The reasoning behind a codebase, as a web you can walk](https://blog.technopathy.club/the-reasoning-behind-a-codebase-as-a-web-you-can-walk)
-- [The globe: following your reasoning into other people's repositories](https://blog.technopathy.club/the-globe-following-your-reasoning-into-other-people-s-repositories)
+*   [Keep the Why vs. Claude Code Auto Memory vs. MemoryCustodian vs. AgentsRoom](https://blog.technopathy.club/keep-the-why-vs-claude-code-auto-memory-vs-memorycustodian-vs-agentsroom)
+    
+*   [The reasoning behind a codebase, as a web you can walk](https://blog.technopathy.club/the-reasoning-behind-a-codebase-as-a-web-you-can-walk)
+    
+*   [The globe: following your reasoning into other people's repositories](https://blog.technopathy.club/the-globe-following-your-reasoning-into-other-people-s-repositories)
+    
 
----
+
+* * *
 
 I hope you found this informative and useful.
 
-Follow me on [GitHub](https://github.com/oliver-zehentleitner), Bluesky, Mastodon, X, and LinkedIn, or join Telegram for updates on my latest publications. Constructive feedback is always appreciated.
+Follow me on [GitHub](https://github.com/oliver-zehentleitner), [Bluesky](https://bsky.app/profile/o-zehentleitner.bsky.social), [Mastodon](https://burningboard.net/@oliverzehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
 
-Thank you for reading, and happy coding! ¯\_(ツ)_/¯
+Thank you for reading, and happy coding! ¯\\\_(ツ)\_/¯
