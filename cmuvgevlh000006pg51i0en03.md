@@ -46,7 +46,7 @@ The model change was not only noise. It exposed a structural weakness in the ski
 
 The rule that came out of it:
 
-**If missing a rule can cause harm, its operative clause belongs in `SKILL.md`, not only behind a pointer.**
+**If missing a rule can cause harm, its operative clause belongs in** `SKILL.md`**, not only behind a pointer.**
 
 For procedures too long for a clause, the vague "see this reference" became a read-before trigger at the point of action. I rejected both extremes: always reading every reference multiplies the cost of every session, and moving everything into the main file bloats what is loaded on every activation.
 
@@ -63,7 +63,7 @@ The harness stores transcript and disk diff for every run, so the judge can be a
 Eventually I regraded a complete candidate series, 309 stored records, with Opus 5.5 as the judge:
 
 | Judge | Run 1 | Run 2 | Run 3 |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Sonnet 5.5 | 98 | 100 | 98 |
 | Opus 5.5, same transcripts | 102 | 102 | 102 |
 
@@ -81,12 +81,18 @@ One variable at a time is slower. It is also how you learn which layer was actua
 
 ## The rules I would carry into another eval project
 
-1. **Record the instrument.** Resolved model IDs instead of aliases, judge-prompt hash, CLI version, session shape. A score without its instrument is worth much less than it looks.
-2. **Regrade before reword,** and check the expectation text before either.
-3. **No sentence for a single flip.** A new sentence goes into the skill only for a failure form seen twice. Nine sentences added for one-off flips bought no measurable improvement, grew the skill by 17 percent and caused regressions in neighboring cases.
-4. **Deterministic guards for deterministic prohibitions.** "Do not write under `context/`" or "never put a secret on disk" is checked mechanically and tolerates zero violations.
-5. **A series gate instead of a perfect run.** Three full runs and a repeatability rule say more than one lucky 100 percent.
-6. **Keep the failed measurements.** A series that failed because the ruler changed can be more informative later than another clean one.
+1.  **Record the instrument.** Resolved model IDs instead of aliases, judge-prompt hash, CLI version, session shape. A score without its instrument is worth much less than it looks.
+    
+2.  **Regrade before reword,** and check the expectation text before either.
+    
+3.  **No sentence for a single flip.** A new sentence goes into the skill only for a failure form seen twice. Nine sentences added for one-off flips bought no measurable improvement, grew the skill by 17 percent and caused regressions in neighboring cases.
+    
+4.  **Deterministic guards for deterministic prohibitions.** "Do not write under `context/`" or "never put a secret on disk" is checked mechanically and tolerates zero violations.
+    
+5.  **A series gate instead of a perfect run.** Three full runs and a repeatability rule say more than one lucky 100 percent.
+    
+6.  **Keep the failed measurements.** A series that failed because the ruler changed can be more informative later than another clean one.
+    
 
 ## Did the thing change, or the ruler?
 
@@ -98,17 +104,22 @@ The lesson is the third thing between the system under test and the score: the m
 
 ## Further reading and raw material
 
-- [Keep the Why eval suite and full run history](https://keepthewhy.com/evals/)
-- [Eval runner](https://github.com/oliver-zehentleitner/keep-the-why/blob/main/tools/evals/README.md)
-- [Project rationale behind the eval methodology](https://github.com/oliver-zehentleitner/keep-the-why/blob/main/context/evals.md)
-- [PR #556: fixes after the Sonnet 5.5 failure forms](https://github.com/oliver-zehentleitner/keep-the-why/pull/556)
-- [PR #582: expectation-text calibration](https://github.com/oliver-zehentleitner/keep-the-why/pull/582)
-- [PR #609: judge regrading and the switch to Opus](https://github.com/oliver-zehentleitner/keep-the-why/pull/609)
+*   [Keep the Why eval suite and full run history](https://keepthewhy.com/evals/)
+    
+*   [Eval runner](https://github.com/oliver-zehentleitner/keep-the-why/blob/main/tools/evals/README.md)
+    
+*   [Project rationale behind the eval methodology](https://github.com/oliver-zehentleitner/keep-the-why/blob/main/context/evals.md)
+    
+*   [PR #556: fixes after the Sonnet 5.5 failure forms](https://github.com/oliver-zehentleitner/keep-the-why/pull/556)
+    
+*   [PR #582: expectation-text calibration](https://github.com/oliver-zehentleitner/keep-the-why/pull/582)
+    
+*   [PR #609: judge regrading and the switch to Opus](https://github.com/oliver-zehentleitner/keep-the-why/pull/609)
 
----
+* * *
 
 I hope you found this informative and useful.
 
-Follow me on [GitHub](https://github.com/oliver-zehentleitner), Bluesky, Mastodon, X, and LinkedIn, or join Telegram for updates on my latest publications. Constructive feedback is always appreciated.
+Follow me on [GitHub](https://github.com/oliver-zehentleitner), [Bluesky](https://bsky.app/profile/o-zehentleitner.bsky.social), [Mastodon](https://burningboard.net/@oliverzehentleitner), [X](https://x.com/unicorn_oz), and [LinkedIn](https://www.linkedin.com/in/oliver-zehentleitner/), or join [Telegram](https://t.me/unicorndevs) for updates on my latest publications. Constructive feedback is always appreciated.
 
-Thank you for reading, and happy coding! ¯\_(ツ)_/¯
+Thank you for reading, and happy coding! ¯\\\_(ツ)\_/¯
