@@ -8,8 +8,6 @@ tags: software-architecture, git, ai-agents, context-engineering, coding-agents,
 
 ---
 
-# Keep the Why vs. OKF Agent Memory vs. RepoWise
-
 ## Three approaches to Git-native project memory for coding agents
 
 "Project memory for coding agents" is becoming a surprisingly broad category.
@@ -20,9 +18,12 @@ That distinction is getting harder.
 
 Three current projects are particularly interesting because all of them are repository-oriented, all of them care about knowledge surviving individual AI sessions, and all of them can represent or recover architectural decisions:
 
-- [Keep the Why](https://keepthewhy.com/)
-- [OKF Agent Memory](https://github.com/okf-memory/okf-agent-memory)
-- [RepoWise](https://repowise.dev/)
+*   [Keep the Why](https://keepthewhy.com/)
+    
+*   [OKF Agent Memory](https://github.com/okf-memory/okf-agent-memory)
+    
+*   [RepoWise](https://repowise.dev/)
+    
 
 At first glance, they overlap heavily.
 
@@ -44,23 +45,23 @@ A note before going further: I built Keep the Why, so this obviously is not a ne
 
 This article is a snapshot from **October 5, 2026**.
 
----
+* * *
 
 ## The short version
 
 If I had to reduce all three projects to one sentence each:
 
-**[Keep the Why 0.20.0](https://github.com/oliver-zehentleitner/keep-the-why)** is a complete, deliberately narrow rationale system for preserving the why behind a codebase as Markdown in the repository.
+[**Keep the Why 0.20.0**](https://github.com/oliver-zehentleitner/keep-the-why) is a complete, deliberately narrow rationale system for preserving the why behind a codebase as Markdown in the repository.
 
-**[OKF Agent Memory](https://github.com/okf-memory/okf-agent-memory)** is a broader Git-native knowledge architecture that structures persistent agent knowledge and provides dedicated local retrieval.
+[**OKF Agent Memory**](https://github.com/okf-memory/okf-agent-memory) is a broader Git-native knowledge architecture that structures persistent agent knowledge and provides dedicated local retrieval.
 
-**[RepoWise](https://repowise.dev/)** is a codebase intelligence system that indexes the repository, derives multiple intelligence layers, and includes architectural decisions as one of them.
+[**RepoWise**](https://repowise.dev/) is a codebase intelligence system that indexes the repository, derives multiple intelligence layers, and includes architectural decisions as one of them.
 
 The overlap is real.
 
 The center of gravity is different.
 
----
+* * *
 
 # Keep the Why 0.20.0: preserve the part the repository usually loses
 
@@ -98,10 +99,14 @@ Keep the Why is an agent skill. During normal development, reasoning already app
 
 The current skill covers four core workflows:
 
-1. **Continuous capture** during normal development.
-2. **Retrospective recovery** for existing projects where rationale has to be reconstructed from code, Git, issues, documentation, and other evidence.
-3. **Knowledge-transfer interviews** when important reasoning still exists mainly in someone's head.
-4. **Maintenance** of rationale already recorded in the project.
+1.  **Continuous capture** during normal development.
+    
+2.  **Retrospective recovery** for existing projects where rationale has to be reconstructed from code, Git, issues, documentation, and other evidence.
+    
+3.  **Knowledge-transfer interviews** when important reasoning still exists mainly in someone's head.
+    
+4.  **Maintenance** of rationale already recorded in the project.
+    
 
 With version **0.20.0**, I consider that core complete.
 
@@ -109,7 +114,7 @@ That does not mean Keep the Why can never change again. It means the problem, th
 
 Adding functionality simply because it is technically possible would work against the design.
 
----
+* * *
 
 ## Keep the Why is intentionally not general memory
 
@@ -119,14 +124,22 @@ Keep the Why does not try to remember everything an agent ever knew.
 
 It is not:
 
-- a chat archive
-- a task manager
-- an agent orchestrator
-- a general company knowledge base
-- a vector database
-- a replacement for documentation
-- a replacement for Git history
-- a project-management system
+*   a chat archive
+    
+*   a task manager
+    
+*   an agent orchestrator
+    
+*   a general company knowledge base
+    
+*   a vector database
+    
+*   a replacement for documentation
+    
+*   a replacement for Git history
+    
+*   a project-management system
+    
 
 It has one job:
 
@@ -146,7 +159,7 @@ Keep the Why asks a narrower question:
 
 That narrower scope is the architecture.
 
----
+* * *
 
 ## More than a folder of Markdown
 
@@ -162,15 +175,24 @@ There is also a [read-only dashboard](https://keepthewhy.com/dashboard/) over `c
 
 It can show:
 
-- rationale entries and topics
-- history and status changes
-- authors
-- unresolved or unconfirmed reasoning
-- relationships between entries
-- family members
-- friends
-- cross-repository thoughts
-- the project graph
+*   rationale entries and topics
+    
+*   history and status changes
+    
+*   authors
+    
+*   unresolved or unconfirmed reasoning
+    
+*   relationships between entries
+    
+*   family members
+    
+*   friends
+    
+*   cross-repository thoughts
+    
+*   the project graph
+    
 
 The architectural rule is more important than the UI:
 
@@ -182,7 +204,7 @@ It is a lens over Markdown and Git.
 
 I wrote more about that graph model in [The reasoning behind a codebase, as a web you can walk](https://blog.technopathy.club/the-reasoning-behind-a-codebase-as-a-web-you-can-walk).
 
----
+* * *
 
 # Project memory beyond one repository
 
@@ -190,10 +212,14 @@ Keep the Why also no longer assumes that one project always means one repository
 
 A project can be:
 
-- a single repository
-- a monorepo
-- multiple related repositories
-- nested repositories
+*   a single repository
+    
+*   a monorepo
+    
+*   multiple related repositories
+    
+*   nested repositories
+    
 
 Related repositories can form a **family**.
 
@@ -215,7 +241,7 @@ The principle stays consistent:
 
 **The tools read the project memory. They do not become the project memory.**
 
----
+* * *
 
 # OKF Agent Memory: treat project memory as structured knowledge
 
@@ -235,14 +261,16 @@ OKF Agent Memory implements the [Open Knowledge Format](https://github.com/okf-m
 
 The project describes a dual-memory architecture:
 
-- a compact push layer for rules and invariants that should always reach the agent
-- a larger pull layer containing durable project knowledge that is retrieved when needed
+*   a compact push layer for rules and invariants that should always reach the agent
+    
+*   a larger pull layer containing durable project knowledge that is retrieved when needed
+    
 
 This is a very different response to context growth.
 
 Instead of expecting the agent to navigate the knowledge bundle entirely through normal file operations, OKF makes retrieval a first-class capability.
 
----
+* * *
 
 ## Search is part of the OKF architecture
 
@@ -269,7 +297,7 @@ The search mechanism is infrastructure, but not a new canonical source of truth.
 
 The knowledge files remain the knowledge.
 
----
+* * *
 
 # OKF has a broader memory hierarchy
 
@@ -307,7 +335,7 @@ That breadth is one of its strengths.
 
 It is also why its center of gravity is fundamentally different from Keep the Why.
 
----
+* * *
 
 # RepoWise: derive an intelligence model from the codebase
 
@@ -319,13 +347,20 @@ It is a **codebase intelligence engine**.
 
 RepoWise indexes a repository and derives several layers of information from it, including:
 
-- dependency and symbol structure
-- Git history and co-change information
-- code health signals
-- generated documentation
-- architectural decisions
-- dead-code and risk information
-- cross-repository intelligence in workspace mode
+*   dependency and symbol structure
+    
+*   Git history and co-change information
+    
+*   code health signals
+    
+*   generated documentation
+    
+*   architectural decisions
+    
+*   dead-code and risk information
+    
+*   cross-repository intelligence in workspace mode
+    
 
 That information is exposed to coding agents through dedicated MCP tools such as `get_context`, `search_codebase`, `get_risk`, and [`get_why`](https://docs.repowise.dev/mcp/get-why).
 
@@ -333,7 +368,7 @@ This means RepoWise tries to build an additional model of the repository rather 
 
 That is the biggest architectural difference in this comparison.
 
----
+* * *
 
 # RepoWise Decisions come surprisingly close to the Why
 
@@ -345,15 +380,24 @@ RepoWise can gather decision evidence from several places where teams already le
 
 A decision record can contain:
 
-- context
-- the decision itself
-- rationale
-- rejected alternatives
-- consequences
-- affected files
-- tags
-- evidence
-- currency and authority information
+*   context
+    
+*   the decision itself
+    
+*   rationale
+    
+*   rejected alternatives
+    
+*   consequences
+    
+*   affected files
+    
+*   tags
+    
+*   evidence
+    
+*   currency and authority information
+    
 
 RepoWise then connects those records to the files they govern.
 
@@ -373,7 +417,7 @@ The current documentation is very clear about that:
 
 A candidate governs nothing until somebody explicitly confirms it.
 
----
+* * *
 
 ## RepoWise also has a Git-tracked decision manifest
 
@@ -405,7 +449,7 @@ It is exactly where much of RepoWise's power comes from.
 
 It simply solves a different problem.
 
----
+* * *
 
 # Three architectures
 
@@ -437,7 +481,7 @@ Git can provide storage, history, review, and distribution, but Keep the Why als
 
 No retrieval infrastructure is required.
 
----
+* * *
 
 ## OKF Agent Memory
 
@@ -461,7 +505,7 @@ The files remain the canonical knowledge corpus.
 
 A dedicated local retrieval layer helps the agent find and manipulate relevant concepts.
 
----
+* * *
 
 ## RepoWise
 
@@ -483,12 +527,12 @@ code + Git + ADRs + PRs + comments + sessions
 
 RepoWise builds a derived intelligence model from the repository and surrounding evidence.
 
----
+* * *
 
 # Side by side
 
-| | Keep the Why 0.20.0 | OKF Agent Memory | RepoWise |
-|---|---|---|---|
+|  | Keep the Why 0.20.0 | OKF Agent Memory | RepoWise |
+| --- | --- | --- | --- |
 | Primary purpose | Preserve software rationale | Persistent structured agent knowledge | Codebase intelligence |
 | Core unit | Rationale entry | Knowledge concept | Derived intelligence / decision record |
 | Scope | Deliberately narrow | Broad and domain-neutral | Broad software-engineering analysis |
@@ -511,7 +555,7 @@ RepoWise builds a derived intelligence model from the repository and surrounding
 | External service required | No | No | No for local self-hosted operation |
 | Core philosophy | Preserve only the missing why | Build durable structured knowledge | Derive understanding from the codebase |
 
----
+* * *
 
 # The most important distinction: capture, structure, and reconstruction
 
@@ -535,7 +579,7 @@ But the project just learned something extremely valuable.
 
 What happens to that knowledge?
 
----
+* * *
 
 ## Keep the Why: capture the learning when it exists
 
@@ -545,11 +589,16 @@ The conversation contains durable rationale.
 
 The agent records:
 
-- what was considered
-- what was tried
-- why it failed
-- which constraint matters
-- when the decision should be revisited
+*   what was considered
+    
+*   what was tried
+    
+*   why it failed
+    
+*   which constraint matters
+    
+*   when the decision should be revisited
+    
 
 The interesting artifact is not a code change.
 
@@ -561,7 +610,7 @@ This is why continuous capture matters.
 
 Once the working context disappears, Git archaeology may never be able to reconstruct what happened.
 
----
+* * *
 
 ## OKF Agent Memory: turn the learning into durable knowledge
 
@@ -575,7 +624,7 @@ The new information becomes part of the project's durable knowledge corpus.
 
 Later, the agent retrieves it through the OKF search layer.
 
----
+* * *
 
 ## RepoWise: connect recorded evidence to the code
 
@@ -583,12 +632,18 @@ RepoWise is strongest when useful evidence exists somewhere it can inspect.
 
 That might be:
 
-- an ADR
-- a commit
-- a PR discussion
-- a rationale comment
-- an agent transcript
-- a manually accepted decision
+*   an ADR
+    
+*   a commit
+    
+*   a PR discussion
+    
+*   a rationale comment
+    
+*   an agent transcript
+    
+*   a manually accepted decision
+    
 
 RepoWise can connect those pieces, associate them with governed code, track whether the code moved afterwards, and surface them when an agent touches the affected area.
 
@@ -600,7 +655,7 @@ But capture and archaeology solve different failure modes.
 
 If knowledge was never written anywhere, reconstruction always has a ceiling.
 
----
+* * *
 
 # Where the three projects genuinely overlap
 
@@ -620,7 +675,7 @@ But their centers of gravity remain different.
 
 That matters more than whether two rows in a feature matrix happen to contain checkmarks.
 
----
+* * *
 
 # What happens when the memory gets large?
 
@@ -672,7 +727,7 @@ The agent can then read the selected Markdown files normally.
 
 The crucial architectural rule would remain:
 
-**`context/` is the source of truth.**
+`context/` **is the source of truth.**
 
 Any search index should be local, optional, derived, disposable, and completely rebuildable from the files.
 
@@ -682,7 +737,7 @@ Maybe `grep` will remain sufficient for far larger projects than expected.
 
 There is no need to decide before the problem exists.
 
----
+* * *
 
 # "Git-native" means different things here
 
@@ -714,7 +769,7 @@ All three relationships with Git are legitimate.
 
 They are not the same architecture.
 
----
+* * *
 
 # Which one solves which problem?
 
@@ -750,7 +805,7 @@ A project could theoretically use Keep the Why as its human-readable rationale l
 
 The important question is which system owns which truth.
 
----
+* * *
 
 # Could they coexist?
 
@@ -788,7 +843,7 @@ The interesting design question is not how to move all of them into one database
 
 It is how to make sure each kind of information has the simplest durable home that fits it.
 
----
+* * *
 
 # What I like about all three approaches
 
@@ -804,7 +859,7 @@ And they acknowledge, in different ways, that an AI agent should not have to rec
 
 That is a much more interesting direction than simply making context windows larger.
 
----
+* * *
 
 # Conclusion
 
@@ -838,45 +893,64 @@ They optimize for different things.
 
 And I suspect watching those boundaries evolve will be more interesting than watching another wave of tools compete on how many memories they can store.
 
----
+* * *
 
 ## Links and further reading
 
 ### Keep the Why
 
-- [Keep the Why](https://keepthewhy.com/)
-- [GitHub repository](https://github.com/oliver-zehentleitner/keep-the-why)
-- [Specification](https://keepthewhy.com/specification/)
-- [Installation](https://keepthewhy.com/installation/)
-- [Dashboard](https://keepthewhy.com/dashboard/)
-- [Registry](https://keepthewhy.com/registry/)
-- [Scaling observation issue #256](https://github.com/oliver-zehentleitner/keep-the-why/issues/256)
+*   [Keep the Why](https://keepthewhy.com/)
+    
+*   [GitHub repository](https://github.com/oliver-zehentleitner/keep-the-why)
+    
+*   [Specification](https://keepthewhy.com/specification/)
+    
+*   [Installation](https://keepthewhy.com/installation/)
+    
+*   [Dashboard](https://keepthewhy.com/dashboard/)
+    
+*   [Registry](https://keepthewhy.com/registry/)
+    
+*   [Scaling observation issue #256](https://github.com/oliver-zehentleitner/keep-the-why/issues/256)
+    
 
 ### OKF Agent Memory
 
-- [OKF Agent Memory on GitHub](https://github.com/okf-memory/okf-agent-memory)
-- [Getting Started](https://github.com/okf-memory/okf-agent-memory/blob/develop/docs/guides/GETTING_STARTED.md)
-- [Current README and memory scopes](https://github.com/okf-memory/okf-agent-memory/blob/develop/README.md)
+*   [OKF Agent Memory on GitHub](https://github.com/okf-memory/okf-agent-memory)
+    
+*   [Getting Started](https://github.com/okf-memory/okf-agent-memory/blob/develop/docs/guides/GETTING_STARTED.md)
+    
+*   [Current README and memory scopes](https://github.com/okf-memory/okf-agent-memory/blob/develop/README.md)
+    
 
 ### RepoWise
 
-- [RepoWise](https://repowise.dev/)
-- [Architectural Decisions](https://repowise.dev/features/decisions)
-- [Decision intelligence documentation](https://docs.repowise.dev/intelligence/decisions)
-- [`get_why` documentation](https://docs.repowise.dev/mcp/get-why)
-- [Decision CLI and Git-tracked manifest](https://docs.repowise.dev/cli/decision)
-- [MCP tools overview](https://docs.repowise.dev/mcp/overview)
+*   [RepoWise](https://repowise.dev/)
+    
+*   [Architectural Decisions](https://repowise.dev/features/decisions)
+    
+*   [Decision intelligence documentation](https://docs.repowise.dev/intelligence/decisions)
+    
+*   [`get_why` documentation](https://docs.repowise.dev/mcp/get-why)
+    
+*   [Decision CLI and Git-tracked manifest](https://docs.repowise.dev/cli/decision)
+    
+*   [MCP tools overview](https://docs.repowise.dev/mcp/overview)
+    
 
 ### Related articles
 
-- [Keep the Why vs. Claude Code Auto Memory vs. MemoryCustodian vs. AgentsRoom](https://blog.technopathy.club/keep-the-why-vs-claude-code-auto-memory-vs-memorycustodian-vs-agentsroom)
-- [The reasoning behind a codebase, as a web you can walk](https://blog.technopathy.club/the-reasoning-behind-a-codebase-as-a-web-you-can-walk)
-- [The globe: following your reasoning into other people's repositories](https://blog.technopathy.club/the-globe-following-your-reasoning-into-other-people-s-repositories)
+*   [Keep the Why vs. Claude Code Auto Memory vs. MemoryCustodian vs. AgentsRoom](https://blog.technopathy.club/keep-the-why-vs-claude-code-auto-memory-vs-memorycustodian-vs-agentsroom)
+    
+*   [The reasoning behind a codebase, as a web you can walk](https://blog.technopathy.club/the-reasoning-behind-a-codebase-as-a-web-you-can-walk)
+    
+*   [The globe: following your reasoning into other people's repositories](https://blog.technopathy.club/the-globe-following-your-reasoning-into-other-people-s-repositories)
+    
 
----
+* * *
 
 I hope you found this informative and useful.
 
 Follow me on [GitHub](https://github.com/oliver-zehentleitner), Bluesky, Mastodon, X, and LinkedIn, or join Telegram for updates on my latest publications. Constructive feedback is always appreciated.
 
-Thank you for reading, and happy coding! ¯\\_(ツ)_/¯
+Thank you for reading, and happy coding! ¯\\*(ツ)*/¯
