@@ -88,7 +88,7 @@ I wrote more about that model in [The reasoning behind a codebase, as a web you 
 
 Keep the Why also publishes a [full eval suite](https://keepthewhy.com/evals/) that runs the skill against fresh fixture projects and agent sessions.
 
-A separate controlled [rejected-change experiment](https://github.com/oliver-zehentleitner/keep-the-why/tree/main/experiments/rejected-change) tested the core claim directly: twenty fresh sessions received the same request to simplify a retry wrapper. Without the recorded rationale, **7 of 10** sessions proposed the already-rejected simplification. With the rationale present in `context/`, **0 of 10** did.
+A separate controlled [rejected-change experiment](https://github.com/oliver-zehentleitner/keep-the-why/tree/main/experiments/rejected-change) tested the core claim directly: twenty fresh sessions received the same request to simplify a retry wrapper. Without the recorded rationale, **7 of 10** sessions offered the already-rejected change as an option. With the rationale present in `context/`, **0 of 10** did, and all **10 of 10** explicitly identified it as already rejected.
 
 It does not prove universal behavior, but it makes the core claim testable rather than purely philosophical.
 
@@ -120,7 +120,7 @@ The [architectural decision layer](https://docs.repowise.dev/intelligence/decisi
 
 Current decision sources include six index-time lanes: ADR files, inline markers, Git archaeology, PR bodies, code comments, and a harvest during LLM documentation generation. Decisions can also come from coding-agent sessions and manual CLI capture. Earlier CHANGELOG and README mining have been retired.
 
-Session mining exists as a separate source. The current [configuration documentation](https://docs.repowise.dev/configuration/reference) describes `session_mining` as enabled by default, and it can be disabled explicitly.
+Session mining exists as a separate source; it is **off in the default preset** and enabled in the **balanced**, **full**, and **local_only** presets. The older `decisions.session_mining` key is still read for compatibility, but the current configuration uses `sources.session`.
 
 RepoWise distinguishes candidates from accepted decisions. Its CLI documentation states:
 
