@@ -188,11 +188,11 @@ It is a trail through the project's recorded reasoning.
 
 ## The web is deliberately incomplete
 
-There is an important limitation here.
+There is still an important limitation here.
 
-There is no global Keep the Why index.
+There is no global Keep the Why knowledge graph.
 
-No service knows every repository that has ever cited yours.
+No central service owns every repository's project memory.
 
 From one project, the dashboard can see what that project points to.
 
@@ -214,11 +214,21 @@ There is no central graph to submit your project's reasoning to.
 
 The web exists because projects link to one another, not because a platform owns the web.
 
-That also means there are things it cannot know.
+There is now one optional discovery layer: the [Keep the Why Registry](https://keepthewhy.com/registry/).
 
-If some repository elsewhere cites the newest entry in your chain, but you have never loaded that repository, there is no magic global backlink index that can tell you.
+The registry contains the published projects that chose to join it. Because its build already reads those projects' exports, it can also derive the reverse direction: which registered projects cite another registered project.
 
-I prefer that limitation to needing one.
+That gives the dashboard a **cited by** view without turning the registry into the source of truth.
+
+The project memory still lives in the repositories.
+
+The registry does not copy the rationale or own the graph. It only helps discover relationships that a repository cannot know from its own outgoing links.
+
+And the web is still deliberately incomplete.
+
+An unregistered project can exist outside that discovery layer. Keep the Why does not need to know every repository in order for repositories to reference one another.
+
+I prefer that property to requiring a global service.
 
 ## Once reasoning has links, you can ask different questions
 
@@ -350,7 +360,7 @@ Just the reasoning the repository already carried — connected strongly enough 
 
 And now you can see how those reasons connect.
 
-[Keep the Why](https://keepthewhy.com/) · [Live dashboard](https://keepthewhy.com/dashboard/live/#graph) · [Thoughts](https://keepthewhy.com/dashboard/live/#thoughts) · [Dashboard explained](https://keepthewhy.com/dashboard/#family-friends-thoughts) · [GitHub](https://github.com/oliver-zehentleitner/keep-the-why)
+[Keep the Why](https://keepthewhy.com/) · [Live dashboard](https://keepthewhy.com/dashboard/live/#graph) · [Thoughts](https://keepthewhy.com/dashboard/live/#thoughts) · [Registry](https://keepthewhy.com/registry/) · [Dashboard explained](https://keepthewhy.com/dashboard/#family-friends-thoughts) · [GitHub](https://github.com/oliver-zehentleitner/keep-the-why)
 
 * * *
 
