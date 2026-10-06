@@ -71,6 +71,26 @@ A general memory system asks what information an agent may need again. Keep the 
 
 That narrow scope is intentional, not a missing feature set.
 
+### Why Keep the Why does not record everything
+
+That narrow scope follows from a broader idea: **the repository already is most of the project's durable memory.**
+
+A typical repository already answers most of the questions an agent needs. `README.md` says what the project is. `docs/` explain how to use and operate it. Tests encode expected behaviour. Build and package files describe how it is assembled. `CHANGELOG.md` records what changed. Git history records who changed what and when.
+
+Keep the Why deliberately does not duplicate those layers or record every conversation just because it happened.
+
+The missing question is usually different:
+
+> Why is it built this way, and what was already tried and rejected?
+
+That is the role of `context/`.
+
+This is the broader [repo-native project memory](https://oliver-zehentleitner.github.io/repo-native-project-memory/) thesis behind Keep the Why: README, docs, tests, configuration and Git already hold most of the durable **what** and **how**. Keep the Why adds the durable **why**.
+
+That also explains why it is not designed as a session recorder. Session memory remembers what happened in a conversation. Project state records where the project is. Keep the Why keeps only the reasoning that should still matter when the conversation is gone.
+
+The result is intentionally selective: capture less, but keep the part the repository would otherwise lose.
+
 ### From ADR tool to continuous why layer
 
 Keep the Why grew out of the Architecture Decision Record problem. Classic ADRs are excellent for a small number of major, discrete decisions, but they depend on somebody deliberately writing a record and usually model one decision per file. Keep the Why expanded that idea into continuous, agent-maintained rationale: smaller decisions, rejected changes, workarounds, constraints, and incident learnings captured while the reasoning is present.
@@ -348,6 +368,8 @@ They optimize for different things. Watching those boundaries evolve is more int
     
 *   [Architecture Decision Record community resources](https://github.com/architecture-decision-record/architecture-decision-record)
     
+*   [Repo-native project memory: the broader thesis](https://oliver-zehentleitner.github.io/repo-native-project-memory/)
+    
 
 ### OKF Agent Memory
 
@@ -381,8 +403,6 @@ They optimize for different things. Watching those boundaries evolve is more int
     
 *   [The globe: following your reasoning into other people's repositories](https://blog.technopathy.club/the-globe-following-your-reasoning-into-other-people-s-repositories)
     
-
-
 * * *
 
 I hope you found this informative and useful.
