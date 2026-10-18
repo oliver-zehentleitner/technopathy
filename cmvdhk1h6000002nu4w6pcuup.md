@@ -36,7 +36,7 @@ It felt like working with one agent, except that long implementation tasks happe
 
 From the first commit to handover, about **78 hours elapsed**. I spent roughly **20–24 hours** on planning, decisions, feedback and testing. Recorded agent activity totalled **138.5 hours across seven sessions**, with work happening in parallel. That is a transcript-based activity measure, not an estimate of equivalent human labour.
 
-The resulting repository contained roughly **81,000 lines of Python + TypeScript**, alongside **208 test files** and **300 recorded decisions across 84 files**. The [build account](https://oliver-zehentleitner.github.io/lasteverLM/how-it-was-built/) records over **650 merged pull requests, over 1,930 commits and over 80 release tags**. Across the seven agent sessions, there were **13,703 model requests**. Those numbers describe the scale of the work; review, measurements and live testing tell us whether it worked.
+The resulting repository contained roughly **81,000 lines of Python + TypeScript**, alongside **208 test files** and [**300 recorded decisions across 84 files**](https://oliver-zehentleitner.github.io/lasteverLM/keep-the-why-dashboard/). The [build account](https://oliver-zehentleitner.github.io/lasteverLM/how-it-was-built/) records over **650 merged pull requests, over 1,930 commits and over 80 release tags**. Across the seven agent sessions, there were **13,703 model requests**. Those numbers describe the scale of the work; review, measurements and live testing tell us whether it worked.
 
 **Six builders, one head, and checks on everyone**
 
